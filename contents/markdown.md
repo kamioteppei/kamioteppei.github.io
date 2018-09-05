@@ -1,11 +1,11 @@
 # markdown記法
 
-# 参照
+## 参照
 本家 https://daringfireball.net/projects/markdown/basics  
 ドットインストール https://dotinstall.com/lessons/basic_markdown_v2
 
 ---
-# 基本
+## 基本
 ファイルの拡張子は  
 .md  
 (markdown)
