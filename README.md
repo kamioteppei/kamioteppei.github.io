@@ -18,6 +18,8 @@ Syntax highlighted code block
 - Bulleted
 - List
 
+[markdown](/contents/markdown.md)
+
 1. Numbered
 2. List
 
