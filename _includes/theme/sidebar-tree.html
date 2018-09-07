@@ -1,0 +1,9 @@
+<nav class="tree">
+
+  {% for memo in site.memos %}
+    <article class="archive">
+      <div class="archive__title"><a href="{{ memo.url | relative_url }}">{{ memo.title }}</a></div>
+    </article>
+  {% endfor %}
+
+</nav>

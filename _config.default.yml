@@ -1,37 +1,29 @@
-title: kamioteppei.github.io
+title: Jekyll for Github Projects
 description: >
-  kamioteppeiの学習備忘録です｡
+  Github プロジェクトページのドキュメント用に作成されたJekyllテーマです｡
 
-baseurl: /
-url: https://kamioteppei.github.io
+baseurl: /jekyll-for-github-projects
+url: https://ejointjp.github.io
 
 author:
-  name: kamioteppei
+  name: e-JOINT.jp
   email:
-  github: kamioteppei
-  twitter:
+  github: ejointjp
+  twitter: ejointjp
 
 project_repo: auto # https://github.com の後のリポジトリページのパス｡「'auto'」に設定すると､/{{ author.github }}/{{ site.baseurl }}となります｡
 google_analytics_tracking_id:
 front_page_overview: false
-display_home_in_menu: true
+display_home_in_menu: false
 default_sidebar: tocjs # default ''
 
 highlighter: rouge
+
 permalink: pretty
 
 sass:
   style: compressed
 
-exclude:
-  - gulpfile.js
-  - package.json
-
 gems:
   - jekyll-feed
   - jekyll-sitemap
-
-collections:
-  memos:
-    output: true
-    permalink: /:collection/:name

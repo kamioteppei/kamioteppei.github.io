@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix:og="http://ogp.me/ns#">
+  <meta charset="UTF-8">
+  <title>markdown | kamioteppei.github.io</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+  <!-- Default CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="markdown記法">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/markdown">
+  <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
+  
+</head>
+<body>
+
+<header class="header">
+  <nav id="nav" class="nav">
+    <div class="container nav__container">
+      <div class="nav__brand"><a class="nav__title" href="/">kamioteppei.github.io</a></div>
+      <div id="nav__btn" class="nav__btn"><i class="fa fa-bars"></i></div>
+      <ul id="nav__list" class="nav__list">
+        
+          <li class="nav__item"><a href="/">Home</a></li>
+        
+        
+          
+            <li class="nav__item"><a href="/stack/">stack</a></li>
+          
+        
+          
+            <li class="nav__item"><a href="/blog/">blog</a></li>
+          
+        
+          
+            <li class="nav__item"><a href="/links/">links</a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+<div class="contents page">
+
+  
+    <div class="container">
+      <div class="page__header">
+  <h1 class="page__title">markdown</h1>
+  
+  
+</div>
+
+
+      <div class="page__body">
+        <div class="row">
+
+          <div class="col-2 sidebar order-xs-first">
+            <nav class="tree">
+
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/markdown">markdown</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/ssh">SSH</a></div>
+    </article>
+  
+
+</nav>
+
+          </div>
+
+          <div class="col-8 main toc-src order-first">
+            <h1 id="markdown記法">markdown記法</h1>
+
+<h2 id="参照">参照</h2>
+<p>本家 https://daringfireball.net/projects/markdown/basics<br />
+ドットインストール https://dotinstall.com/lessons/basic_markdown_v2</p>
+
+<hr />
+<h2 id="基本">基本</h2>
+<p>ファイルの拡張子は<br />
+.md<br />
+(markdown)</p>
+
+<p>atomでのプレビュー方法<br />
+mac<br />
+control + shift + m</p>
+
+<hr />
+<h2 id="見出し">見出し</h2>
+
+<h1 id="h1-title">h1 title</h1>
+<h2 id="h2-title">h2 title</h2>
+<h6 id="h6-title">h6 title</h6>
+
+<h1 id="h1-title-1">h1 title</h1>
+<p>(=3個以上)</p>
+
+<h2 id="h2-title-1">h2 title</h2>
+<p>(-3個以上)</p>
+
+<hr />
+<h2 id="段落">段落</h2>
+<p>改行を入れると</p>
+
+<p>段落が分かれます。</p>
+
+<hr />
+<h1 id="改行">改行</h1>
+<p>改行したい箇所に半角空白を <br />
+三つ入力します。それでもダメなら
+改行も入れてください。</p>
+
+<hr />
+<h1 id="引用">引用</h1>
+
+<p>本文でーーーーーーーーーす。
+本文でーーーーーーーーーす。
+本文でーーーーーーーーーす。</p>
+<blockquote>
+  <p>引用でーーーーーーーーーす。
+引用でーーーーーーーーーす。
+引用でーーーーーーーーーす。
+引用でーーーーーーーーーす。</p>
+  <blockquote>
+    <p>引用でーーーーーーーーーす。
+引用でーーーーーーーーーす。
+引用でーーーーーーーーーす。
+引用でーーーーーーーーーす。</p>
+  </blockquote>
+</blockquote>
+
+<hr />
+<h1 id="区切り線">区切り線</h1>
+<ul>
+  <li>
+    <h2 id="か-3つ">か　* 3つ</h2>
+    <hr />
+  </li>
+  <li>
+    <ul>
+      <li>-</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h1 id="強調表示">強調表示</h1>
+<p>_ か　* で挟むと斜体表示
+__ か　** で挟むと太字表示</p>
+
+<p>あいうえお_かきくけこ_さしすせそ<br />
+あいうえお<strong>かきくけこ</strong>さしすせそ</p>
+
+<hr />
+<h1 id="箇条書き">箇条書き</h1>
+
+<ul>
+  <li>a</li>
+  <li>b</li>
+  <li>
+    <p>c</p>
+  </li>
+  <li>a</li>
+  <li>bbbbbbb <br />
+bbbbbbb</li>
+  <li>c</li>
+</ul>
+
+<hr />
+<h1 id="連番付きリスト">連番付きリスト</h1>
+
+<ol>
+  <li>a</li>
+  <li>b</li>
+  <li>
+    <p>c</p>
+  </li>
+  <li>a</li>
+  <li>bbbbb<br />
+bbbbbbbbb</li>
+  <li>c<br />
+(リストの変更があっても番号を振り直さなくて良い)</li>
+</ol>
+
+<hr />
+<h1 id="リンク">リンク</h1>
+
+<p><a href="https://daringfireball.net/projects/markdown/basics">本家</a><br />
+<a href="https://dotinstall.com/" title="ドットインストール">ドットインストール</a></p>
+
+<hr />
+<h1 id="コード">コード</h1>
+<p>バッククオート3つでコードを挟みます。 <br />
+macではshift + @ = `</p>
+
+<p>サンプルコードは以下です。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># this is comment
+function x(){
+  return x;
+}
+</code></pre></div></div>
+
+<p>文中でコードをバッククオート1つで挟むと以下になります。</p>
+
+<p>ディレクトリ移動のコマンドは、<code class="highlighter-rouge">$ cd foo/var</code>です。</p>
+
+<hr />
+<h1 id="画像ソース">画像ソース</h1>
+
+<p><img src="https://hoge.com/img/logo_200x200.png" alt="logo image" /></p>
+
+<p>画像にリンクを貼る<br />
+<a href="https://dotinstall.com"><img src="https://hoge.com/img/logo_200x200.png" alt="logo image" title="ドットインストール" /></a></p>
+
+          </div>
+
+          <div class="col-2 sidebar order-xs-first">
+            <nav class="toc"></nav>
+
+          </div>
+
+        </div><!--row-->
+      </div><!--page-body-->
+
+    </div><!--container-->
+
+  
+
+</div><!--page-->
+
+
+
+<footer class="footer">
+  
+  <div class="container container--sm footer__container">
+  
+    <p class="copyright"><small>&copy; 2017 kamioteppei</small></p>
+
+    <div class="social-link">
+      
+        <p class="social-link__item">
+          <a href="https://github.com/kamioteppei"><i class="fa fa-github"></i></a>
+        </p>
+      
+      
+    </div>
+  </div><!--container-->
+</footer>
+
+<script src="/assets/js/jfgp.js"></script>
+</body>
+</html>
