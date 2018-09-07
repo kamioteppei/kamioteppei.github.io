@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: static
 title: markdown
 template: 3-columns
 name: markdown
