@@ -1,12 +1,12 @@
 ---
 layout: static
-title: markdown
+title: Markdown
 template: 3-columns
-name: markdown
+name: Markdown
 category: html
 ---
 
-# markdown記法
+# Markdown記法
 
 ## 参照
 本家 https://daringfireball.net/projects/markdown/basics  
