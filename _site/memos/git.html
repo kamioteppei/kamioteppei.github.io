@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix:og="http://ogp.me/ns#">
+  <meta charset="UTF-8">
+  <title>Git | kamioteppei.github.io</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+  <!-- Default CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="git">
+  <link rel="canonical" href="https://kamioteppei.github.io/memos/git">
+  <link type="application/atom+xml" rel="alternate" href="https://kamioteppei.github.io/feed.xml" title="kamioteppei.github.io" />
+  
+</head>
+<body>
+
+<header class="header">
+  <nav id="nav" class="nav">
+    <div class="container nav__container">
+      <div class="nav__brand"><a class="nav__title" href="/">kamioteppei.github.io</a></div>
+      <div id="nav__btn" class="nav__btn"><i class="fa fa-bars"></i></div>
+      <ul id="nav__list" class="nav__list">
+        
+          <li class="nav__item"><a href="/">Home</a></li>
+        
+        
+          
+            <li class="nav__item"><a href="/stack/">Stack</a></li>
+          
+        
+          
+            <li class="nav__item"><a href="/blog/">Blog</a></li>
+          
+        
+          
+            <li class="nav__item"><a href="/links/">Links</a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+<div class="contents page">
+
+  
+    <div class="container">
+      <div class="page__header">
+  <h1 class="page__title">Git</h1>
+  
+  
+    <p class="page__date">September 09, 2018</p>
+  
+</div>
+
+
+      <div class="page__body">
+        <div class="row">
+
+          <div class="col-2 sidebar order-xs-first">
+            <nav class="tree">
+
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/git">Git</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/heroku">Heroku</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/jekyll">Jekyll</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/jupyter-notebook">Jupyter Notebook</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/mac">Mac</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/machine-learning">Machine learning</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/markdown">Markdown</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/rails">Rails</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/ssh">SSH</a></div>
+    </article>
+  
+    <article class="archive">
+      <div class="archive__title"><a href="/memos/vagrant">Vagrant</a></div>
+    </article>
+  
+
+</nav>
+
+          </div>
+
+          <div class="col-8 main toc-src order-first">
+            <h1 id="git">git</h1>
+
+<h2 id="クローン">クローン</h2>
+
+<p>$ cd <クローンを作成するディレクトリ>
+直下にクローンするプロジェクトのプロジェクト名のフォルダが作成される</クローンを作成するディレクトリ></p>
+
+<p>$ git clone <url>
+urlはgithubでクローンしたいプロジェクトを
+開いて、クローンボタンを押すとurlが表示される(gti@アカウント/プロジェクト名.git)</url></p>
+
+<p>リモートリポジトリからローカルにダウンロードする。
+リモートリポジトリには以下がある。
+・自分のアカウント
+・自分のプロジェクトのアカウント
+・それ以外のアカウント</p>
+
+<p>それ以外のアカウントのプロジェクトをクローンしても、
+そこにpushしてはいけない（顕現でできない？）ので、
+自分のアカウントにfolkする
+その後は、ローカルにクローン、修正、add、commit、push、
+必要があれば、purllrequestを行う。</p>
+
+<h2 id="アド">アド</h2>
+<p>$ git add .
+*.rb等ではアドされない</p>
+
+<h2 id="コミット">コミット</h2>
+<p>Vagrant環境だと、
+ユーザー名とメールアドレスが
+Vagrantになるので、設定を変更する
+$ git config –global user.name “hoge fuga”
+$ git config –global user.email foo@bar.com</p>
+
+<h2 id="ブランチ">ブランチ</h2>
+<p>開発時には、マスター(タグ)からブランチ(タグ)を作成し、
+他のブランチとのリリースも考慮し、
+マスターにマージしてよければ、マージする。
+マージの方法には、ローカルでマージする方法と
+リモートにブランチをpushして、
+pull requestを送る方法がある。
+pull requestはgithubでマージする</p>
+
+<p>$ cd <クローンしたプロジェクトの中に移動>
+$ git checkout -b <branch-name>
+以下は同義である
+$ git branch <branch-name>
+$ git checkout <branch-name></branch-name></branch-name></branch-name></クローンしたプロジェクトの中に移動></p>
+
+<p>現在チェックアウトしているタグを
+確認する場合は以下のコマンドをたたく
+$ git branch
+どのタグがチェックアウト中かわかる</p>
+
+<p>リモートにあるタグを確認する場合は、
+以下のコマンドをたたく
+$ git branch -r
+どのタグがヘッダかわかる
+ローカルで作成したブランチタグは、
+リモートにpushしないと、
+リモートには存在しない。</p>
+
+<h3 id="マージ方法１">マージ方法１</h3>
+<p>(オープンソースプロジェクトの開発向け)
+開発したいプロジェクトのアカウントから
+対象のプロジェクトのfolkボタンで、
+自分のgithubのアカウントにフォーク
+ローカルにクローン
+ブランチを作成
+開発
+ローカルでブランチタグを
+マスタータグにマージして、
+プッシュする場合
+ブランチタグをアドとコミットしてから
+$ git checkout master
+$ git merge <branchname>
+$ git push origin master</branchname></p>
+
+<p>マスタータグにマージしたブランチタグは
+不要なので削除する
+$ git branch -d <branchname></branchname></p>
+
+<h3 id="マージ方法２">マージ方法２</h3>
+<p>(社内プロジェクトチームの開発向け)
+リモートにブランチタグを
+プッシュして、purll requestを送信する場合は、
+ブランチタグをアドとコミットしてから
+$ git push origin <branchname>
+githubの画面で上記のブランチに切り替える
+プルリクエストを送信する
+宛て先を確認すること
+プルリクエストのマージボタンをクリック
+確認ボタンをクリック
+マージしたブランチの削除ボタンをクリック</branchname></p>
+
+<p>ブランチタグは
+不要なので削除する
+$ git checkout master
+$ git branch -D <branchname>
+マージ方法１のように、ローカルでは
+マージしていないので、オプションが-dだと
+ブランチを削除できない。
+よって-Dとする</branchname></p>
+
+<p>この時点でローカルのマスタータグは
+リモートのマスタータグにマージした
+内容が反映されていないので、
+リモートのマスタータグと同機をとる
+$ git pull origin master</p>
+
+
+          </div>
+
+          <div class="col-2 sidebar order-xs-first">
+            <nav class="toc"></nav>
+
+          </div>
+
+        </div><!--row-->
+      </div><!--page-body-->
+
+    </div><!--container-->
+
+  
+
+</div><!--page-->
+
+
+
+<footer class="footer">
+  
+  <div class="container container--sm footer__container">
+  
+    <p class="copyright"><small>&copy; 2017 kamioteppei</small></p>
+
+    <div class="social-link">
+      
+        <p class="social-link__item">
+          <a href="https://github.com/kamioteppei"><i class="fa fa-github"></i></a>
+        </p>
+      
+      
+    </div>
+  </div><!--container-->
+</footer>
+
+<script src="/assets/js/jfgp.js"></script>
+</body>
+</html>

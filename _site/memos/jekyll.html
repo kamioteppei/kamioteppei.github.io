@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Stack | kamioteppei.github.io</title>
+  <title>Jekyll | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="kamioteppeiの学習備忘録です｡">
-  <link rel="canonical" href="https://kamioteppei.github.io/stack/">
+  <meta name="description" content="Jekyll (ジキル)">
+  <link rel="canonical" href="https://kamioteppei.github.io/memos/jekyll">
   <link type="application/atom+xml" rel="alternate" href="https://kamioteppei.github.io/feed.xml" title="kamioteppei.github.io" />
   
 </head>
@@ -67,8 +67,10 @@
   
     <div class="container">
       <div class="page__header">
-  <h1 class="page__title">Stack</h1>
+  <h1 class="page__title">Jekyll</h1>
   
+  
+    <p class="page__date">September 09, 2018</p>
   
 </div>
 
@@ -126,11 +128,64 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <div class="contents front-page">
-  <div class="container container--sm">
-    <h2>学習メモ</h2>
-  </div><!--container-->
-</div><!--main-->
+            <h1 id="jekyll-ジキル">Jekyll (ジキル)</h1>
+
+<p>rubyの静的webサイトジェネレーター<br />
+morkdownファイルをhtmlに変換してくれる<br />
+rubyが入っている環境で、railsの操作と似た感じで開発する</p>
+
+<p>生成されるのは静的なサイトなので、掲示板は、問い合わせフォームを<br />
+使用できない短所あり。</p>
+
+<p>POSTできる？できない？</p>
+
+<p>中小企業やイベントの告知サイトなど、頻繁には更新しないものは、
+wordpress等よりも簡単に作成できると思われる。<br />
+問い合わせは、メールやsnsのリンクなど、別のサービスを<br />
+組み合わせるのが、ユーザー的にも、顧客的にも、満足度が高いかもしれない。</p>
+
+<h2 id="クイックスタート">クイックスタート</h2>
+
+<p>Gems をインストールします。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install bundler jekyll
+</code></pre></div></div>
+
+<p>jekyllプロジェクトを作成します</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll new &lt;site_name&gt;
+</code></pre></div></div>
+
+<p>プロジェクトの直下に移動</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;site_name&gt;
+</code></pre></div></div>
+
+<p>jekyllサーバーを立ち上げる<br />
+同時にビルドもされるはず・・・<br />
+<code class="highlighter-rouge">--watch</code>オプションで、ファイルの変更を監視して、ビルドしてくれる</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll server --watch
+</code></pre></div></div>
+
+<p>http://localhost:4000/　にアクセスします。</p>
+
+<p>Vagrantを使用している環境で、アクセスできない場合は こちらです。</p>
+
+<p>host側のvagrantファイルにport fowardの設定を追加する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># port forward for jekyll server
+config.vm.network "forwarded_port", guest: 4000, host: 4000
+</code></pre></div></div>
+
+<p>ホスト側でvagrantを再起動する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant reload
+</code></pre></div></div>
+
+<p>jekyllサーバーを立ち上げる</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jekyll server --host=0.0.0.0 --watch
+</code></pre></div></div>
+
+<p>http://192.168.33.10:4000/　にアクセスします。</p>
+
+<p>jekyllサーバーを終了する場合は、
+control + c を入力する</p>
+
 
           </div>
 

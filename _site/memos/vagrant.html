@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Stack | kamioteppei.github.io</title>
+  <title>Vagrant | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="kamioteppeiの学習備忘録です｡">
-  <link rel="canonical" href="https://kamioteppei.github.io/stack/">
+  <meta name="description" content="Vagrant">
+  <link rel="canonical" href="https://kamioteppei.github.io/memos/vagrant">
   <link type="application/atom+xml" rel="alternate" href="https://kamioteppei.github.io/feed.xml" title="kamioteppei.github.io" />
   
 </head>
@@ -67,8 +67,10 @@
   
     <div class="container">
       <div class="page__header">
-  <h1 class="page__title">Stack</h1>
+  <h1 class="page__title">Vagrant</h1>
   
+  
+    <p class="page__date">September 09, 2018</p>
   
 </div>
 
@@ -126,11 +128,60 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <div class="contents front-page">
-  <div class="container container--sm">
-    <h2>学習メモ</h2>
-  </div><!--container-->
-</div><!--main-->
+            <h1 id="vagrant">Vagrant</h1>
+
+<h2 id="インストール">インストール</h2>
+
+<p>Virtual Boxインストール
+centosなどのイメージを名前をつけてインストール
+ex:centos_vm</p>
+
+<p>仮想OSのハブ
+https://app.vagrantup.com/boxes/search</p>
+
+<p>仮想OSをインストールする
+$ mkdir foo/bar/centos_vm
+$ cd foo/bar/centos_vm
+$ vagrant init [name[url]]
+Vagrantfileが作成される</p>
+
+<p>インストールしたOSを立ち上げる
+$ vagrant up</p>
+
+<p>インストールしたOSをシャットダウンする
+$ vagrant halt</p>
+
+<p>インストールしたOSを再起動する
+$ vagrant reload</p>
+
+<p>仮想OSにSSHで接続する
+$ vagrant ssh</p>
+
+<p>user/passは
+vagrant/vagrant
+root/vagrant</p>
+
+<p>ssh接続を終了するには
+$ ctrl+d
+または
+$ exit</p>
+
+<p>ホストOSから、vagrant環境のRailsアプリを
+ブラウザで確認する場合は、
+Vagrantファイルの以下を修正する。</p>
+
+<h1 id="create-a-private-network-which-allows-host-only-access-to-the-machine">Create a private network, which allows host-only access to the machine</h1>
+<h1 id="using-a-specific-ip">using a specific IP.</h1>
+<p>config.vm.network “private_network”, ip: “192.168.33.10”</p>
+
+<p>Box管理と仮想マシン管理は別もの</p>
+
+<p>vagrant destroyで仮想マシンを削除してもBoxとVagrantfileは残る。
+vagrant destroy = 仮想マシン削除
+vagrant box remove = Box削除
+再度vagrant upを行うと初期状態(vagrant box add直後の状態)で起動することができるので、
+vagrant up → 作業 → vagrant destroyというサイクルで作業ができる。</p>
+
 
           </div>
 
