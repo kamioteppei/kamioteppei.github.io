@@ -3,7 +3,7 @@ layout: static
 title: Rails
 template: 3-columns
 name: Rails
-category: Web-Framework
+category: Web
 ---
 
 # Ruby on Rails

@@ -3,7 +3,7 @@ layout: static
 title: Git
 template: 3-columns
 name: Git
-category: SNS
+category: Environment
 ---
 
 # git

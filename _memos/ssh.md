@@ -3,7 +3,7 @@ layout: static
 title: SSH
 template: 3-columns
 name: SSH
-category: Network
+category: Environment
 ---
 
 # SSH(Secure Shell)

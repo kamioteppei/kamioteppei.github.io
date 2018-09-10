@@ -1,9 +1,20 @@
 <nav class="tree">
-
-  {% for memo in site.memos %}
-    <article class="archive">
-      <div class="archive__title"><a href="{{ memo.url | relative_url }}">{{ memo.title }}</a></div>
-    </article>
-  {% endfor %}
-
+  <!--
+  https://www.siteleaf.com/blog/advanced-liquid-group-by/
+  -->
+  {% assign memos_by_category = site.memos | group_by:"category" %}
+  <ul>
+    {% for category in memos_by_category %}
+      <li class="">
+        {{ category.name }}
+        <ul>
+        {% for memo in category.items %}
+          <li class="">
+            <div class=""><a href="{{ memo.url | relative_url }}">{{ memo.title }}</a></div>
+          </li>
+        {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+  </ul>
 </nav>

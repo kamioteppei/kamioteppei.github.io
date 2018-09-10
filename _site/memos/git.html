@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
   <meta name="description" content="git">
-  <link rel="canonical" href="https://kamioteppei.github.io/memos/git">
-  <link type="application/atom+xml" rel="alternate" href="https://kamioteppei.github.io/feed.xml" title="kamioteppei.github.io" />
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/git">
+  <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
 </head>
 <body>
@@ -70,7 +70,7 @@
   <h1 class="page__title">Git</h1>
   
   
-    <p class="page__date">September 09, 2018</p>
+    <p class="page__date">September 10, 2018</p>
   
 </div>
 
@@ -80,49 +80,74 @@
 
           <div class="col-2 sidebar order-xs-first">
             <nav class="tree">
-
+  <!--
+  https://www.siteleaf.com/blog/advanced-liquid-group-by/
+  -->
   
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/git">Git</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/heroku">Heroku</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/jekyll">Jekyll</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/jupyter-notebook">Jupyter Notebook</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/mac">Mac</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/machine-learning">Machine learning</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/markdown">Markdown</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/rails">Rails</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/ssh">SSH</a></div>
-    </article>
-  
-    <article class="archive">
-      <div class="archive__title"><a href="/memos/vagrant">Vagrant</a></div>
-    </article>
-  
-
+  <ul>
+    
+      <li class="">
+        Environment
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/git">Git</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/heroku">Heroku</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/mac">Mac</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/ssh">SSH</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/vagrant">Vagrant</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
+        Web
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/jekyll">Jekyll</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/markdown">Markdown</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/rails">Rails</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
+        Machine-Learning
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/jupyter-notebook">Jupyter Notebook</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/machine-learning">Machine learning</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+  </ul>
 </nav>
 
           </div>
@@ -132,12 +157,14 @@
 
 <h2 id="クローン">クローン</h2>
 
-<p>$ cd <クローンを作成するディレクトリ>
-直下にクローンするプロジェクトのプロジェクト名のフォルダが作成される</クローンを作成するディレクトリ></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;クローンを作成するディレクトリ&gt;
+</code></pre></div></div>
+<p>直下にクローンするプロジェクトのプロジェクト名のフォルダが作成される</p>
 
-<p>$ git clone <url>
-urlはgithubでクローンしたいプロジェクトを
-開いて、クローンボタンを押すとurlが表示される(gti@アカウント/プロジェクト名.git)</url></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone &lt;url&gt;
+</code></pre></div></div>
+<p>urlはgithubでクローンしたいプロジェクトを
+開いて、クローンボタンを押すとurlが表示される(gti@アカウント/プロジェクト名.git)</p>
 
 <p>リモートリポジトリからローカルにダウンロードする。
 リモートリポジトリには以下がある。
@@ -152,15 +179,17 @@ urlはgithubでクローンしたいプロジェクトを
 必要があれば、purllrequestを行う。</p>
 
 <h2 id="アド">アド</h2>
-<p>$ git add .
-*.rb等ではアドされない</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .
+</code></pre></div></div>
+<p>なぜか*.rb等ではアドされなかった</p>
 
 <h2 id="コミット">コミット</h2>
 <p>Vagrant環境だと、
 ユーザー名とメールアドレスが
-Vagrantになるので、設定を変更する
-$ git config –global user.name “hoge fuga”
-$ git config –global user.email foo@bar.com</p>
+Vagrantになるので、設定を変更する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global user.name "hoge fuga"
+$ git config --global user.email foo@bar.com
+</code></pre></div></div>
 
 <h2 id="ブランチ">ブランチ</h2>
 <p>開発時には、マスター(タグ)からブランチ(タグ)を作成し、
@@ -171,21 +200,25 @@ $ git config –global user.email foo@bar.com</p>
 pull requestを送る方法がある。
 pull requestはgithubでマージする</p>
 
-<p>$ cd <クローンしたプロジェクトの中に移動>
-$ git checkout -b <branch-name>
-以下は同義である
-$ git branch <branch-name>
-$ git checkout <branch-name></branch-name></branch-name></branch-name></クローンしたプロジェクトの中に移動></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;クローンしたプロジェクトの中に移動&gt;
+$ git checkout -b &lt;branch-name&gt;
+</code></pre></div></div>
+<p>以下は同義である</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch &lt;branch-name&gt;
+$ git checkout &lt;branch-name&gt;
+</code></pre></div></div>
 
 <p>現在チェックアウトしているタグを
-確認する場合は以下のコマンドをたたく
-$ git branch
-どのタグがチェックアウト中かわかる</p>
+確認する場合は以下のコマンドをたたく</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
+</code></pre></div></div>
+<p>どのタグがチェックアウト中かわかる</p>
 
 <p>リモートにあるタグを確認する場合は、
-以下のコマンドをたたく
-$ git branch -r
-どのタグがヘッダかわかる
+以下のコマンドをたたく</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -r
+</code></pre></div></div>
+<p>どのタグがヘッダかわかる
 ローカルで作成したブランチタグは、
 リモートにpushしないと、
 リモートには存在しない。</p>
@@ -196,47 +229,72 @@ $ git branch -r
 対象のプロジェクトのfolkボタンで、
 自分のgithubのアカウントにフォーク
 ローカルにクローン
-ブランチを作成
-開発
-ローカルでブランチタグを
+ブランチを作成</p>
+
+<p>ローカルでブランチタグを
 マスタータグにマージして、
 プッシュする場合
-ブランチタグをアドとコミットしてから
-$ git checkout master
-$ git merge <branchname>
-$ git push origin master</branchname></p>
+ブランチタグをアドとコミットしてから</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout master
+$ git merge &lt;branchname&gt;
+$ git push origin master
+</code></pre></div></div>
 
 <p>マスタータグにマージしたブランチタグは
-不要なので削除する
-$ git branch -d <branchname></branchname></p>
+不要なので削除する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -d &lt;branchname&gt;
+</code></pre></div></div>
 
 <h3 id="マージ方法２">マージ方法２</h3>
 <p>(社内プロジェクトチームの開発向け)
 リモートにブランチタグを
 プッシュして、purll requestを送信する場合は、
-ブランチタグをアドとコミットしてから
-$ git push origin <branchname>
-githubの画面で上記のブランチに切り替える
+ブランチタグをアドとコミットしてから</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin &lt;branchname&gt;
+</code></pre></div></div>
+<p>githubの画面で上記のブランチに切り替える
 プルリクエストを送信する
 宛て先を確認すること
 プルリクエストのマージボタンをクリック
 確認ボタンをクリック
-マージしたブランチの削除ボタンをクリック</branchname></p>
+マージしたブランチの削除ボタンをクリック</p>
 
 <p>ブランチタグは
-不要なので削除する
-$ git checkout master
-$ git branch -D <branchname>
-マージ方法１のように、ローカルでは
+不要なので削除する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout master
+$ git branch -D &lt;branchname&gt;
+</code></pre></div></div>
+<p>マージ方法１のように、ローカルでは
 マージしていないので、オプションが-dだと
 ブランチを削除できない。
-よって-Dとする</branchname></p>
+よって-Dとする</p>
 
 <p>この時点でローカルのマスタータグは
 リモートのマスタータグにマージした
 内容が反映されていないので、
-リモートのマスタータグと同機をとる
-$ git pull origin master</p>
+リモートのマスタータグと同機をとる</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git pull origin master
+</code></pre></div></div>
+
+<h2 id="ファイル削除">ファイル削除</h2>
+<p>ファイルを削除する場合、SVNと同じで、 <br />
+シェルの削除コマンドでしてはいけない。　　
+Gitコマンドを使用する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git rm foo/var/hoge.rb
+</code></pre></div></div>
+
+<p>ディレクトリを丸ごと削除する場合</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git rm -r foo/var
+</code></pre></div></div>
+
+<h2 id="リモートの状態をローカルに置換">リモートの状態をローカルに置換</h2>
+
+<p>ローカルの削除方法を間違えた時に、<code class="highlighter-rouge">git pull</code>しても、<br />
+正しくリモートの状態に変わらない</p>
+
+<p>以下でリモートを強制的に、ローカルに置換する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git reset --hard
+</code></pre></div></div>
 
 
           </div>

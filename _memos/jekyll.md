@@ -3,7 +3,7 @@ layout: static
 title: Jekyll
 template: 3-columns
 name: Jekyll
-category: Web-Framework
+category: Web
 ---
 
 # Jekyll (ジキル)
@@ -72,3 +72,15 @@ http://192.168.33.10:4000/　にアクセスします。
 
 jekyllサーバーを終了する場合は、
 control + c を入力する
+
+
+## Liquid
+
+jekyllで使用可能なテンプレート言語。
+htmlファイル内で、if分や、for分を記述できる、  
+
+- [jekyll公式](https://jekyllrb.com/docs/liquid/)  
+- [liquid公式](https://shopify.github.io/liquid/)
+
+コレクションに対して、group byやsortもできるが、  
+公式サイトはサンプル程度なので、実装は、googleで検索した方が良い。  

@@ -3,7 +3,7 @@ layout: static
 title: Machine learning
 template: 3-columns
 name: Machine-learning
-category: Machine-learning
+category: Machine-Learning
 ---
 
 # 機械学習

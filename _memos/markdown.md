@@ -3,7 +3,7 @@ layout: static
 title: Markdown
 template: 3-columns
 name: Markdown
-category: html
+category: Web
 ---
 
 # Markdown記法

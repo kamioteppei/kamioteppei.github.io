@@ -3,7 +3,7 @@ layout: static
 title: Mac
 template: 3-columns
 name: Mac
-category: OS
+category: Environment
 ---
 
 # mac

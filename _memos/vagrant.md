@@ -3,7 +3,7 @@ layout: static
 title: Vagrant
 template: 3-columns
 name: Vagrant
-category: OS
+category: Environment
 ---
 
 # Vagrant
