@@ -79,7 +79,7 @@
         <div class="row">
 
           <div class="col-2 sidebar order-xs-first">
-            <nav class="tree">
+            <nav id="jqxTree" class="jqxTree">
   <!--
   https://www.siteleaf.com/blog/advanced-liquid-group-by/
   -->
@@ -155,50 +155,66 @@
           <div class="col-8 main toc-src order-first">
             <h1 id="git">git</h1>
 
-<h2 id="クローン">クローン</h2>
+<h2 id="cloneクローン">clone(クローン)</h2>
+<p>リモートリポジトリをローカルディレクトリにコピーする。<br />
+ローカルリポジトリが作成される。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;クローンを作成するディレクトリ&gt;
 </code></pre></div></div>
-<p>直下にクローンするプロジェクトのプロジェクト名のフォルダが作成される</p>
+<p>直下にクローンするプロジェクトのプロジェクト名のフォルダが作成される。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone &lt;url&gt;
 </code></pre></div></div>
-<p>urlはgithubでクローンしたいプロジェクトを
-開いて、クローンボタンを押すとurlが表示される(gti@アカウント/プロジェクト名.git)</p>
+<p>urlはgithubでクローンしたいプロジェクトを開いて、<br />
+クローンボタンを押すとurlが表示される(git@アカウント/プロジェクト名.git)</p>
 
-<p>リモートリポジトリからローカルにダウンロードする。
-リモートリポジトリには以下がある。
-・自分のアカウント
-・自分のプロジェクトのアカウント
-・それ以外のアカウント</p>
+<p>リモートリポジトリからローカルにダウンロードする。<br />
+リモートリポジトリには以下がある。</p>
+<ul>
+  <li>自分のアカウント</li>
+  <li>自分のプロジェクトのアカウント</li>
+  <li>それ以外のアカウント</li>
+</ul>
 
 <p>それ以外のアカウントのプロジェクトをクローンしても、
-そこにpushしてはいけない（顕現でできない？）ので、
-自分のアカウントにfolkする
-その後は、ローカルにクローン、修正、add、commit、push、
+そこにpushしてはいけない（権限でできない？）ので、　
+自分のアカウントにfolkする。
+その後は、ローカルにclone、修正、add、commit、push、
 必要があれば、purllrequestを行う。</p>
 
-<h2 id="アド">アド</h2>
+<h2 id="add">add</h2>
+<p>ローカルで新規に作成下ファイルを、gitに認識させる。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git add .
 </code></pre></div></div>
-<p>なぜか*.rb等ではアドされなかった</p>
+<p>なぜか*.rb等ではアドされなかった。</p>
 
-<h2 id="コミット">コミット</h2>
-<p>Vagrant環境だと、
-ユーザー名とメールアドレスが
+<h2 id="commit">commit</h2>
+<p>ローカルリポジトリにコミットする。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git commit -m "commit messege."
+</code></pre></div></div>
+
+<p>Vagrant環境だと、ユーザー名とメールアドレスが
 Vagrantになるので、設定を変更する</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git config --global user.name "hoge fuga"
 $ git config --global user.email foo@bar.com
 </code></pre></div></div>
 
+<h2 id="push">push</h2>
+<p>ローカルリポジトリの変更をリモートリポジトリに、反映する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push
+</code></pre></div></div>
+<p>または、アカウントとブランチを指定する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push origin master
+</code></pre></div></div>
+
 <h2 id="ブランチ">ブランチ</h2>
-<p>開発時には、マスター(タグ)からブランチ(タグ)を作成し、
-他のブランチとのリリースも考慮し、
-マスターにマージしてよければ、マージする。
-マージの方法には、ローカルでマージする方法と
-リモートにブランチをpushして、
-pull requestを送る方法がある。
-pull requestはgithubでマージする</p>
+<p>開発時には、マスター(タグ)からブランチ(タグ)を作成し、<br />
+他のブランチとのリリースも考慮し、<br />
+マスターにマージしてよければ、マージする。<br />
+マージの方法には、ローカルでマージする方法と<br />
+リモートにブランチをpushして、<br />
+pull requestを送る方法がある。<br />
+pull requestはgithubでマージする。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd &lt;クローンしたプロジェクトの中に移動&gt;
 $ git checkout -b &lt;branch-name&gt;
@@ -208,32 +224,32 @@ $ git checkout -b &lt;branch-name&gt;
 $ git checkout &lt;branch-name&gt;
 </code></pre></div></div>
 
-<p>現在チェックアウトしているタグを
-確認する場合は以下のコマンドをたたく</p>
+<p>現在チェックアウトしているタグを<br />
+確認する場合は以下のコマンドをたたく。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch
 </code></pre></div></div>
-<p>どのタグがチェックアウト中かわかる</p>
+<p>どのタグがチェックアウト中かわかる。</p>
 
-<p>リモートにあるタグを確認する場合は、
-以下のコマンドをたたく</p>
+<p>リモートにあるタグを確認する場合は、<br />
+以下のコマンドをたたく。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git branch -r
 </code></pre></div></div>
-<p>どのタグがヘッダかわかる
+<p>どのタグがヘッダかわかる。
 ローカルで作成したブランチタグは、
 リモートにpushしないと、
 リモートには存在しない。</p>
 
 <h3 id="マージ方法１">マージ方法１</h3>
-<p>(オープンソースプロジェクトの開発向け)
+<p>(オープンソースプロジェクトの開発向け)<br />
 開発したいプロジェクトのアカウントから
 対象のプロジェクトのfolkボタンで、
 自分のgithubのアカウントにフォーク
-ローカルにクローン
+ローカルにクローン<br />
 ブランチを作成</p>
 
-<p>ローカルでブランチタグを
-マスタータグにマージして、
-プッシュする場合
+<p>ローカルでブランチタグを<br />
+マスタータグにマージして、<br />
+プッシュする場合<br />
 ブランチタグをアドとコミットしてから</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout master
 $ git merge &lt;branchname&gt;

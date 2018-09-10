@@ -1,5 +1,5 @@
 {
-  "name": "jekyll-for-github-projects",
+  "name": "kamioteppei-github-io",
   "version": "0.1.1",
   "description": "The jekyll theme for the Github project page.",
   "main": "index.js",
@@ -36,11 +36,11 @@
     "_includes",
     "_js",
     "_layouts",
-    "_posts",
     "_memos",
+    "_posts",
     "_sass",
     "assets",
-    "_config.default.yml",
+    "_config.yml",
     "gulpfile.js",
     "index.html",
     "LICENSE",
@@ -51,15 +51,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ejointjp/jekyll-for-github-projects.git"
+    "url": "git+https://github.com/kamioteppei/kamioteppei.github.io.git"
   },
   "keywords": [
     "jekyll"
   ],
-  "author": "e-JOINT.jp",
+  "author": "kamioteppei",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ejointjp/jekyll-for-github-projects/issues"
+    "url": "https://github.com/kamioteppei/kamioteppei.github.io/issues"
   },
-  "homepage": "https://github.com/ejointjp/jekyll-for-github-projects#readme"
+  "homepage": "https://github.com/kamioteppei/kamioteppei.github.io#readme"
 }
