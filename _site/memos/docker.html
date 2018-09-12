@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Rails | kamioteppei.github.io</title>
+  <title>AWS | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Ruby on Rails">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/rails">
+  <meta name="description" content="AWS(Ammazon Web Services) 学習したい">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/docker">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
 </head>
@@ -69,7 +69,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Rails</h1>
+  <h1 class="page__title">AWS</h1>
   
   
     <p class="page__date">September 12, 2018</p>
@@ -210,100 +210,8 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="ruby-on-rails">Ruby on Rails</h1>
-
-<p>このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。 その後、次のコマンドで必要になる Ruby Gems をインストールします。
-$ bundle install –without production</p>
-
-<p>その後、データベースへのマイグレーションを実行します。
-$ rails db:migrate</p>
-
-<p>最後に、テストを実行してうまく動いているかどうか確認してください。
-$ rails test</p>
-
-<p>テストでエラーになった場合、
-テスト環境向けのマイグレーションが
-できていないので、やり直す</p>
-
-<p>$ rails db:migrate:reset
-$ rails db:migrate RAILS_ENV=test
-$ rails test</p>
-
-<p>テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-$ rails server</p>
-
-<p>Vagrantを使用している環境で、アクセスできない場合は こちらです。
-$ rails server -b 0.0.0.0</p>
-
-<p>http://192.168.33.10:3000/　にアクセスします。</p>
-
-<p>Railsサーバーをターミナルで、
-操作する場合は、
-$ rails console</p>
-
-<p>railsコンソールを終了するには
-$ ctrl+d
-または
-$ exit</p>
-
-<p>RailsサーバーのDBをターミナルで、
-操作する場合は、
-$ rails db</p>
-
-<p>db接続を終了するには
-$ ctrl+d</p>
-
-<p>デバッグ</p>
-
-<p>デバッグする場合は、
-ブレイクポイントに下記の１行を追加
-debugger</p>
-
-<p>そうするとブレイクポイントを
-通った時に、コンソールが
-デバッグモードになっているので
-変数の中身をコマンドで確認する。</p>
-
-<p>変数の確認が終わったら、
-ブレイクポイントの記述を
-コメントアウトしないと
-ずっとデバッグモードになっていると
-思われるので、コメントアウトする
-#debugger</p>
-
-<p>gemの変更</p>
-
-<p>Gemfileを修正する
-$ bundle install</p>
-
-<p>スキーマ変更</p>
-
-<p>schema.rbはマイグレーションの結果であって、
-このファイルを直接修正しても意味はない</p>
-
-<p>マイグレーションファイルを作成する
-$ rails generate migration add_column_to_microposts</p>
-
-<p>マイグレーションファイルを修正する
-def change
-   add_column :microposts, :ancestry, :string, index: true
-end</p>
-
-<p>マイグレーションを実行する
-$ rails db:migrate</p>
-
-<p>schema.rbの内容を確認する</p>
-
-<p>コントローラーを変更する
-$ rails generate controller NAME [action action] [options]
-$ rails generate controller AdminUsers index show
-既に存在するファイルは対話モードで、上書きするか聞かれるので
-スキップ等を選ぶ
-ルート、ビュー、コントローラー、テスト等のファイルが作成される</p>
-
-<p>モデルを変更する
-$ rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
-$ rails generate model AdminUser name:string mail:string</p>
+            <h1 id="awsammazon-web-services">AWS(Ammazon Web Services)</h1>
+<p>学習したい</p>
 
 
           </div>

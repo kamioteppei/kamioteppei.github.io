@@ -19,7 +19,8 @@ var browserSync = require('browser-sync');
 
 // Config
 
-var appName = 'jfgp';
+//var appName = 'jfgp';
+var appName = 'ktghio';
 
 var dir = {
   sass: '_sass/',

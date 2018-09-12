@@ -66,14 +66,17 @@
 
   
     <div class="container">
+
+      <!--
       <div class="page__header">
   <h1 class="page__title">Vagrant</h1>
   
   
-    <p class="page__date">September 10, 2018</p>
+    <p class="page__date">September 12, 2018</p>
   
 </div>
 
+    -->
 
       <div class="page__body">
         <div class="row">
@@ -87,8 +90,35 @@
   <ul>
     
       <li class="">
+        Native
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/android">Android</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/ios">iOS</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
         Environment
         <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/aws">Docker</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/docker">AWS</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/gcp">GCP</a></div>
+          </li>
         
           <li class="">
             <div class=""><a href="/memos/git">Git</a></div>
@@ -103,6 +133,10 @@
           </li>
         
           <li class="">
+            <div class=""><a href="/memos/package-management">Package Manager</a></div>
+          </li>
+        
+          <li class="">
             <div class=""><a href="/memos/ssh">SSH</a></div>
           </li>
         
@@ -114,8 +148,27 @@
     </li>
     
       <li class="">
+        Engineer
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/career">Career</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/freelance">Freelance</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
         Web
         <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/http">HTTP</a></div>
+          </li>
         
           <li class="">
             <div class=""><a href="/memos/jekyll">Jekyll</a></div>
@@ -129,11 +182,15 @@
             <div class=""><a href="/memos/rails">Rails</a></div>
           </li>
         
+          <li class="">
+            <div class=""><a href="/memos/security">Security</a></div>
+          </li>
+        
         </ul>
     </li>
     
       <li class="">
-        Machine-Learning
+        Machine Learning
         <ul>
         
           <li class="">
@@ -141,7 +198,7 @@
           </li>
         
           <li class="">
-            <div class=""><a href="/memos/machine-learning">Machine learning</a></div>
+            <div class=""><a href="/memos/machine-learning">Machine Learning</a></div>
           </li>
         
         </ul>
@@ -157,55 +214,63 @@
 
 <h2 id="インストール">インストール</h2>
 
-<p>Virtual Boxインストール
-centosなどのイメージを名前をつけてインストール
+<p>Virtual Boxインストール<br />
+centosなどのイメージを名前をつけてインストール<br />
 ex:centos_vm</p>
 
-<p>仮想OSのハブ
+<p>仮想OSのハブ<br />
 https://app.vagrantup.com/boxes/search</p>
 
-<p>仮想OSをインストールする
-$ mkdir foo/bar/centos_vm
+<p>仮想OSをインストールする</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir foo/bar/centos_vm
 $ cd foo/bar/centos_vm
 $ vagrant init [name[url]]
-Vagrantfileが作成される</p>
+</code></pre></div></div>
+<p>Vagrantfileが作成される</p>
 
-<p>インストールしたOSを立ち上げる
-$ vagrant up</p>
+<p>インストールしたOSを立ち上げる</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant up
+</code></pre></div></div>
 
-<p>インストールしたOSをシャットダウンする
-$ vagrant halt</p>
+<p>インストールしたOSをシャットダウンする</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant halt
+</code></pre></div></div>
 
-<p>インストールしたOSを再起動する
-$ vagrant reload</p>
+<p>インストールしたOSを再起動する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant reload
+</code></pre></div></div>
 
-<p>仮想OSにSSHで接続する
-$ vagrant ssh</p>
+<p>仮想OSにSSHで接続する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant ssh
+</code></pre></div></div>
 
-<p>user/passは
-vagrant/vagrant
+<p>user/passは  <br />
+vagrant/vagrant  <br />
 root/vagrant</p>
 
-<p>ssh接続を終了するには
-$ ctrl+d
-または
-$ exit</p>
+<p>ssh接続を終了するには</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ctrl+d
+</code></pre></div></div>
+<p>または</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ exit
+</code></pre></div></div>
 
-<p>ホストOSから、vagrant環境のRailsアプリを
-ブラウザで確認する場合は、
+<p>ホストOSから、vagrant環境のRailsアプリを<br />
+ブラウザで確認する場合は、<br />
 Vagrantファイルの以下を修正する。</p>
 
-<h1 id="create-a-private-network-which-allows-host-only-access-to-the-machine">Create a private network, which allows host-only access to the machine</h1>
-<h1 id="using-a-specific-ip">using a specific IP.</h1>
-<p>config.vm.network “private_network”, ip: “192.168.33.10”</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Create a private network, which allows host-only access to the machine
+# using a specific IP.
+  config.vm.network "private_network", ip: "192.168.33.10"
+</code></pre></div></div>
 
 <p>Box管理と仮想マシン管理は別もの</p>
 
-<p>vagrant destroyで仮想マシンを削除してもBoxとVagrantfileは残る。
-vagrant destroy = 仮想マシン削除
-vagrant box remove = Box削除
-再度vagrant upを行うと初期状態(vagrant box add直後の状態)で起動することができるので、
-vagrant up → 作業 → vagrant destroyというサイクルで作業ができる。</p>
+<p><code class="highlighter-rouge">vagrant destroy</code>で仮想マシンを削除してもBoxとVagrantfileは残る。<br />
+<code class="highlighter-rouge">vagrant destroy</code> = 仮想マシン削除<br />
+<code class="highlighter-rouge">vagrant box remove</code> = Box削除<br />
+再度vagrant upを行うと初期状態(vagrant box add直後の状態)で起動することができるので、<br />
+<code class="highlighter-rouge">vagrant up</code> → 作業 → <code class="highlighter-rouge">vagrant destroy</code>というサイクルで作業ができる。</p>
 
 
           </div>
@@ -230,7 +295,7 @@ vagrant up → 作業 → vagrant destroyというサイクルで作業ができ
   
   <div class="container container--sm footer__container">
   
-    <p class="copyright"><small>&copy; 2017 kamioteppei</small></p>
+    <p class="copyright"><small>&copy; 2018 kamioteppei</small></p>
 
     <div class="social-link">
       

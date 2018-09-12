@@ -101,4 +101,10 @@ $ heroku addons:create heroku-postgresql:hobby-dev -a sample-app
 $ heroku pg:psql -a sample-app
 ```
 
+rails consoleも使える。  
+sandboxオプションも指定できる
+```
+$ heroku run rails console --sandbox
+```
+
 ## Dyno設定

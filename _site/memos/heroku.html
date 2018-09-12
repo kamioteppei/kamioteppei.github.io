@@ -66,14 +66,17 @@
 
   
     <div class="container">
+
+      <!--
       <div class="page__header">
   <h1 class="page__title">Heroku</h1>
   
   
-    <p class="page__date">September 10, 2018</p>
+    <p class="page__date">September 12, 2018</p>
   
 </div>
 
+    -->
 
       <div class="page__body">
         <div class="row">
@@ -87,8 +90,35 @@
   <ul>
     
       <li class="">
+        Native
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/android">Android</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/ios">iOS</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
         Environment
         <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/aws">Docker</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/docker">AWS</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/gcp">GCP</a></div>
+          </li>
         
           <li class="">
             <div class=""><a href="/memos/git">Git</a></div>
@@ -103,6 +133,10 @@
           </li>
         
           <li class="">
+            <div class=""><a href="/memos/package-management">Package Manager</a></div>
+          </li>
+        
+          <li class="">
             <div class=""><a href="/memos/ssh">SSH</a></div>
           </li>
         
@@ -114,8 +148,27 @@
     </li>
     
       <li class="">
+        Engineer
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/career">Career</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/freelance">Freelance</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
         Web
         <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/http">HTTP</a></div>
+          </li>
         
           <li class="">
             <div class=""><a href="/memos/jekyll">Jekyll</a></div>
@@ -129,11 +182,15 @@
             <div class=""><a href="/memos/rails">Rails</a></div>
           </li>
         
+          <li class="">
+            <div class=""><a href="/memos/security">Security</a></div>
+          </li>
+        
         </ul>
     </li>
     
       <li class="">
-        Machine-Learning
+        Machine Learning
         <ul>
         
           <li class="">
@@ -141,7 +198,7 @@
           </li>
         
           <li class="">
-            <div class=""><a href="/memos/machine-learning">Machine learning</a></div>
+            <div class=""><a href="/memos/machine-learning">Machine Learning</a></div>
           </li>
         
         </ul>
@@ -234,6 +291,11 @@ rails tutorialでは、以下のコマンドでDBが作成された。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku pg:psql -a sample-app
 </code></pre></div></div>
 
+<p>rails consoleも使える。<br />
+sandboxオプションも指定できる</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku run rails console --sandbox
+</code></pre></div></div>
+
 <h2 id="dyno設定">Dyno設定</h2>
 
 
@@ -259,7 +321,7 @@ rails tutorialでは、以下のコマンドでDBが作成された。</p>
   
   <div class="container container--sm footer__container">
   
-    <p class="copyright"><small>&copy; 2017 kamioteppei</small></p>
+    <p class="copyright"><small>&copy; 2018 kamioteppei</small></p>
 
     <div class="social-link">
       

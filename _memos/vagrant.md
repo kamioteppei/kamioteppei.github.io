@@ -10,11 +10,11 @@ category: Environment
 
 ## インストール
 
-Virtual Boxインストール
-centosなどのイメージを名前をつけてインストール
-ex:centos_vm
+Virtual Boxインストール  
+centosなどのイメージを名前をつけてインストール  
+ex:centos_vm  
 
-仮想OSのハブ
+仮想OSのハブ  
 https://app.vagrantup.com/boxes/search
 
 仮想OSをインストールする
@@ -45,9 +45,9 @@ $ vagrant reload
 $ vagrant ssh
 ```
 
-user/passは  
-vagrant/vagrant  
-root/vagrant  
+user/passは    
+vagrant/vagrant    
+root/vagrant    
 
 ssh接続を終了するには
 ```
@@ -58,9 +58,9 @@ $ ctrl+d
 $ exit
 ```
 
-ホストOSから、vagrant環境のRailsアプリを
-ブラウザで確認する場合は、
-Vagrantファイルの以下を修正する。
+ホストOSから、vagrant環境のRailsアプリを  
+ブラウザで確認する場合は、  
+Vagrantファイルの以下を修正する。  
 
 ```
 # Create a private network, which allows host-only access to the machine
@@ -68,10 +68,10 @@ Vagrantファイルの以下を修正する。
   config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
-Box管理と仮想マシン管理は別もの
+Box管理と仮想マシン管理は別もの  
 
 `vagrant destroy`で仮想マシンを削除してもBoxとVagrantfileは残る。  
 `vagrant destroy` = 仮想マシン削除  
 `vagrant box remove` = Box削除  
-再度vagrant upを行うと初期状態(vagrant box add直後の状態)で起動することができるので、
+再度vagrant upを行うと初期状態(vagrant box add直後の状態)で起動することができるので、  
 `vagrant up` → 作業 → `vagrant destroy`というサイクルで作業ができる。  

@@ -1,39 +1,36 @@
 ---
 layout: static
-title: Machine learning
+title: Machine Learning
 template: 3-columns
-name: Machine-learning
-category: Machine-Learning
+name: Machine Learning
+category: Machine Learning
 ---
 
 # 機械学習
 
 ## 基本
 
-スカラー
-scalar
+### scalar(スカラー)
 0次元
-1, 10.5, -100
+- 1
+- 10.5
+- -100
 
-ベクター
-vector
+### vector(ベクター)
 1次元
 
 横ベクトル、行ベクトル、row vector
-[1,4,10]
+- [1,4,10]
 
 縦ベクトル、列ベクトル、column vector
-[
-1,
-5,
-9
-]
+- [  
+1,  
+5,  
+9  
+]  
 
-行列
-matrix
-matrices
+### matrix,matrices(行列)
 2次元
 
-テンソル
-tensor
+### tensor(テンソル)
 行列の行列

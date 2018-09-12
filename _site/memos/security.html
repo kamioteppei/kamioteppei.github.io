@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Rails | kamioteppei.github.io</title>
+  <title>Security | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Ruby on Rails">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/rails">
+  <meta name="description" content="Security">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/security">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
 </head>
@@ -69,7 +69,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Rails</h1>
+  <h1 class="page__title">Security</h1>
   
   
     <p class="page__date">September 12, 2018</p>
@@ -210,100 +210,101 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="ruby-on-rails">Ruby on Rails</h1>
+            <h1 id="security">Security</h1>
 
-<p>このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。 その後、次のコマンドで必要になる Ruby Gems をインストールします。
-$ bundle install –without production</p>
+<h2 id="アカウント作成">アカウント作成</h2>
 
-<p>その後、データベースへのマイグレーションを実行します。
-$ rails db:migrate</p>
+<h3 id="メールアドレス">メールアドレス</h3>
 
-<p>最後に、テストを実行してうまく動いているかどうか確認してください。
-$ rails test</p>
+<p>メールアドレスをユーザー登録の論理キーにする。<br />
+入力されたメールアドレスは、小文字に変換して、データベースに登録し、一意にする。
+ただし、ログイン字は、大文字小文字の違いを無視して、findする。</p>
 
-<p>テストでエラーになった場合、
-テスト環境向けのマイグレーションが
-できていないので、やり直す</p>
+<h3 id="パスワード">パスワード</h3>
 
-<p>$ rails db:migrate:reset
-$ rails db:migrate RAILS_ENV=test
-$ rails test</p>
+<p>パスワードをデータベースに登録する場合、平文で登録してはいけない。<br />
+データベースが外部からアクセスされた場合に、パスワードが悪用される。</p>
 
-<p>テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-$ rails server</p>
+<p>Railsでは、<code class="highlighter-rouge">User</code>モデルに<code class="highlighter-rouge">has_secure_password</code>属性を付けると、<br />
+自動的に、<code class="highlighter-rouge">password</code>と<code class="highlighter-rouge">password_confirmation</code>というフィールドと、<br />
+<code class="highlighter-rouge">password_digest</code>というDBカラムへの登録機能を持つ。<br />
+<code class="highlighter-rouge">password_digest</code>カラムには、ハッシュ化されたパスワードが登録される。</p>
 
-<p>Vagrantを使用している環境で、アクセスできない場合は こちらです。
-$ rails server -b 0.0.0.0</p>
+<h2 id="ハッシュ化と暗号化">ハッシュ化と暗号化</h2>
 
-<p>http://192.168.33.10:3000/　にアクセスします。</p>
+<h3 id="ハッシュ化">ハッシュ化</h3>
+<ul>
+  <li>復号：不可</li>
+  <li>用途：DBに保存するパスワード<br />
+ユーザーアカウント作成時に、システム管理者は、ユーザーのパスワードの平文を知る必要はない。<br />
+よって、DBにはパスワードのハッシュを登録する。そうすれば、外部に漏れてもあまり問題はない。</li>
+  <li>アルゴリズム：MD5(脆弱),SHA-1(脆弱),SHA-2(推奨)</li>
+</ul>
 
-<p>Railsサーバーをターミナルで、
-操作する場合は、
-$ rails console</p>
+<p>ハッシュ化の注意点<br />
+ハッシュからは平文に復号できないが、可能性的には、例えば６文字の文字列の全パターンを、<br />
+ハッシュ化した時の、平文とハッシュのリストがあれば、ハッシュから平文が逆引きできる。<br />
+上記のリストをレインボーテーブルという。その対策として、平文にsaltという任意の文字列を<br />
+付加してからハッシュ化すると、レインボーリストを作成することは難しくなる。<br />
+saltを追加して26文字以上にすると、セキュアらしい。<br />
+<a href="https://dev.classmethod.jp/security/rainbowtable/">参照</a></p>
 
-<p>railsコンソールを終了するには
-$ ctrl+d
-または
-$ exit</p>
+<h3 id="暗号化">暗号化</h3>
+<ul>
+  <li>復号：可能</li>
+  <li>用途：httpsセッションで通信するパスワード<br />
+ユーザーログイン時に、ブラウザで入力したパスワードを暗号化して、サーバーに送信する。<br />
+認証処理で、パスワードを平文に復号し、平文をハッシュ化することで、上記のDBのパスワードと<br />
+一致比較することができる。</li>
+  <li>アルゴリズム：RSA(推奨),DSA,DES</li>
+</ul>
 
-<p>RailsサーバーのDBをターミナルで、
-操作する場合は、
-$ rails db</p>
+<h2 id="アプリのssl強制設定">アプリのSSL強制設定</h2>
 
-<p>db接続を終了するには
-$ ctrl+d</p>
+<p>Railsアプリでは、<code class="highlighter-rouge">config/environments/production.rb</code>に以下を追加する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Rails.application.configure do
+  # Force all access to the app over SSL, use Strict-Transport-Security,
+  # and use secure cookies.
+  config.force_ssl = true
+end
+</code></pre></div></div>
 
-<p>デバッグ</p>
+<h2 id="strong-parameters">Strong Parameters</h2>
 
-<p>デバッグする場合は、
-ブレイクポイントに下記の１行を追加
-debugger</p>
+<p>Railsのコントローラーで、リクエストからのパラメータを使用する時に、<br />
+指定したパラメータ以外は使用しない機能。　　
+<code class="highlighter-rouge">admin='1'</code>等の不正なパラメータを使用しない。</p>
 
-<p>そうするとブレイクポイントを
-通った時に、コンソールが
-デバッグモードになっているので
-変数の中身をコマンドで確認する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def user_params
+  params.require(:user).permit(:name, :email, :password,
+                               :password_confirmation)
+end
+</code></pre></div></div>
 
-<p>変数の確認が終わったら、
-ブレイクポイントの記述を
-コメントアウトしないと
-ずっとデバッグモードになっていると
-思われるので、コメントアウトする
-#debugger</p>
+<h2 id="token">Token</h2>
+<p>以下のアクションで、tokenを発行して一致するか確認する。</p>
+<ul>
+  <li>ユーザーのアクティベート</li>
+  <li>ログイン状態の保存</li>
+  <li>パスワード変更</li>
+</ul>
 
-<p>gemの変更</p>
+<p>Tokenの有効期限を設定するとなお良い。</p>
 
-<p>Gemfileを修正する
-$ bundle install</p>
+<h2 id="cookies">Cookies</h2>
 
-<p>スキーマ変更</p>
+<h2 id="セッションハイジャック">セッションハイジャック</h2>
 
-<p>schema.rbはマイグレーションの結果であって、
-このファイルを直接修正しても意味はない</p>
+<h2 id="クロスサイトスクリプティングxss">クロスサイトスクリプティング(XSS)</h2>
 
-<p>マイグレーションファイルを作成する
-$ rails generate migration add_column_to_microposts</p>
+<h2 id="クロスサイトリクエストフォージェリcsrf">クロスサイトリクエストフォージェリ(CSRF)</h2>
 
-<p>マイグレーションファイルを修正する
-def change
-   add_column :microposts, :ancestry, :string, index: true
-end</p>
+<h2 id="ブラウザ">ブラウザ</h2>
 
-<p>マイグレーションを実行する
-$ rails db:migrate</p>
-
-<p>schema.rbの内容を確認する</p>
-
-<p>コントローラーを変更する
-$ rails generate controller NAME [action action] [options]
-$ rails generate controller AdminUsers index show
-既に存在するファイルは対話モードで、上書きするか聞かれるので
-スキップ等を選ぶ
-ルート、ビュー、コントローラー、テスト等のファイルが作成される</p>
-
-<p>モデルを変更する
-$ rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
-$ rails generate model AdminUser name:string mail:string</p>
+<p>信用できるブラウザのアドオンを入れた時に、<br />
+後に、そのアドオンの権利を悪意のある人が手に入れて、<br />
+悪用される可能性がある。
+<a href="https://blog.clock-up.jp/entry/2016/11/03/http-headers-malware">参照</a></p>
 
 
           </div>

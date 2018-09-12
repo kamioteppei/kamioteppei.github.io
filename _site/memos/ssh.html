@@ -66,14 +66,17 @@
 
   
     <div class="container">
+
+      <!--
       <div class="page__header">
   <h1 class="page__title">SSH</h1>
   
   
-    <p class="page__date">September 10, 2018</p>
+    <p class="page__date">September 12, 2018</p>
   
 </div>
 
+    -->
 
       <div class="page__body">
         <div class="row">
@@ -87,8 +90,35 @@
   <ul>
     
       <li class="">
+        Native
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/android">Android</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/ios">iOS</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
         Environment
         <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/aws">Docker</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/docker">AWS</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/gcp">GCP</a></div>
+          </li>
         
           <li class="">
             <div class=""><a href="/memos/git">Git</a></div>
@@ -103,6 +133,10 @@
           </li>
         
           <li class="">
+            <div class=""><a href="/memos/package-management">Package Manager</a></div>
+          </li>
+        
+          <li class="">
             <div class=""><a href="/memos/ssh">SSH</a></div>
           </li>
         
@@ -114,8 +148,27 @@
     </li>
     
       <li class="">
+        Engineer
+        <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/career">Career</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/freelance">Freelance</a></div>
+          </li>
+        
+        </ul>
+    </li>
+    
+      <li class="">
         Web
         <ul>
+        
+          <li class="">
+            <div class=""><a href="/memos/http">HTTP</a></div>
+          </li>
         
           <li class="">
             <div class=""><a href="/memos/jekyll">Jekyll</a></div>
@@ -129,11 +182,15 @@
             <div class=""><a href="/memos/rails">Rails</a></div>
           </li>
         
+          <li class="">
+            <div class=""><a href="/memos/security">Security</a></div>
+          </li>
+        
         </ul>
     </li>
     
       <li class="">
-        Machine-Learning
+        Machine Learning
         <ul>
         
           <li class="">
@@ -141,7 +198,7 @@
           </li>
         
           <li class="">
-            <div class=""><a href="/memos/machine-learning">Machine learning</a></div>
+            <div class=""><a href="/memos/machine-learning">Machine Learning</a></div>
           </li>
         
         </ul>
@@ -228,6 +285,14 @@
 <p>生成された公開鍵の確認は以下のコマンドで行う。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat ~/.ssh/id_rsa.pub
 </code></pre></div></div>
+<p>鍵の強度について<br />
+<a href="https://qiita.com/chroju/items/3ddae568206b8bc3d8f9">参照</a></p>
+<blockquote>
+  <p>・コンピューターの計算処理性能の向上に伴い、暗号強度は相対的に下がっていく。このため2010年をもって、アメリカ政府では1024bit以下のRSA、DSA暗号、160bit以下のECDSA、また2TDESとSHA-1の使用を廃止している。<br />
+・最新のssh-keygenはデフォルトの鍵生成がRSAの2048bitになっているので、特に気にする必要はないが、念押しするのであれば
+<code class="highlighter-rouge">ssh-keygen -t rsa -b 2048</code>
+と指定できる。</p>
+</blockquote>
 
 <hr />
 <h2 id="公開鍵をサーバーに登録する">公開鍵をサーバーに登録する</h2>
@@ -272,7 +337,7 @@ GitHubのsettings画面で貼り付ける。</p>
   
   <div class="container container--sm footer__container">
   
-    <p class="copyright"><small>&copy; 2017 kamioteppei</small></p>
+    <p class="copyright"><small>&copy; 2018 kamioteppei</small></p>
 
     <div class="social-link">
       

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Rails | kamioteppei.github.io</title>
+  <title>Package Manager | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Ruby on Rails">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/rails">
+  <meta name="description" content="Package Manager">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/package-management">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
 </head>
@@ -69,7 +69,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Rails</h1>
+  <h1 class="page__title">Package Manager</h1>
   
   
     <p class="page__date">September 12, 2018</p>
@@ -210,100 +210,67 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="ruby-on-rails">Ruby on Rails</h1>
+            <h1 id="package-manager">Package Manager</h1>
 
-<p>このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。 その後、次のコマンドで必要になる Ruby Gems をインストールします。
-$ bundle install –without production</p>
+<h2 id="package">Package</h2>
+<ul>
+  <li>debian系(Ubuntu)のパッケージはdeb形式</li>
+  <li>
+    <p>RedHat系(Fedora,CentOS)のパッケージはrpm形式</p>
+  </li>
+  <li>Macの.appは、Windowsの.exeファイル</li>
+  <li>Macの.pkgは、Windowsの.msiファイル</li>
+  <li>Macの.dmgは、Windowsの.isoファイル<br />
+(DiskImageMounter.appに関連づけられる)</li>
+</ul>
 
-<p>その後、データベースへのマイグレーションを実行します。
-$ rails db:migrate</p>
+<h2 id="package-manager-1">Package Manager</h2>
 
-<p>最後に、テストを実行してうまく動いているかどうか確認してください。
-$ rails test</p>
+<h3 id="apt">apt</h3>
+<p>debian系のパッケージマネージャー<br />
+dpkgを呼び出す</p>
 
-<p>テストでエラーになった場合、
-テスト環境向けのマイグレーションが
-できていないので、やり直す</p>
+<h3 id="dpkg">dpkg</h3>
+<p>debian系のパッケージマネージャー</p>
 
-<p>$ rails db:migrate:reset
-$ rails db:migrate RAILS_ENV=test
-$ rails test</p>
+<h3 id="yum">yum</h3>
+<p>RedHat系のパッケージマネージャー<br />
+rpmを呼び出す。依存関係も解決する。<br />
+基本はこちらを使用する。</p>
 
-<p>テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-$ rails server</p>
+<h3 id="rpm">rpm</h3>
+<p>RedHat系のパッケージマネージャー<br />
+yumでできないパッケージはこちらを使用する。</p>
 
-<p>Vagrantを使用している環境で、アクセスできない場合は こちらです。
-$ rails server -b 0.0.0.0</p>
+<h3 id="homeblew">homeblew</h3>
+<p>Macのパッケージマネージャー</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blew install &lt;package name&gt;
+</code></pre></div></div>
 
-<p>http://192.168.33.10:3000/　にアクセスします。</p>
+<h3 id="npm">npm</h3>
+<p>Node.jsのパッケージマネージャー</p>
 
-<p>Railsサーバーをターミナルで、
-操作する場合は、
-$ rails console</p>
+<h3 id="gem">gem</h3>
+<p>Rubyのパッケージマネージャー</p>
 
-<p>railsコンソールを終了するには
-$ ctrl+d
-または
-$ exit</p>
+<h3 id="pip">pip</h3>
+<p>Pythonのパッケージマネージャー</p>
 
-<p>RailsサーバーのDBをターミナルで、
-操作する場合は、
-$ rails db</p>
+<h3 id="pearpecl">pear,pecl</h3>
+<p>PHPのパッケージマネージャー</p>
 
-<p>db接続を終了するには
-$ ctrl+d</p>
+<h2 id="file-downlorder">File Downlorder</h2>
+<p>パッケージマネージャーではない</p>
 
-<p>デバッグ</p>
+<h3 id="wget">wget</h3>
+<p>サイトを再帰的にクロールできる。</p>
 
-<p>デバッグする場合は、
-ブレイクポイントに下記の１行を追加
-debugger</p>
+<h3 id="curl">curl</h3>
+<p>HTTP、HTTPS、FTP、FTPS、SCP、SFTP、TFTP、DICT、TELNET、LDAP、FILEと、多くの拡張子に対応している上、プロキシ、ユーザー認証、FTPアップロード、HTTP POST、SSL接続などができてしまう優れものです。</p>
 
-<p>そうするとブレイクポイントを
-通った時に、コンソールが
-デバッグモードになっているので
-変数の中身をコマンドで確認する。</p>
+<p><a href="http://d.hatena.ne.jp/ctrlshift/20080129/1201612626">参照</a></p>
 
-<p>変数の確認が終わったら、
-ブレイクポイントの記述を
-コメントアウトしないと
-ずっとデバッグモードになっていると
-思われるので、コメントアウトする
-#debugger</p>
-
-<p>gemの変更</p>
-
-<p>Gemfileを修正する
-$ bundle install</p>
-
-<p>スキーマ変更</p>
-
-<p>schema.rbはマイグレーションの結果であって、
-このファイルを直接修正しても意味はない</p>
-
-<p>マイグレーションファイルを作成する
-$ rails generate migration add_column_to_microposts</p>
-
-<p>マイグレーションファイルを修正する
-def change
-   add_column :microposts, :ancestry, :string, index: true
-end</p>
-
-<p>マイグレーションを実行する
-$ rails db:migrate</p>
-
-<p>schema.rbの内容を確認する</p>
-
-<p>コントローラーを変更する
-$ rails generate controller NAME [action action] [options]
-$ rails generate controller AdminUsers index show
-既に存在するファイルは対話モードで、上書きするか聞かれるので
-スキップ等を選ぶ
-ルート、ビュー、コントローラー、テスト等のファイルが作成される</p>
-
-<p>モデルを変更する
-$ rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
-$ rails generate model AdminUser name:string mail:string</p>
+<h2 id="command">command</h2>
 
 
           </div>

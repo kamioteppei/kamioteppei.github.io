@@ -2,8 +2,8 @@
 layout: static
 title: Jupyter Notebook
 template: 3-columns
-name: Jupyter-Notebbok
-category: Machine-Learning
+name: Jupyter Notebbok
+category: Machine Learning
 ---
 
 # jupyter notebook

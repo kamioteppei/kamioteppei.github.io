@@ -76,6 +76,12 @@ $ ssh-keygen
 ```
 $ cat ~/.ssh/id_rsa.pub
 ```
+鍵の強度について  
+[参照](https://qiita.com/chroju/items/3ddae568206b8bc3d8f9)
+>・コンピューターの計算処理性能の向上に伴い、暗号強度は相対的に下がっていく。このため2010年をもって、アメリカ政府では1024bit以下のRSA、DSA暗号、160bit以下のECDSA、また2TDESとSHA-1の使用を廃止している。  
+>・最新のssh-keygenはデフォルトの鍵生成がRSAの2048bitになっているので、特に気にする必要はないが、念押しするのであれば
+`ssh-keygen -t rsa -b 2048`
+と指定できる。
 
 ---
 ## 公開鍵をサーバーに登録する
