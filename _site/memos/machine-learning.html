@@ -240,7 +240,7 @@
 ]</li>
 </ul>
 
-<h3 id="matrixmatrices行列">matrix,matrices(行列)</h3>
+<h3 id="metrics行列">metrics(行列)</h3>
 <p>2次元</p>
 
 <h3 id="tensorテンソル-1">tensor(テンソル)</h3>
@@ -256,11 +256,45 @@
 <h2 id="機械学習の応用分野">機械学習の応用分野</h2>
 <ul>
   <li>クラス分類(Classification)
- *</li>
+    <ul>
+      <li>文字認識</li>
+    </ul>
+  </li>
   <li>グループ分け、クラスタリング(Clustering)</li>
   <li>推薦(Recommendation)</li>
   <li>回帰(Regression)</li>
 </ul>
+
+<h2 id="モデル">モデル</h2>
+
+<h3 id="svmsupport-vector-machine">SVM(Support Vector Machine)</h3>
+<p>データを分ける境界線を引く。<br />
+境界線とデータまでのマージンが最大になるようにする。</p>
+
+<h3 id="scikit-learn">scikit-learn</h3>
+<p>以下のSVMを提供するパッケージ</p>
+<ul>
+  <li>SVC(処理速度より正確性をとる場合)</li>
+  <li>LinearSVC(正確性より処理速度をとる場合)</li>
+</ul>
+
+<h3 id="random-forest-randomized-trees">Random Forest, Randomized Trees</h3>
+<p>学習用データから多数の決定木を作成し、作成した決定木を元に、<br />
+多数決で結果を決める。</p>
+
+<h2 id="検証">検証</h2>
+
+<h3 id="クロスバリデーション">クロスバリデーション</h3>
+<p>学習データのサンプリングの偏りによる、<br />
+過学習を防ぐために、学習データとテストデータを、 <br />
+ローテーションして学習する手法。</p>
+
+<h3 id="グリッドサーチ">グリッドサーチ</h3>
+<p>モデルに渡すパラメータを自動で、色々試す手法。</p>
+
+<h2 id="deep-learning">Deep Learning</h2>
+<p>多層構造のニューラルネットワークを用いた機械学習のこと。
+結果から、重みを自分で調節できることが一番重要だと思う。</p>
 
 
           </div>

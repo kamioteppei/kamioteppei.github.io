@@ -65,3 +65,27 @@ HTTP、HTTPS、FTP、FTPS、SCP、SFTP、TFTP、DICT、TELNET、LDAP、FILEと�
 [参照](http://d.hatena.ne.jp/ctrlshift/20080129/1201612626)
 
 ## command
+
+後で調べる
+
+## x-env
+
+同一PCで、例えばプロジェクトによって、Rubyのバージョンを変える場合、  
+プロジェクトごとに、Vagrantを用意しても良いが、Vagrantを、  
+立ち上げ直すのも時間がかかる。(常に複数立ち上げるのも非現実的)  
+また、MacのプリインストールのRubyが古いから、最新版をインストールする  
+という用途もある。
+
+Node.js, Ruby, Pythonなどでは、自分のバージョンを切り替える、  
+マネージャーがあるので、それを使っても良い。
+
+- Node.js -> ndenv
+- Ruby -> rbenv
+- Python -> pyenv
+
+それぞれのx-envでやってることは、`~/.bash_profile`に、  
+指定したバージョンのパスを動的に読み込む記述を書き込む
+
+なお、Node.js, Ruby, Python等のx-envを全てインストールのも、  
+繁雑なので、`anyenv`というものもあるので、覚えておく。  
+[参照](https://qiita.com/yutackall/items/6c48cf56317d8501f6df)

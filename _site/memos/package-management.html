@@ -272,6 +272,32 @@ yumでできないパッケージはこちらを使用する。</p>
 
 <h2 id="command">command</h2>
 
+<p>後で調べる</p>
+
+<h2 id="x-env">x-env</h2>
+
+<p>同一PCで、例えばプロジェクトによって、Rubyのバージョンを変える場合、<br />
+プロジェクトごとに、Vagrantを用意しても良いが、Vagrantを、<br />
+立ち上げ直すのも時間がかかる。(常に複数立ち上げるのも非現実的)<br />
+また、MacのプリインストールのRubyが古いから、最新版をインストールする<br />
+という用途もある。</p>
+
+<p>Node.js, Ruby, Pythonなどでは、自分のバージョンを切り替える、<br />
+マネージャーがあるので、それを使っても良い。</p>
+
+<ul>
+  <li>Node.js -&gt; ndenv</li>
+  <li>Ruby -&gt; rbenv</li>
+  <li>Python -&gt; pyenv</li>
+</ul>
+
+<p>それぞれのx-envでやってることは、<code class="highlighter-rouge">~/.bash_profile</code>に、<br />
+指定したバージョンのパスを動的に読み込む記述を書き込む</p>
+
+<p>なお、Node.js, Ruby, Python等のx-envを全てインストールのも、<br />
+繁雑なので、<code class="highlighter-rouge">anyenv</code>というものもあるので、覚えておく。<br />
+<a href="https://qiita.com/yutackall/items/6c48cf56317d8501f6df">参照</a></p>
+
 
           </div>
 
