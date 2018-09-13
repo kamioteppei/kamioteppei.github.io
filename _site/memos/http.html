@@ -72,7 +72,7 @@
   <h1 class="page__title">HTTP</h1>
   
   
-    <p class="page__date">September 12, 2018</p>
+    <p class="page__date">September 13, 2018</p>
   
 </div>
 
@@ -212,11 +212,50 @@
           <div class="col-8 main toc-src order-first">
             <h1 id="http">HTTP</h1>
 
+<p>HTTP protocolでは、</p>
+<ul>
+  <li>クライアント側のWebブラウザから、Webサーバに、リクエストを送信する。</li>
+  <li>Webサーバーから、Webブラウザに、レスポンスを送信する。</li>
+</ul>
+
+<h2 id="stateless">Stateless</h2>
+<p>HTTPプロトコルでは、状態を持たない。<br />
+最初は静的なページのGETのみだったのでそれでよかった。<br />
+だがamazonのような、商品を購入するようなサイトでは、<br />
+状態を持たなければいけない。方法としては、Inputタグのhiddenで、<br />
+状態を持てるが、今回の買い物以外のユーザー情報や、購入履歴も、<br />
+ずっと保持しないといけない。ましてやブラウザを閉じたら、全て消えるので、<br />
+不可能である。そこで、クライアント側で、Cookie、サーバー側でデータベースという<br />
+記憶領域を使用する。</p>
+
+<h2 id="cookie">Cookie</h2>
+
+<p>属性</p>
+<ul>
+  <li>Domain:example.com</li>
+  <li>Path:/</li>
+  <li>key:value<br />
+ ex) SID:J9W8J0W3RK0WFK04FK0</li>
+</ul>
+
+<p>Cookieはアクセスしたサイトからもらう。<br />
+Domainのサイトにリクエストを送るときに、<br />
+SID等の状態をサーバーに送信する。</p>
+
+<h2 id="session">Session</h2>
+
 <h2 id="get">GET</h2>
 
 <h2 id="post">POST</h2>
 
 <h2 id="restful-web-service">RESTful Web Service</h2>
+
+<p>レストフルとは、</p>
+<ul>
+  <li>状態を持たない</li>
+  <li>全てのアクションに対して、URLのリソースとして指定できる。</li>
+  <li>リソースは名前を持つ</li>
+</ul>
 
 
           </div>

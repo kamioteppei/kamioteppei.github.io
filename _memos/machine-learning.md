@@ -8,7 +8,8 @@ category: Machine Learning
 
 # 機械学習
 
-## 基本
+## Tensor(テンソル)
+以下全て、tensorの1種
 
 ### scalar(スカラー)
 0次元
@@ -34,3 +35,15 @@ category: Machine Learning
 
 ### tensor(テンソル)
 行列の行列
+
+## 機械学習の分類
+- 教師あり学習
+- 教師なし学習
+- 強化学習
+
+## 機械学習の応用分野
+- クラス分類(Classification)
+ *
+- グループ分け、クラスタリング(Clustering)
+- 推薦(Recommendation)
+- 回帰(Regression)
