@@ -66,7 +66,7 @@ HTTP、HTTPS、FTP、FTPS、SCP、SFTP、TFTP、DICT、TELNET、LDAP、FILEと�
 
 ## command
 
-後で調べる
+[参照](http://xref.jp/package)
 
 ## x-env
 
