@@ -1,5 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-13T18:57:28+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
-</subtitle><author><name>kamioteppei</name></author><entry><title type="html">jekyll</title><link href="http://0.0.0.0:4000/2018/09/01/jekyll/" rel="alternate" type="text/html" title="jekyll" /><published>2018-09-01T00:00:00+09:00</published><updated>2018-09-01T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/01/jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/01/jekyll/">&lt;p&gt;学習した知識の備忘録を残す為に、方法を調査したところ、&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-14T18:49:11+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
+</subtitle><author><name>kamioteppei</name></author><entry><title type="html">Machine Learning</title><link href="http://0.0.0.0:4000/2018/09/10/Machine-Learning/" rel="alternate" type="text/html" title="Machine Learning" /><published>2018-09-10T00:00:00+09:00</published><updated>2018-09-10T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/10/Machine-Learning</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/10/Machine-Learning/">&lt;p&gt;機械学習の環境を作成する。&lt;/p&gt;
+
+&lt;p&gt;DockerやTensorFlowを入れるのにUbuntuが必要らしい。&lt;br /&gt;
+Macの方には、Vagrant等で色々使っているので、&lt;br /&gt;
+Windowsマシンの方に、Ubuntu18.04を入れて、 &lt;br /&gt;
+デュアルブーストする。&lt;/p&gt;
+
+&lt;p&gt;参考にしたサイトは&lt;a href=&quot;https://www.ttlglab.com/dualboot-ubuntu-windows/&quot;&gt;ここ&lt;/a&gt;です。&lt;/p&gt;
+
+&lt;p&gt;以下上記のサイトの補足事項です。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1章
+    &lt;ul&gt;
+      &lt;li&gt;特になし&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2章
+    &lt;ul&gt;
+      &lt;li&gt;自分の場合は、Dドライブを半分に縮小した。
+ここでは、縮小した残りの部分を、未使用の領域のままにしておいて良い。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;3章
+    &lt;ul&gt;
+      &lt;li&gt;特になし&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;4章
+    &lt;ul&gt;
+      &lt;li&gt;特になし&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;5章
+    &lt;ul&gt;
+      &lt;li&gt;isoファイルと、書き込み先のUSBドライブが正しく指定できていれば、
+他の設定はそのままで良い。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;6章
+    &lt;ul&gt;
+      &lt;li&gt;自分の場合(HP製ノート)は、F10で、BIOS起動した。&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UEFI Boot Order&lt;/code&gt;メニューで&lt;code class=&quot;highlighter-rouge&quot;&gt;USB Disckette on Key〜&lt;/code&gt;をF6で最優先にした。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;7章
+    &lt;ul&gt;
+      &lt;li&gt;スワップ領域はPCのメモリの大きさに合わせる。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;再起動
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UEFI Boot Order&lt;/code&gt;メニューで&lt;code class=&quot;highlighter-rouge&quot;&gt;OS Boot Manager&lt;/code&gt;をF6で最優先にした。&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UEFI Boot Order&lt;/code&gt;メニューで&lt;code class=&quot;highlighter-rouge&quot;&gt;OS Boot Manager&lt;/code&gt;をエンターすると、Ubuntuが選べるので最優先にする。&lt;/li&gt;
+      &lt;li&gt;上記設定にすると、起動後、UnbutuとWindowsを選べるメニュー画面が出てくる。&lt;/li&gt;
+      &lt;li&gt;Windowsを最優先にしたままだと、Windowsが自動で立ちあがる。(EasyBCDはとりあえず不要とする。)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>kamioteppei</name></author><summary type="html">機械学習の環境を作成する。</summary></entry><entry><title type="html">jekyll</title><link href="http://0.0.0.0:4000/2018/09/01/jekyll/" rel="alternate" type="text/html" title="jekyll" /><published>2018-09-01T00:00:00+09:00</published><updated>2018-09-01T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/01/jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/01/jekyll/">&lt;p&gt;学習した知識の備忘録を残す為に、方法を調査したところ、&lt;br /&gt;
 GitHubPageにmarkdownファイルをpushするだけで、&lt;br /&gt;
 Webサイトを公開できるということで、&lt;br /&gt;
 &lt;a href=&quot;https://jekyllrb.com&quot;&gt;jekyll&lt;/a&gt;を学習しました。&lt;/p&gt;

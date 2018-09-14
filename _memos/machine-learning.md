@@ -76,3 +76,6 @@ category: Machine Learning
 ## Deep Learning
 多層構造のニューラルネットワークを用いた機械学習のこと。
 結果から、重みを自分で調節できることが一番重要だと思う。  
+
+- Weight -> inputに対する調整値
+- bias -> 次の中間層に対する調整値
