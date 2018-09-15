@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Heroku | kamioteppei.github.io</title>
+  <title>Bootstrap | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Heroku">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/heroku">
+  <meta name="description" content="Bootstrap">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/bootstrap">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
 </head>
@@ -69,7 +69,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Heroku</h1>
+  <h1 class="page__title">Bootstrap</h1>
   
   
     <p class="page__date">September 15, 2018</p>
@@ -225,98 +225,9 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="heroku">Heroku</h1>
+            <h1 id="bootstrap">Bootstrap</h1>
 
-<h2 id="ユーザー登録">ユーザー登録</h2>
-<p>ユーザー登録する
-<a href="https://signup.heroku.com">公式サイト</a></p>
-
-<h2 id="heroku-cli">heroku CLI</h2>
-<p>herokuのコマンドラインツールをインストールする　　
-<a href="https://devcenter.heroku.com/articles/heroku-cli">公式サイト</a></p>
-
-<p>mac</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install heroku/brew/heroku
-</code></pre></div></div>
-
-<p>ubuntu</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo snap install --classic heroku
-</code></pre></div></div>
-
-<p>other linux</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl https://cli-assets.heroku.com/install.sh | sh
-</code></pre></div></div>
-
-<p>インストールの確認</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku --version
-</code></pre></div></div>
-
-<h2 id="コマンド使用">コマンド使用</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku login
-</code></pre></div></div>
-
-<p>ユーザー登録した時の、メールアドレスとパスワードを入力する<br />
-メールアドレスは２回目以降省略可能</p>
-
-<h2 id="アカウント設定">アカウント設定</h2>
-
-<p>SSHキーをherokuに登録する<br />
-SSHキーの作成については、<a href="https://kamioteppei.github.io/memos/ssh">リンク先</a>を参照</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku keys:add
-</code></pre></div></div>
-<p>ローカルの公開鍵を見つけて、それで良いか聞かれるので、<code class="highlighter-rouge">Y</code>を入力する</p>
-
-<p>SSHキーの登録確認をする</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku keys
-</code></pre></div></div>
-
-<p>接続確認をする</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -v git@heroku.com
-</code></pre></div></div>
-<p>オプションの<code class="highlighter-rouge">-v</code>はverbose=冗長という意味で、debugログを出力してくれる</p>
-
-<h2 id="アプリ登録">アプリ登録</h2>
-<p>１つのアプリ登録時に、１つのDynoが作成される<br />
-herokuでは、１つのアカウントで、550時間/月が無料となる。<br />
-さらにクレジットカード情報を登録すると1000時間/月が無料となる。
-複数のアプリを登録しても、個人の学習で使う場合は、550時間(17時間/日)も<br />
-使用しないと思う。ただし、一定の時間、アクセスしないdynoはスリープ状態になるので、<br />
-公開サービスのアプリは、起動待ちにならないように、定期的にアクセスするアドオンを<br />
-入れているとのこと。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ~/myapp
-$ heroku create
-</code></pre></div></div>
-<p>heroku createで１つのdynoが作成される</p>
-
-<p>herokuのgitにアプリをpusuする</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git push heroku master
-</code></pre></div></div>
-
-<p>アプリが自動でデプロイされるので、ブラウザで確認する</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku open
-</code></pre></div></div>
-
-<p>herokuではDBは、sqliteをサポートしていないので、<br />
-posgresqlを使用する <br />
-rails tutorialでは、以下のコマンドでDBが作成された。</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku run rake db:migrate
-</code></pre></div></div>
-
-<p>任意のDBを作成する場合は、以下のコマンドも使用できる</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku addons:create heroku-postgresql:hobby-dev -a sample-app
-</code></pre></div></div>
-
-<p>コマンドラインからDBにアクセスできる</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku pg:psql -a sample-app
-</code></pre></div></div>
-
-<p>rails consoleも使える。<br />
-sandboxオプションも指定できる</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ heroku run rails console --sandbox
-</code></pre></div></div>
-
-<h2 id="dyno設定">Dyno設定</h2>
+<p>勉強したい</p>
 
 
           </div>

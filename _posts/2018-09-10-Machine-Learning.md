@@ -35,4 +35,5 @@ Windowsマシンの方に、Ubuntu18.04を入れて、
   + `UEFI Boot Order`メニューで`OS Boot Manager`をF6で最優先にした。
   + `UEFI Boot Order`メニューで`OS Boot Manager`をエンターすると、Ubuntuが選べるので最優先にする。
   + 上記設定にすると、起動後、UnbutuとWindowsを選べるメニュー画面が出てくる。
-  + Windowsを最優先にしたままだと、Windowsが自動で立ちあがる。(EasyBCDはとりあえず不要とする。)
+(EasyBCDはとりあえず不要とする。)
+  + Windowsを最優先にしたままだと、Windowsが自動で立ちあがる。

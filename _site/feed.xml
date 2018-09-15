@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-14T22:03:59+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-15T18:47:40+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
 </subtitle><author><name>kamioteppei</name></author><entry><title type="html">Machine Learning</title><link href="http://0.0.0.0:4000/2018/09/10/Machine-Learning/" rel="alternate" type="text/html" title="Machine Learning" /><published>2018-09-10T00:00:00+09:00</published><updated>2018-09-10T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/10/Machine-Learning</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/10/Machine-Learning/">&lt;p&gt;機械学習の環境を作成する。&lt;/p&gt;
 
 &lt;p&gt;DockerやTensorFlowを入れるのにUbuntuが必要らしい。&lt;br /&gt;
@@ -53,8 +53,9 @@ Windowsマシンの方に、Ubuntu18.04を入れて、 &lt;br /&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UEFI Boot Order&lt;/code&gt;メニューで&lt;code class=&quot;highlighter-rouge&quot;&gt;OS Boot Manager&lt;/code&gt;をF6で最優先にした。&lt;/li&gt;
       &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UEFI Boot Order&lt;/code&gt;メニューで&lt;code class=&quot;highlighter-rouge&quot;&gt;OS Boot Manager&lt;/code&gt;をエンターすると、Ubuntuが選べるので最優先にする。&lt;/li&gt;
-      &lt;li&gt;上記設定にすると、起動後、UnbutuとWindowsを選べるメニュー画面が出てくる。&lt;/li&gt;
-      &lt;li&gt;Windowsを最優先にしたままだと、Windowsが自動で立ちあがる。(EasyBCDはとりあえず不要とする。)&lt;/li&gt;
+      &lt;li&gt;上記設定にすると、起動後、UnbutuとWindowsを選べるメニュー画面が出てくる。
+(EasyBCDはとりあえず不要とする。)&lt;/li&gt;
+      &lt;li&gt;Windowsを最優先にしたままだと、Windowsが自動で立ちあがる。&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>kamioteppei</name></author><summary type="html">機械学習の環境を作成する。</summary></entry><entry><title type="html">jekyll</title><link href="http://0.0.0.0:4000/2018/09/01/jekyll/" rel="alternate" type="text/html" title="jekyll" /><published>2018-09-01T00:00:00+09:00</published><updated>2018-09-01T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/01/jekyll</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/01/jekyll/">&lt;p&gt;学習した知識の備忘録を残す為に、方法を調査したところ、&lt;br /&gt;

@@ -79,3 +79,9 @@ category: Machine Learning
 
 - Weight -> inputに対する調整値
 - bias -> 次の中間層に対する調整値
+
+## サービスの構成
+
+以下を参照
+
+[［37選］機械学習ライブラリやフレームワークは？ 国内AI活用サービスのアーキテクチャを大調査！](https://employment.en-japan.com/engineerhub/entry/2017/11/30/110000)
