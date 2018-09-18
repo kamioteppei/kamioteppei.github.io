@@ -72,7 +72,7 @@
   <h1 class="page__title">Docker</h1>
   
   
-    <p class="page__date">September 17, 2018</p>
+    <p class="page__date">September 19, 2018</p>
   
 </div>
 
@@ -251,6 +251,61 @@ sudo service docker restart
 
 <p>以下を参照
 <a href="https://qiita.com/y_hokkey/items/d51e69c6ff4015e85fce">docker-composeを使うと複数コンテナの管理が便利に</a></p>
+
+<h2 id="dockerコマンドのflow">dockerコマンドのflow</h2>
+
+<p>下記サイトの図を参照<br />
+<a href="https://morizyun.github.io/docker/about-docker-command.html">Dockerでよく使うコマンドまとめ</a></p>
+
+<p>Dockerイメージの操作</p>
+<ul>
+  <li>docker login  -&gt; Docker Hubにログインする。</li>
+  <li>docker search  -&gt; Docker HubのDockerイメージを検索する。<br />
+イメージの命名規則は、<code class="highlighter-rouge">組織名(個人名) / イメージ名 : タグ名(イメージのバージョンの説明)</code></li>
+  <li>docker pull  -&gt;　 Docker HubのDockerイメージをローカルにダウンロードする。</li>
+  <li>docker images  -&gt; ローカルのDockerイメージのリストを表示する。</li>
+  <li>docker tag  -&gt; ローカルのDockerイメージにタグをつける。</li>
+  <li>
+    <p>docker inspect  -&gt; 指定したDockerイメージの設定の詳細を表示する。</p>
+
+    <p>Dockerコンテナの操作</p>
+    <ul>
+      <li>docker run -&gt; DockerイメージからDockerコンテナを起動する。</li>
+      <li>docker ps  -&gt;　タスクが起動中のDockerコンテナのリストを表示する。</li>
+      <li>docker ps -a  -&gt; 全てのDockerコンテナのリストを表示する。</li>
+      <li>docker exec  -&gt; 指定したDockerコンテナでコマンドを実行する。
+<code class="highlighter-rouge">docker excec -it コンテナID先頭3桁 bash</code>で、シェル操作できる。</li>
+      <li>docker attach  -&gt; Dockerコンテナに起動しているPID=1のプロセスの標準入力(STDIN)と、標準出力(STDOUT)に接続する。</li>
+      <li>docker stop  -&gt; 指定したDockerコンテナを停止する。</li>
+      <li>docker kill  -&gt; 指定したDockerコンテナを強制終了する。</li>
+      <li>docker start  -&gt; 指定したDockerコンテナを起動する。</li>
+      <li>docker restart  -&gt; 指定したDockerコンテナを再起動する。</li>
+    </ul>
+  </li>
+  <li>docker commit -&gt; DockerコンテナをDockerイメージに変換する。</li>
+  <li>docker build -&gt; DockerfileからDockerイメージを作成する。</li>
+  <li>docker push -&gt; ローカルのDockerイメージをDocker Hubにアップロードする。</li>
+  <li>docker rmi  -&gt; Dockerイメージの削除</li>
+</ul>
+
+<h2 id="dockerfile">Dockerfile</h2>
+
+<p>dockerでは、linuxのスタートアップのような仕組みは使用しない。<br />
+dockerは、基本的に1コンテナ1タスクで使用する。<br />
+Dockerイメージを作成するときに、Dockerfileで<code class="highlighter-rouge">CMD</code>か<code class="highlighter-rouge">ENTRYPOINT</code>の属性で、<br />
+コンテナ起動時に、実行するコマンドを指定する。</p>
+
+<p>tensorflow-gpuのDocker Imageをrunすると、引数にcommandを渡さなくても、<br />
+jupyter notebookが立ちあがる。docker runで作成されたコンテナのルートに、<br />
+<code class="highlighter-rouge">run_jupyter.sh</code>があるので、それを呼んでいる。</p>
+
+<p>DockerfileのCMDを確認する場合は、ホストで、以下のコマンドを実行する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker inspect [イメージのid先頭3桁]
+</code></pre></div></div>
+
+<p>もちろん、<code class="highlighter-rouge">docker run</code>するときに、実行するコマンドを渡せば、それが優先される。</p>
+
+<p><a href="https://qiita.com/hihihiroro/items/d7ceaadc9340a4dbeb8f">参照</a></p>
 
 
           </div>
