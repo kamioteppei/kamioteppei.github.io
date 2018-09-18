@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix:og="http://ogp.me/ns#">
+  <meta charset="UTF-8">
+  <title>Machine Learning 2 | kamioteppei.github.io</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+  <!-- Default CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="機械学習の環境を作成する。(GPU使用)">
+  <link rel="canonical" href="http://0.0.0.0:4000/2018/09/17/Machine-Learning-2/">
+  <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
+  
+</head>
+<body>
+
+<header class="header">
+  <nav id="nav" class="nav">
+    <div class="container nav__container">
+      <div class="nav__brand"><a class="nav__title" href="/">kamioteppei.github.io</a></div>
+      <div id="nav__btn" class="nav__btn"><i class="fa fa-bars"></i></div>
+      <ul id="nav__list" class="nav__list">
+        
+          <li class="nav__item"><a href="/">Home</a></li>
+        
+        
+          
+            <li class="nav__item"><a href="/stack/">Stack</a></li>
+          
+        
+          
+            <li class="nav__item"><a href="/blog/">Blog</a></li>
+          
+        
+          
+            <li class="nav__item"><a href="/links/">Links</a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+<div class="contents page">
+  
+
+    <div class="container container--sm">
+
+      <!--
+      <div class="page__header">
+  <h1 class="page__title">Machine Learning 2</h1>
+  
+  
+    <p class="page__date">September 17, 2018</p>
+  
+</div>
+
+    -->
+
+      <div class="page__body">
+        <p>機械学習の環境を作成する。(GPU使用)</p>
+
+<p>前回セットアップした、PCは、NVIDIAのGPUが使えない。<br />
+CentOSの入っているデスクトップPCにNVIDIAのグラボが入っているので、<br />
+こちらをUbuntu + GPU + Docker + Tensorflowの環境にセットアップする。</p>
+
+<h2 id="バージョン情報">バージョン情報</h2>
+
+<p>インストール後結果確認</p>
+
+<p>Kernel</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ uname -a
+</code></pre></div></div>
+<blockquote>
+  <p>Linux desktopubuntu 4.15.0-34-generic</p>
+</blockquote>
+
+<p>Ubuntu</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat /etc/os-release
+</code></pre></div></div>
+<blockquote>
+  <p>VERSION=”Ubuntu 18.04.01 lts (Bionic Beaver)</p>
+</blockquote>
+
+<p>または</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat /etc/lsb-release
+</code></pre></div></div>
+
+<p>gcc</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gcc --version
+</code></pre></div></div>
+<blockquote>
+  <p>gcc (Ubuntu 7.3.0-16ubuntu3) 7.3.0</p>
+</blockquote>
+
+<p>NVIDIA(GPU)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lspci | grep -t nvidia
+</code></pre></div></div>
+<blockquote>
+  <p>GeForce GTX 960</p>
+</blockquote>
+
+<p>NVIDIA(ドライバ)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat /proc/driver/nvidia/version
+</code></pre></div></div>
+<blockquote>
+  <p>NVIDIA UNIX x86_64 Kernel Module  390.87</p>
+</blockquote>
+
+<p>Docker</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker --version
+</code></pre></div></div>
+<blockquote>
+  <p>Docker version 18.06.1-ce</p>
+</blockquote>
+
+<h2 id="インストール">インストール</h2>
+
+<h3 id="gcc">gcc</h3>
+<p>NVIDIAドライバのインストールに必要。</p>
+
+<h3 id="nvidiaドライバ">NVIDIAドライバ</h3>
+
+<p>デフォルトのドライバのneaveauが競合して、インストールできないので無効にする。<br />
+初めのインストールの失敗時に、設定ファイルを自動で作成してくれているので、<br />
+再起動すればそれでよかったかもしれない。</p>
+
+<p>gccをインストールする。<br />
+32bitがどうだこうだいう警告は無視してインストールする。</p>
+
+<p>GPUの動作確認</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nvidia-smi
+</code></pre></div></div>
+<p>GPUの機種名(GeForce GTX 960)が表示されればOK</p>
+
+<h3 id="dockerコンテナ">Dockerコンテナ</h3>
+
+<p>nvidia-docker2を入れる。そうすれば、ホストに、<br />
+CUDA, CUDA toolkit(, cuDNNも？)をインストールしなくても、<br />
+Dockerに上記をインストール済みのコンテナを使用すれば良い。</p>
+
+      </div><!--page__body-->
+
+      <div class="page__footer">
+        <div class="pager">
+
+  
+
+  
+    <p class="pager__item--prev">
+      <a href="/2018/09/10/Machine-Learning/">Machine Learning</a> &gt;
+    </p>
+  
+
+</div>
+
+      </div><!--page__footer-->
+
+    </div><!--container-->
+
+  
+
+</div><!--page-->
+
+
+
+<footer class="footer">
+  
+  <div class="container container--sm footer__container">
+  
+    <p class="copyright"><small>&copy; 2018 kamioteppei</small></p>
+
+    <div class="social-link">
+      
+        <p class="social-link__item">
+          <a href="https://github.com/kamioteppei"><i class="fa fa-github"></i></a>
+        </p>
+      
+      
+    </div>
+  </div><!--container-->
+</footer>
+
+<script src="/assets/js/jfgp.js"></script>
+</body>
+</html>

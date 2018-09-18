@@ -1,5 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-15T18:47:40+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
-</subtitle><author><name>kamioteppei</name></author><entry><title type="html">Machine Learning</title><link href="http://0.0.0.0:4000/2018/09/10/Machine-Learning/" rel="alternate" type="text/html" title="Machine Learning" /><published>2018-09-10T00:00:00+09:00</published><updated>2018-09-10T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/10/Machine-Learning</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/10/Machine-Learning/">&lt;p&gt;機械学習の環境を作成する。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-17T19:56:49+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
+</subtitle><author><name>kamioteppei</name></author><entry><title type="html">Machine Learning 2</title><link href="http://0.0.0.0:4000/2018/09/17/Machine-Learning-2/" rel="alternate" type="text/html" title="Machine Learning 2" /><published>2018-09-17T00:00:00+09:00</published><updated>2018-09-17T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/17/Machine-Learning-2</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/17/Machine-Learning-2/">&lt;p&gt;機械学習の環境を作成する。(GPU使用)&lt;/p&gt;
+
+&lt;p&gt;前回セットアップした、PCは、NVIDIAのGPUが使えない。&lt;br /&gt;
+CentOSの入っているデスクトップPCにNVIDIAのグラボが入っているので、&lt;br /&gt;
+こちらをUbuntu + GPU + Docker + Tensorflowの環境にセットアップする。&lt;/p&gt;
+
+&lt;h2 id=&quot;バージョン情報&quot;&gt;バージョン情報&lt;/h2&gt;
+
+&lt;p&gt;インストール後結果確認&lt;/p&gt;
+
+&lt;p&gt;Kernel&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ uname -a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Linux desktopubuntu 4.15.0-34-generic&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ubuntu&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat /etc/os-release
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;VERSION=”Ubuntu 18.04.01 lts (Bionic Beaver)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;または&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat /etc/lsb-release
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;gcc&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gcc --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;gcc (Ubuntu 7.3.0-16ubuntu3) 7.3.0&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;NVIDIA(GPU)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ lspci | grep -t nvidia
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;GeForce GTX 960&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;NVIDIA(ドライバ)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ cat /proc/driver/nvidia/version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;NVIDIA UNIX x86_64 Kernel Module  390.87&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Docker&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Docker version 18.06.1-ce&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;インストール&quot;&gt;インストール&lt;/h2&gt;
+
+&lt;h3 id=&quot;gcc&quot;&gt;gcc&lt;/h3&gt;
+&lt;p&gt;NVIDIAドライバのインストールに必要。&lt;/p&gt;
+
+&lt;h3 id=&quot;nvidiaドライバ&quot;&gt;NVIDIAドライバ&lt;/h3&gt;
+
+&lt;p&gt;デフォルトのドライバのneaveauが競合して、インストールできないので無効にする。&lt;br /&gt;
+初めのインストールの失敗時に、設定ファイルを自動で作成してくれているので、&lt;br /&gt;
+再起動すればそれでよかったかもしれない。&lt;/p&gt;
+
+&lt;p&gt;gccをインストールする。&lt;br /&gt;
+32bitがどうだこうだいう警告は無視してインストールする。&lt;/p&gt;
+
+&lt;p&gt;GPUの動作確認&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nvidia-smi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;GPUの機種名(GeForce GTX 960)が表示されればOK&lt;/p&gt;
+
+&lt;h3 id=&quot;dockerコンテナ&quot;&gt;Dockerコンテナ&lt;/h3&gt;
+
+&lt;p&gt;nvidia-docker2を入れる。そうすれば、ホストに、&lt;br /&gt;
+CUDA, CUDA toolkit(, cuDNNも？)をインストールしなくても、&lt;br /&gt;
+Dockerに上記をインストール済みのコンテナを使用すれば良い。&lt;/p&gt;</content><author><name>kamioteppei</name></author><summary type="html">機械学習の環境を作成する。(GPU使用)</summary></entry><entry><title type="html">Machine Learning</title><link href="http://0.0.0.0:4000/2018/09/10/Machine-Learning/" rel="alternate" type="text/html" title="Machine Learning" /><published>2018-09-10T00:00:00+09:00</published><updated>2018-09-10T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/10/Machine-Learning</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/10/Machine-Learning/">&lt;p&gt;機械学習の環境を作成する。&lt;/p&gt;
 
 &lt;p&gt;DockerやTensorFlowを入れるのにUbuntuが必要らしい。&lt;br /&gt;
 Macの方には、Vagrant等で色々使っているので、&lt;br /&gt;

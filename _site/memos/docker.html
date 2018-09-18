@@ -72,7 +72,7 @@
   <h1 class="page__title">Docker</h1>
   
   
-    <p class="page__date">September 15, 2018</p>
+    <p class="page__date">September 17, 2018</p>
   
 </div>
 
@@ -113,7 +113,7 @@
           </li>
         
           <li class="">
-            <div class=""><a href="/memos/ci">CI</a></div>
+            <div class=""><a href="/memos/ci">CI/CD</a></div>
           </li>
         
           <li class="">
@@ -142,6 +142,10 @@
         
           <li class="">
             <div class=""><a href="/memos/ssh">SSH</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/ubuntu">Ubuntu</a></div>
           </li>
         
           <li class="">
@@ -233,6 +237,20 @@
 Docker CE for Ubuntuをインストールする。</p>
 
 <p>リポジトリからインストールする手順を実行する。</p>
+
+<h2 id="初期設定">初期設定</h2>
+
+<p>sudo無しでdockerコマンド使えるようにユーザをグループに追加。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gpasswd -a $USER docker
+sudo service docker restart
+</code></pre></div></div>
+<p><a href="https://qiita.com/t2kmt/items/b3be56d4df5f80c555af#2-dockerインストール">参照</a></p>
+
+<h2 id="docker-compse">docker-compse</h2>
+
+<p>以下を参照
+<a href="https://qiita.com/y_hokkey/items/d51e69c6ff4015e85fce">docker-composeを使うと複数コンテナの管理が便利に</a></p>
 
 
           </div>

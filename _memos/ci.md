@@ -1,13 +1,13 @@
 ---
 layout: static
-title: CI
+title: CI/CD
 template: 3-columns
-name: CI
+name: CI/CD
 category: Environment
 ---
 
-# CI(Continuous Integration)
-継続的インテグレーション支援ツール
+# CI/CD(Continuous Integration/Continuous Deployment)
+継続的インテグレーション/デプロイツール
 
 ## 基本
 

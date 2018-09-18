@@ -30,8 +30,12 @@ category: Machine Learning
 9  
 ]  
 
-### metrics(行列)
+### matrix,matrices(行列)
 2次元
+
+`metrics`という単語が、ディープラーニングのモデルのパラメータに、  
+出てくるが、 **評価基準** という意味で別物。
+
 
 ### tensor(テンソル)
 行列の行列
@@ -79,6 +83,9 @@ category: Machine Learning
 
 - Weight -> inputに対する調整値
 - bias -> 次の中間層に対する調整値
+
+TensorFlow公式の[ニューラルネットワークのデモ](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.60237&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)を見るとなんとなくイメージがわく。
+
 
 ## サービスの構成
 
