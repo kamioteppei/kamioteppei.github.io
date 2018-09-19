@@ -17,6 +17,14 @@ category: Environment
 - Macの.dmgは、Windowsの.isoファイル  
 (DiskImageMounter.appに関連づけられる)
 
+## repository
+
+### Ruby
+[ruby-toolbox](https://www.ruby-toolbox.com)
+
+### Python
+[pypi](https://pypi.org)
+
 ## Package Manager
 
 ### apt
