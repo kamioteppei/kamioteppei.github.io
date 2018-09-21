@@ -90,6 +90,7 @@ Node.js, Ruby, Pythonなどでは、自分のバージョンを切り替える�
 - Node.js -> ndenv
 - Ruby -> rbenv
 - Python -> pyenv
+  python3.3からvenvという標準機能があり推奨される。
 
 それぞれのx-envでやってることは、`~/.bash_profile`に、  
 指定したバージョンのパスを動的に読み込む記述を書き込む
