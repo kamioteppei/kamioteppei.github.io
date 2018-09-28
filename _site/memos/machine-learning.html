@@ -72,7 +72,7 @@
   <h1 class="page__title">Machine Learning</h1>
   
   
-    <p class="page__date">September 21, 2018</p>
+    <p class="page__date">September 28, 2018</p>
   
 </div>
 
@@ -231,6 +231,183 @@
           <div class="col-8 main toc-src order-first">
             <h1 id="機械学習">機械学習</h1>
 
+<h2 id="サービスの構成">サービスの構成</h2>
+
+<p>以下を参照</p>
+
+<p><a href="https://employment.en-japan.com/engineerhub/entry/2017/11/30/110000">［37選］機械学習ライブラリやフレームワークは？ 国内AI活用サービスのアーキテクチャを大調査！</a></p>
+
+<h2 id="機械学習の学習方法の分類">機械学習の学習方法の分類</h2>
+<ul>
+  <li>教師あり学習</li>
+  <li>教師なし学習</li>
+  <li>強化学習</li>
+</ul>
+
+<h2 id="機械学習の問題解決方法の分類problem-type">機械学習の問題解決方法の分類(Problem type)</h2>
+<ul>
+  <li>回帰(Regression)<br />
+データの集合を関数で抽象化(微分)して、時系列データを予測する。<br />
+関数と集合の誤差が最小になるようにする。</li>
+  <li>クラス分類(Classification)
+    <ul>
+      <li>パターン認識<br />
+データのクラスごとの集合を分ける境界線を引く。<br />
+境界線とクラスごとの集合までのマージンが最大になるようにする。</li>
+      <li>文字認識<br />
+データの集合を関数で抽象化して、時系列データを予測する。</li>
+    </ul>
+  </li>
+  <li>グループ分け、クラスタリング(Clustering)</li>
+  <li>推薦(Recommendation)</li>
+</ul>
+
+<h2 id="モデル">モデル</h2>
+
+<h3 id="svmsupport-vector-machine">SVM(Support Vector Machine)</h3>
+<p>データを分ける境界線を引く。<br />
+境界線とデータまでのマージンが最大になるようにする。</p>
+
+<h3 id="random-forest-randomized-trees">Random Forest, Randomized Trees</h3>
+<p>学習用データから多数の決定木を作成し、作成した決定木を元に、<br />
+多数決で結果を決める。</p>
+
+<h3 id="neural-network">Neural Network</h3>
+<p>生物の脳の神経細胞をモデルとしたアルゴリズム。<br />
+以下の層を持つ。</p>
+<ul>
+  <li>S層(感覚層、入力層)</li>
+  <li>A層(連合層、中間層、隠れ層)</li>
+  <li>R層(反応層、出力層)</li>
+</ul>
+
+<p>隠れ層が多いモデルを、Deep Learningと呼ぶ。<br />
+以前は隠れ層は2,3層だったが、最近は数十層に及ぶ。</p>
+
+<p>入力層と出力層のみの2層からなる、単純パーセプトロン (Simple perceptron) は線形非分離な問題を解けなかった。<br />
+パーセプトロンを多層にし、バックプロパゲーション（誤差逆伝播学習法）で学習させることで、線型分離不可能な問題が解けるように、
+単純パーセプトロンの限界を克服した。</p>
+
+<h2 id="deep-learning">Deep Learning</h2>
+<p>多層構造のニューラルネットワークを用いた機械学習のこと。
+結果から、重みを自分で調節できることが一番重要だと思う。</p>
+
+<ul>
+  <li>Weight -&gt; inputに対する調整値</li>
+  <li>bias -&gt; 次の中間層に対する調整値</li>
+</ul>
+
+<p>TensorFlow公式の<a href="http://playground.tensorflow.org/#activation=tanh&amp;batchSize=10&amp;dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;regularizationRate=0&amp;noise=0&amp;networkShape=1&amp;seed=0.60237&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">ニューラルネットワークのデモ</a>を見るとなんとなくイメージがわく。</p>
+
+<h3 id="cnnconvolution-neural-network">CNN(Convolution Neural Network)</h3>
+<p>画像認識に用いられるニューラルネットワークモデル。<br />
+隠れ層を「畳み込み層」と「プーリング層」で構成する。</p>
+
+<h3 id="rnnrecurrent-neural-network">RNN(Recurrent Neural Network)</h3>
+<p>隠れ層に戻り値があるニューラルネットワークモデル。<br />
+音声の波形、動画、文章などの時系列データを扱う。</p>
+
+<h2 id="flamework">Flamework</h2>
+
+<h3 id="scikit-learn">scikit-learn</h3>
+<p>以下のSVMを提供するパッケージ</p>
+<ul>
+  <li>SVC(処理速度より正確性をとる場合)</li>
+  <li>LinearSVC(正確性より処理速度をとる場合)</li>
+</ul>
+
+<h3 id="tensorflow">TensorFlow</h3>
+<p>Google社製<br />
+deeplearningできる。</p>
+
+<h3 id="pytorch">PyTorch</h3>
+<p>Facebook社製<br />
+deeplearningできる。</p>
+
+<h2 id="モデルの部品">モデルの部品</h2>
+
+<h3 id="活性化関数activation">活性化関数(Activation)</h3>
+<ul>
+  <li>Step(Formal neuron(形式ニューロン), Threshold Logic Unit )
+    <ul>
+      <li>ヘヴィサイドの階段関数を使い、入出力の値は 0 または 1 の二値だけをとる。</li>
+      <li>入力値の合計が閾値を超えた場合、1を返し、閾値未満の場合は、0を返す。それ以外は0.5を返す。</li>
+      <li>ヘヴィサイドの階段関数 -&gt; <code class="highlighter-rouge">function H(x) = if x&lt;0 then 0 else if x&gt;0 then 1 else 1/2 </code></li>
+      <li>AND回路 -&gt; <code class="highlighter-rouge">function AND(x1,x2) = H(x1 + x2 - 1.5) </code></li>
+      <li>OR回路 -&gt; <code class="highlighter-rouge">function OR(x1,x2) = H(x1 + x2 - 0.5) </code></li>
+      <li>NOT回路 -&gt; <code class="highlighter-rouge">function NOT(x) = H(-x + 0.5) </code></li>
+      <li>XOR回路 -&gt; <code class="highlighter-rouge">function XOR(x1,x2) = H(x1 + x2 -2H(x1 + x2 -1.5) - 0.5) </code></li>
+    </ul>
+  </li>
+  <li>Sigmoid
+    <ul>
+      <li>入力値を、0から1の値に収束する。</li>
+      <li>ネイピア数 -&gt; <code class="highlighter-rouge">constant e = 2.71828182845904...</code></li>
+      <li>Sigmoid関数 -&gt; <code class="highlighter-rouge">function Sigmoid(x) = 1 / (1 + e^-x )</code></li>
+    </ul>
+  </li>
+  <li>tanh(Sigmoid関数を線形変換したもの)</li>
+  <li>ReLU (Rectified Linear Unit,正規化線形関数) (推奨)<br />
+<code class="highlighter-rouge">function ReLU(x) = max(0,x)</code>-&gt; <code class="highlighter-rouge">if x&lt;=0 then return 0 else return x</code></li>
+  <li>Linear</li>
+  <li>Softmax
+    <ul>
+      <li>入力値を、0から1の値に収束する。</li>
+      <li>ディープラーニングの出力層で使用される。</li>
+      <li>イメージ図<a href="https://qiita.com/rtok/items/b1affc619d826eea61fd">参照</a>
+        <blockquote>
+          <p>「softmax関数は多くの次元からなる入力のうち、自分の値が他の値たちに比べて一番目立っているならば、その値が1
+に近づく関数である」といえます。</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="正則化regularization">正則化(Regularization)</h3>
+<p>正則化はモデルのパラメータの学習に使われ、特に過学習を防ぎ、汎化能力を高めるために使われる。</p>
+
+<ul>
+  <li>L1正則化(LASSO)</li>
+  <li>L2正則化(Ridge)</li>
+  <li>Elastic Net Regression</li>
+</ul>
+
+<p><a href="https://rindalog.blogspot.com/2017/07/regularizationridgelasso-elastic-net.html">参照</a></p>
+<blockquote>
+  <p>相関関係にある独立変数がデータセットにあるとする。Elastic Net は相関関係にある変数のグループを作る。グループの変数の一つが強い予測子（依存変数と強い相関関係にある）の場合、グループの変数をモデルに含める。（Lasso のように）他の変数を除くのは、データの理解に必要な情報の欠落で、モデル性能を落とすことに繋がりかねない。</p>
+</blockquote>
+
+<h3 id="計算グラフによる誤差逆伝播法">計算グラフによる誤差逆伝播法</h3>
+<ul>
+  <li>ニューラルネットの重みなどのパラメータ決定を勾配法で行う。</li>
+  <li>勾配法の計算の際に損失関数の微分を行う。</li>
+  <li>誤差逆伝播法は計算グラフを用いた自動微分を使用している。</li>
+  <li>
+    <p>誤差逆伝播法を用いると計算が順伝播に比べて、高速にできる。</p>
+  </li>
+  <li>計算グラフ = Computational graph</li>
+  <li>誤差逆伝播法 = Back propagation</li>
+  <li>自動微分 = Automatic differentiation</li>
+</ul>
+
+<p><a href="http://yusuke-ujitoko.hatenablog.com/entry/2016/12/31/230118">参照</a></p>
+
+<ul>
+  <li>偏微分 <br />
+複数の変数による関数があるとして、その中の1つの変数のみに関する微分のこと</li>
+</ul>
+
+<h2 id="検証validation">検証(Validation)</h2>
+
+<h3 id="クロスバリデーション">クロスバリデーション</h3>
+<p>学習データのサンプリングの偏りによる、<br />
+過学習を防ぐために、学習データとテストデータを、 <br />
+ローテーションして学習する手法。</p>
+
+<h3 id="グリッドサーチ">グリッドサーチ</h3>
+<p>モデルに渡すパラメータを自動で、色々試す手法。</p>
+
 <h2 id="tensorテンソル">Tensor(テンソル)</h2>
 <p>以下全て、tensorの1種</p>
 
@@ -267,69 +444,6 @@
 
 <h3 id="tensorテンソル-1">tensor(テンソル)</h3>
 <p>行列の行列</p>
-
-<h2 id="機械学習の分類">機械学習の分類</h2>
-<ul>
-  <li>教師あり学習</li>
-  <li>教師なし学習</li>
-  <li>強化学習</li>
-</ul>
-
-<h2 id="機械学習の応用分野">機械学習の応用分野</h2>
-<ul>
-  <li>クラス分類(Classification)
-    <ul>
-      <li>文字認識</li>
-    </ul>
-  </li>
-  <li>グループ分け、クラスタリング(Clustering)</li>
-  <li>推薦(Recommendation)</li>
-  <li>回帰(Regression)</li>
-</ul>
-
-<h2 id="モデル">モデル</h2>
-
-<h3 id="svmsupport-vector-machine">SVM(Support Vector Machine)</h3>
-<p>データを分ける境界線を引く。<br />
-境界線とデータまでのマージンが最大になるようにする。</p>
-
-<h3 id="scikit-learn">scikit-learn</h3>
-<p>以下のSVMを提供するパッケージ</p>
-<ul>
-  <li>SVC(処理速度より正確性をとる場合)</li>
-  <li>LinearSVC(正確性より処理速度をとる場合)</li>
-</ul>
-
-<h3 id="random-forest-randomized-trees">Random Forest, Randomized Trees</h3>
-<p>学習用データから多数の決定木を作成し、作成した決定木を元に、<br />
-多数決で結果を決める。</p>
-
-<h2 id="検証">検証</h2>
-
-<h3 id="クロスバリデーション">クロスバリデーション</h3>
-<p>学習データのサンプリングの偏りによる、<br />
-過学習を防ぐために、学習データとテストデータを、 <br />
-ローテーションして学習する手法。</p>
-
-<h3 id="グリッドサーチ">グリッドサーチ</h3>
-<p>モデルに渡すパラメータを自動で、色々試す手法。</p>
-
-<h2 id="deep-learning">Deep Learning</h2>
-<p>多層構造のニューラルネットワークを用いた機械学習のこと。
-結果から、重みを自分で調節できることが一番重要だと思う。</p>
-
-<ul>
-  <li>Weight -&gt; inputに対する調整値</li>
-  <li>bias -&gt; 次の中間層に対する調整値</li>
-</ul>
-
-<p>TensorFlow公式の<a href="http://playground.tensorflow.org/#activation=tanh&amp;batchSize=10&amp;dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;regularizationRate=0&amp;noise=0&amp;networkShape=1&amp;seed=0.60237&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">ニューラルネットワークのデモ</a>を見るとなんとなくイメージがわく。</p>
-
-<h2 id="サービスの構成">サービスの構成</h2>
-
-<p>以下を参照</p>
-
-<p><a href="https://employment.en-japan.com/engineerhub/entry/2017/11/30/110000">［37選］機械学習ライブラリやフレームワークは？ 国内AI活用サービスのアーキテクチャを大調査！</a></p>
 
 
           </div>

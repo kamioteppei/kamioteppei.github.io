@@ -23,3 +23,13 @@ vimを最新化すればOK
 ```
 $ sudo apt-get install vim
 ```
+
+## メモリが不足した。
+メモリの増設可能な最大容量を調べる。
+```
+$ sudo dmidecode -t 16
+```
+- Maximum Capacity: 16 GB
+- Number Of Devices: 2
+
+8GBのメモリを2枚まで増設可能

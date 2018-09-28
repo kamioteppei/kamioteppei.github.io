@@ -48,13 +48,16 @@ Dockerイメージの操作
   - docker run -> DockerイメージからDockerコンテナを起動する。
   - docker ps  ->　タスクが起動中のDockerコンテナのリストを表示する。
   - docker ps -a  -> 全てのDockerコンテナのリストを表示する。
+  - docker stats  -> 起動中のDockerコンテナのcpuやメモリの使用状況を表示する。
   - docker exec  -> 指定したDockerコンテナでコマンドを実行する。
   `docker excec -it コンテナID先頭3桁 bash`で、シェル操作できる。
   - docker attach  -> Dockerコンテナに起動しているPID=1のプロセスの標準入力(STDIN)と、標準出力(STDOUT)に接続する。
   - docker stop  -> 指定したDockerコンテナを停止する。
   - docker kill  -> 指定したDockerコンテナを強制終了する。
   - docker start  -> 指定したDockerコンテナを起動する。
+  `-a`で、コンテナの起動と同時に、初期プロセスにattachする。
   - docker restart  -> 指定したDockerコンテナを再起動する。
+  - docker rm  -> 指定したDockerコンテナを削除する。
 
 - docker commit -> DockerコンテナをDockerイメージに変換する。
 - docker build -> DockerfileからDockerイメージを作成する。

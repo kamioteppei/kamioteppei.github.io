@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-21T19:50:34+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2018-09-28T11:19:11+09:00</updated><id>http://0.0.0.0:4000/</id><title type="html">kamioteppei.github.io</title><subtitle>kamioteppeiの学習備忘録です｡
 </subtitle><author><name>kamioteppei</name></author><entry><title type="html">Machine Learning 2</title><link href="http://0.0.0.0:4000/2018/09/17/Machine-Learning-2/" rel="alternate" type="text/html" title="Machine Learning 2" /><published>2018-09-17T00:00:00+09:00</published><updated>2018-09-17T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/17/Machine-Learning-2</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/17/Machine-Learning-2/">&lt;p&gt;機械学習の環境を作成する。(GPU使用)&lt;/p&gt;
 
 &lt;p&gt;前回セットアップした、PCは、NVIDIAのGPUが使えない。&lt;br /&gt;
@@ -62,7 +62,7 @@ CentOSの入っているデスクトップPCにNVIDIAのグラボが入ってい
 
 &lt;h3 id=&quot;nvidiaドライバ&quot;&gt;NVIDIAドライバ&lt;/h3&gt;
 
-&lt;p&gt;デフォルトのドライバのneaveauが競合して、インストールできないので無効にする。&lt;br /&gt;
+&lt;p&gt;デフォルトのドライバのnouveauが競合して、インストールできないので無効にする。&lt;br /&gt;
 初めのインストールの失敗時に、設定ファイルを自動で作成してくれているので、&lt;br /&gt;
 再起動すればそれでよかったかもしれない。&lt;/p&gt;
 
@@ -78,7 +78,13 @@ CentOSの入っているデスクトップPCにNVIDIAのグラボが入ってい
 
 &lt;p&gt;nvidia-docker2を入れる。そうすれば、ホストに、&lt;br /&gt;
 CUDA, CUDA toolkit(, cuDNNも？)をインストールしなくても、&lt;br /&gt;
-Dockerに上記をインストール済みのコンテナを使用すれば良い。&lt;/p&gt;</content><author><name>kamioteppei</name></author><summary type="html">機械学習の環境を作成する。(GPU使用)</summary></entry><entry><title type="html">Machine Learning</title><link href="http://0.0.0.0:4000/2018/09/10/Machine-Learning/" rel="alternate" type="text/html" title="Machine Learning" /><published>2018-09-10T00:00:00+09:00</published><updated>2018-09-10T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/10/Machine-Learning</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/10/Machine-Learning/">&lt;p&gt;機械学習の環境を作成する。&lt;/p&gt;
+Dockerに上記をインストール済みのコンテナを使用すれば良い。&lt;/p&gt;
+
+&lt;h2 id=&quot;何をやってもどこかが合わない&quot;&gt;何をやってもどこかが合わない&lt;/h2&gt;
+
+&lt;h2 id=&quot;結局こうした&quot;&gt;結局こうした&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/local_environment_for_deep_learning.png&quot; alt=&quot;local_environment_for_deep_learning.png&quot; /&gt;&lt;/p&gt;</content><author><name>kamioteppei</name></author><summary type="html">機械学習の環境を作成する。(GPU使用)</summary></entry><entry><title type="html">Machine Learning</title><link href="http://0.0.0.0:4000/2018/09/10/Machine-Learning/" rel="alternate" type="text/html" title="Machine Learning" /><published>2018-09-10T00:00:00+09:00</published><updated>2018-09-10T00:00:00+09:00</updated><id>http://0.0.0.0:4000/2018/09/10/Machine-Learning</id><content type="html" xml:base="http://0.0.0.0:4000/2018/09/10/Machine-Learning/">&lt;p&gt;機械学習の環境を作成する。&lt;/p&gt;
 
 &lt;p&gt;DockerやTensorFlowを入れるのにUbuntuが必要らしい。&lt;br /&gt;
 Macの方には、Vagrant等で色々使っているので、&lt;br /&gt;

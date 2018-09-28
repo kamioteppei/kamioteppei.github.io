@@ -61,7 +61,7 @@ NVIDIAドライバのインストールに必要。
 
 ### NVIDIAドライバ
 
-デフォルトのドライバのneaveauが競合して、インストールできないので無効にする。  
+デフォルトのドライバのnouveauが競合して、インストールできないので無効にする。  
 初めのインストールの失敗時に、設定ファイルを自動で作成してくれているので、  
 再起動すればそれでよかったかもしれない。
 
@@ -79,3 +79,9 @@ GPUの機種名(GeForce GTX 960)が表示されればOK
 nvidia-docker2を入れる。そうすれば、ホストに、  
 CUDA, CUDA toolkit(, cuDNNも？)をインストールしなくても、  
 Dockerに上記をインストール済みのコンテナを使用すれば良い。
+
+## 何をやってもどこかが合わない
+
+## 結局こうした
+
+![local_environment_for_deep_learning.png](/assets/images/local_environment_for_deep_learning.png)

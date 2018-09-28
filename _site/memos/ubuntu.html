@@ -72,7 +72,7 @@
   <h1 class="page__title">Ubuntu</h1>
   
   
-    <p class="page__date">September 21, 2018</p>
+    <p class="page__date">September 28, 2018</p>
   
 </div>
 
@@ -247,6 +247,17 @@
 <p>vimを最新化すればOK</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install vim
 </code></pre></div></div>
+
+<h2 id="メモリが不足した">メモリが不足した。</h2>
+<p>メモリの増設可能な最大容量を調べる。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dmidecode -t 16
+</code></pre></div></div>
+<ul>
+  <li>Maximum Capacity: 16 GB</li>
+  <li>Number Of Devices: 2</li>
+</ul>
+
+<p>8GBのメモリを2枚まで増設可能</p>
 
 
           </div>

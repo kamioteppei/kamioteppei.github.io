@@ -57,6 +57,11 @@ Rubyのパッケージマネージャー
 
 ### pip
 Pythonのパッケージマネージャー
+仮想環境が作成できる。
+
+### anaconda/miniconda
+Pythonのパッケージマネージャー
+仮想環境が作成できる。
 
 ### pear,pecl
 PHPのパッケージマネージャー
