@@ -72,7 +72,7 @@
   <h1 class="page__title">Rails</h1>
   
   
-    <p class="page__date">September 28, 2018</p>
+    <p class="page__date">October 02, 2018</p>
   
 </div>
 
@@ -231,52 +231,70 @@
           <div class="col-8 main toc-src order-first">
             <h1 id="ruby-on-rails">Ruby on Rails</h1>
 
-<p>このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。 その後、次のコマンドで必要になる Ruby Gems をインストールします。
-$ bundle install –without production</p>
+<h2 id="rails-tutorial">Rails Tutorial</h2>
 
-<p>その後、データベースへのマイグレーションを実行します。
-$ rails db:migrate</p>
+<p>Githubからチュートリアルのプロジェクトをダウンロードして、起動する</p>
 
-<p>最後に、テストを実行してうまく動いているかどうか確認してください。
-$ rails test</p>
+<p>Githubからcloneする。</p>
+
+<p>Ruby Gems をインストールする。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install --without production
+</code></pre></div></div>
+
+<p>データベースへのマイグレーションを実行する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails db:migrate
+</code></pre></div></div>
+
+<p>テストを実行して動作確認する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails test
+</code></pre></div></div>
 
 <p>テストでエラーになった場合、
 テスト環境向けのマイグレーションが
-できていないので、やり直す</p>
+できていないので、やり直す。</p>
 
-<p>$ rails db:migrate:reset
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails db:migrate:reset
 $ rails db:migrate RAILS_ENV=test
-$ rails test</p>
+$ rails test
+</code></pre></div></div>
 
-<p>テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-$ rails server</p>
+<p>テストが無事に通ったら、Railsサーバーを立ち上げる。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails server
+</code></pre></div></div>
 
-<p>Vagrantを使用している環境で、アクセスできない場合は こちらです。
-$ rails server -b 0.0.0.0</p>
+<p>Vagrantを使用している環境で、アクセスできない場合は こちら。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails server -b 0.0.0.0
+</code></pre></div></div>
 
-<p>http://192.168.33.10:3000/　にアクセスします。</p>
+<p>http://192.168.33.10:3000/　にアクセスする。</p>
 
-<p>Railsサーバーをターミナルで、
-操作する場合は、
-$ rails console</p>
+<h3 id="rails-console">rails console</h3>
 
-<p>railsコンソールを終了するには
-$ ctrl+d
-または
-$ exit</p>
+<p>Railsサーバーをターミナルで操作する場合は、</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails console
+</code></pre></div></div>
 
-<p>RailsサーバーのDBをターミナルで、
-操作する場合は、
-$ rails db</p>
+<p>railsコンソールを終了するには</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ctrl+d
+</code></pre></div></div>
+<p>または</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ exit
+</code></pre></div></div>
 
-<p>db接続を終了するには
-$ ctrl+d</p>
+<h3 id="rails-db">rails db</h3>
 
-<p>デバッグ</p>
+<p>RailsサーバーのDBをターミナルで操作する場合は、</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails db
+</code></pre></div></div>
 
-<p>デバッグする場合は、
-ブレイクポイントに下記の１行を追加
-debugger</p>
+<p>db接続を終了するには</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ (ctrl+d)
+</code></pre></div></div>
+
+<h3 id="デバッグ">デバッグ</h3>
+
+<p>デバッグする場合は、ブレイクポイントに下記の１行を追加<br />
+<code class="highlighter-rouge">debugger</code></p>
 
 <p>そうするとブレイクポイントを
 通った時に、コンソールが
@@ -287,42 +305,48 @@ debugger</p>
 ブレイクポイントの記述を
 コメントアウトしないと
 ずっとデバッグモードになっていると
-思われるので、コメントアウトする
-#debugger</p>
+思われるので、コメントアウトする<br />
+<code class="highlighter-rouge">#debugger</code></p>
 
-<p>gemの変更</p>
+<h3 id="gemの変更">gemの変更</h3>
 
-<p>Gemfileを修正する
-$ bundle install</p>
+<p>Gemfileを修正する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+</code></pre></div></div>
 
-<p>スキーマ変更</p>
+<h3 id="スキーマ変更">スキーマ変更</h3>
 
 <p>schema.rbはマイグレーションの結果であって、
 このファイルを直接修正しても意味はない</p>
 
-<p>マイグレーションファイルを作成する
-$ rails generate migration add_column_to_microposts</p>
+<p>マイグレーションファイルを作成する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails generate migration add_column_to_microposts
+</code></pre></div></div>
 
-<p>マイグレーションファイルを修正する
-def change
+<p>マイグレーションファイルを修正する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def change
    add_column :microposts, :ancestry, :string, index: true
-end</p>
+end
+</code></pre></div></div>
 
-<p>マイグレーションを実行する
-$ rails db:migrate</p>
+<p>マイグレーションを実行する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails db:migrate
+</code></pre></div></div>
 
 <p>schema.rbの内容を確認する</p>
 
-<p>コントローラーを変更する
-$ rails generate controller NAME [action action] [options]
+<h3 id="コントローラーを変更する">コントローラーを変更する</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails generate controller NAME [action action] [options]
 $ rails generate controller AdminUsers index show
-既に存在するファイルは対話モードで、上書きするか聞かれるので
+</code></pre></div></div>
+<p>既に存在するファイルは対話モードで、上書きするか聞かれるので
 スキップ等を選ぶ
 ルート、ビュー、コントローラー、テスト等のファイルが作成される</p>
 
-<p>モデルを変更する
-$ rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
-$ rails generate model AdminUser name:string mail:string</p>
+<h3 id="モデルを変更する">モデルを変更する</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
+$ rails generate model AdminUser name:string mail:string
+</code></pre></div></div>
 
 
           </div>

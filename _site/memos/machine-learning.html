@@ -72,7 +72,7 @@
   <h1 class="page__title">Machine Learning</h1>
   
   
-    <p class="page__date">September 28, 2018</p>
+    <p class="page__date">October 02, 2018</p>
   
 </div>
 
@@ -258,11 +258,36 @@
 データの集合を関数で抽象化して、時系列データを予測する。</li>
     </ul>
   </li>
-  <li>グループ分け、クラスタリング(Clustering)</li>
+  <li>グループ分け、クラスタリング(Clustering)<br />
+ ラベルのないデータを、何らかの特徴で分類する。</li>
   <li>推薦(Recommendation)</li>
 </ul>
 
 <h2 id="モデル">モデル</h2>
+
+<h3 id="線形回帰">線形回帰</h3>
+<p>直線の式を求める。式に含む係数を割り出す。</p>
+
+<h3 id="非線形回帰">非線形回帰</h3>
+<p>直線ではない式を求める。</p>
+
+<h3 id="回帰">回帰</h3>
+<ul>
+  <li>単回帰 -&gt; 変数が１つ、微分する。</li>
+  <li>重回帰 -&gt; 変数が２つ以上、偏微分する。</li>
+  <li>多項式回帰 -&gt; 1つの変数で、次数が複数ある。</li>
+</ul>
+
+<h3 id="ロジスティック回帰">ロジスティック回帰</h3>
+<p>データを確率的に分類する。</p>
+<ul>
+  <li>2値分類 -&gt; dog or cat</li>
+  <li>多値分類 -&gt; mnist 0~9の画像を分類</li>
+</ul>
+
+<h3 id="k近傍法">k近傍法</h3>
+<p>k=3とした場合、任意のテストデータに最も近いk個の教師データのラベルを抽出し、<br />
+そのラベルの多数決や平均から、ラベルを判定する。</p>
 
 <h3 id="svmsupport-vector-machine">SVM(Support Vector Machine)</h3>
 <p>データを分ける境界線を引く。<br />
@@ -306,6 +331,11 @@
 <h3 id="rnnrecurrent-neural-network">RNN(Recurrent Neural Network)</h3>
 <p>隠れ層に戻り値があるニューラルネットワークモデル。<br />
 音声の波形、動画、文章などの時系列データを扱う。</p>
+
+<ul>
+  <li>Embedding層というトークン(単語)をベクトル化した層</li>
+  <li>LSTM(Long Short Term Memory)という隠れ層を使用する。</li>
+</ul>
 
 <h2 id="flamework">Flamework</h2>
 
@@ -368,8 +398,10 @@ deeplearningできる。</p>
 <p>正則化はモデルのパラメータの学習に使われ、特に過学習を防ぎ、汎化能力を高めるために使われる。</p>
 
 <ul>
-  <li>L1正則化(LASSO)</li>
-  <li>L2正則化(Ridge)</li>
+  <li>L1正則化(LASSO) <br />
+L1ノルム(記号：||x||1)・・・ベクトルの各要素の絶対値を合計したもの</li>
+  <li>L2正則化(Ridge) <br />
+L2ノルム(記号：||x||2)・・・ベクトルの各要素を２乗を合計したものの平方根</li>
   <li>Elastic Net Regression</li>
 </ul>
 
@@ -397,6 +429,11 @@ deeplearningできる。</p>
   <li>偏微分 <br />
 複数の変数による関数があるとして、その中の1つの変数のみに関する微分のこと</li>
 </ul>
+
+<h3 id="dropout">Dropout</h3>
+<p>全ての訓練データを使用すると、過学習する(局所解に捕まる)場合があるので、<br />
+パラメータで指定した割合のデータをランダムでカットする。
+確率的勾配降下法(Stochastic Gradient Descent, SGD)の実装と思われる。</p>
 
 <h2 id="検証validation">検証(Validation)</h2>
 
