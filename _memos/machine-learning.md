@@ -178,7 +178,7 @@ deeplearningできる。
 確率的勾配降下法(Stochastic Gradient Descent, SGD)の実装は、Dropoutのことか、  
 それとも、ミニバッチ方式のこのなのか、要調査。
 
-### 損失関数
+### 損失関数/誤差関数
 - 二乗誤差
 - 交差エントロピー誤差
 
@@ -200,6 +200,10 @@ deeplearningできる。
       \ln x
     $$
 
+- 指数関数
+  $$
+    e^x = \exp x  
+  $$
 
 ## 検証(Validation)
 
