@@ -14,6 +14,15 @@
   <link rel="canonical" href="http://0.0.0.0:4000/memos/machine-learning">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      displayAlign: "left",
+      displayIndent: "2em"
+    });
+  </script>
 </head>
 <body>
 
@@ -72,7 +81,7 @@
   <h1 class="page__title">Machine Learning</h1>
   
   
-    <p class="page__date">October 02, 2018</p>
+    <p class="page__date">October 04, 2018</p>
   
 </div>
 
@@ -301,9 +310,11 @@
 <p>生物の脳の神経細胞をモデルとしたアルゴリズム。<br />
 以下の層を持つ。</p>
 <ul>
-  <li>S層(感覚層、入力層)</li>
+  <li>S層(感覚層、入力層) <br />
+画像を入力する場合、画像が28x28ビクセルなら、積の784個のニューロンを作成する。(入力値xは0~1で、手書きで薄いピクセルは0.5とかがあり得る。)</li>
   <li>A層(連合層、中間層、隠れ層)</li>
-  <li>R層(反応層、出力層)</li>
+  <li>R層(反応層、出力層) <br />
+画像の分類を出力する場合、入力した画像のラベルが0~9なら、10個のニューロンを作成する。(出力値は各分類値の出現確率で、合計すると1になる。)</li>
 </ul>
 
 <p>隠れ層が多いモデルを、Deep Learningと呼ぶ。<br />
@@ -337,7 +348,7 @@
   <li>LSTM(Long Short Term Memory)という隠れ層を使用する。</li>
 </ul>
 
-<h2 id="flamework">Flamework</h2>
+<h2 id="framework">Framework</h2>
 
 <h3 id="scikit-learn">scikit-learn</h3>
 <p>以下のSVMを提供するパッケージ</p>
@@ -349,6 +360,10 @@
 <h3 id="tensorflow">TensorFlow</h3>
 <p>Google社製<br />
 deeplearningできる。</p>
+
+<h3 id="keras">keras</h3>
+<p>TensorFlowのラッパー<br />
+記述を簡単にできる</p>
 
 <h3 id="pytorch">PyTorch</h3>
 <p>Facebook社製<br />
@@ -432,8 +447,30 @@ L2ノルム(記号：||x||2)・・・ベクトルの各要素を２乗を合計�
 
 <h3 id="dropout">Dropout</h3>
 <p>全ての訓練データを使用すると、過学習する(局所解に捕まる)場合があるので、<br />
-パラメータで指定した割合のデータをランダムでカットする。
-確率的勾配降下法(Stochastic Gradient Descent, SGD)の実装と思われる。</p>
+パラメータで指定した割合のデータをランダムでカットする。</p>
+
+<p>確率的勾配降下法(Stochastic Gradient Descent, SGD)の実装は、Dropoutのことか、<br />
+それとも、ミニバッチ方式のこのなのか、要調査。</p>
+
+<h3 id="損失関数">損失関数</h3>
+<ul>
+  <li>二乗誤差</li>
+  <li>
+    <p>交差エントロピー誤差</p>
+  </li>
+  <li>対数関数
+<script type="math/tex">\log x</script>
+    <ul>
+      <li>底がaの対数関数。底が10の場合は常用関数。
+<script type="math/tex">\log_a x</script></li>
+      <li>自然対数(ネーピア対数)<br />
+ネーピア数を底とする対数
+<script type="math/tex">\log_e x</script>
+=
+<script type="math/tex">\ln x</script></li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="検証validation">検証(Validation)</h2>
 

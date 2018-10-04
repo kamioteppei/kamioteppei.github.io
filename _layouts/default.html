@@ -16,6 +16,15 @@
   {% if site.google_analytics_tracking_id %}
     {% include theme/analytics-tracking.html %}
   {% endif %}
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      displayAlign: "left",
+      displayIndent: "2em"
+    });
+  </script>
 </head>
 <body>
 

@@ -204,6 +204,9 @@ function x(){
 
 ディレクトリ移動のコマンドは、`$ cd foo/var`です。
 
+## 数式
+ここを参照[Qiitaの数式チートシート](https://qiita.com/PlanetMeron/items/63ac58898541cbe81ada)
+
 ---
 ## 画像ソース
 

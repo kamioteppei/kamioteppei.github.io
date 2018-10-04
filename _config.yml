@@ -35,3 +35,5 @@ collections:
   memos:
     output: true
     permalink: /:collection/:name
+
+markdown: kramdown
