@@ -81,7 +81,7 @@
   <h1 class="page__title">Machine Learning</h1>
   
   
-    <p class="page__date">October 04, 2018</p>
+    <p class="page__date">October 05, 2018</p>
   
 </div>
 
@@ -264,7 +264,7 @@
 データのクラスごとの集合を分ける境界線を引く。<br />
 境界線とクラスごとの集合までのマージンが最大になるようにする。</li>
       <li>文字認識<br />
-データの集合を関数で抽象化して、時系列データを予測する。</li>
+画像のピクセルの集合をベクトルに変換して、畳み込みにより抽象化する。</li>
     </ul>
   </li>
   <li>グループ分け、クラスタリング(Clustering)<br />
@@ -282,10 +282,12 @@
 
 <h3 id="回帰">回帰</h3>
 <ul>
-  <li>単回帰 -&gt; 変数が１つ、微分する。</li>
+  <li>単回帰 -&gt; １つの変数と切片(bias)の１次関数、１つの変数を偏微分する。</li>
+  <li>多項式回帰 -&gt; 1つの変数について、次数が複数ある。偏微分する。</li>
   <li>重回帰 -&gt; 変数が２つ以上、偏微分する。</li>
-  <li>多項式回帰 -&gt; 1つの変数で、次数が複数ある。</li>
 </ul>
+
+<p><a href="http://tkengo.github.io/blog/2016/06/02/yaruo-machine-learning3/">多項式回帰と重回帰</a></p>
 
 <h3 id="ロジスティック回帰">ロジスティック回帰</h3>
 <p>データを確率的に分類する。</p>
@@ -314,7 +316,8 @@
 画像を入力する場合、画像が28x28ビクセルなら、積の784個のニューロンを作成する。(入力値xは0~1で、手書きで薄いピクセルは0.5とかがあり得る。)</li>
   <li>A層(連合層、中間層、隠れ層)</li>
   <li>R層(反応層、出力層) <br />
-画像の分類を出力する場合、入力した画像のラベルが0~9なら、10個のニューロンを作成する。(出力値は各分類値の出現確率で、合計すると1になる。)</li>
+画像の分類を出力する場合、入力した画像のラベルが0~9なら、10個のニューロンを作成する。(出力値は各分類値の出現確率で、合計すると1になる。)
+出力層では、恒等関数を使用し、入力値をそのまま出力する。</li>
 </ul>
 
 <p>隠れ層が多いモデルを、Deep Learningと呼ぶ。<br />
@@ -391,7 +394,11 @@ deeplearningできる。</p>
       <li>Sigmoid関数 -&gt; <code class="highlighter-rouge">function Sigmoid(x) = 1 / (1 + e^-x )</code></li>
     </ul>
   </li>
-  <li>tanh(Sigmoid関数を線形変換したもの)</li>
+  <li>tanh(Sigmoid関数を線形変換したもの)
+    <ul>
+      <li>入力値を、-1から1の値に収束する。</li>
+    </ul>
+  </li>
   <li>ReLU (Rectified Linear Unit,正規化線形関数) (推奨)<br />
 <code class="highlighter-rouge">function ReLU(x) = max(0,x)</code>-&gt; <code class="highlighter-rouge">if x&lt;=0 then return 0 else return x</code></li>
   <li>Linear</li>
@@ -450,7 +457,7 @@ L2ノルム(記号：||x||2)・・・ベクトルの各要素を２乗を合計�
 パラメータで指定した割合のデータをランダムでカットする。</p>
 
 <p>確率的勾配降下法(Stochastic Gradient Descent, SGD)の実装は、Dropoutのことか、<br />
-それとも、ミニバッチ方式のこのなのか、要調査。</p>
+それとも、ミニバッチ方式のことなのか、要調査。</p>
 
 <h3 id="損失関数誤差関数">損失関数/誤差関数</h3>
 <ul>
