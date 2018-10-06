@@ -81,7 +81,7 @@
   <h1 class="page__title">Machine Learning</h1>
   
   
-    <p class="page__date">October 05, 2018</p>
+    <p class="page__date">October 06, 2018</p>
   
 </div>
 
@@ -313,7 +313,9 @@
 以下の層を持つ。</p>
 <ul>
   <li>S層(感覚層、入力層) <br />
-画像を入力する場合、画像が28x28ビクセルなら、積の784個のニューロンを作成する。(入力値xは0~1で、手書きで薄いピクセルは0.5とかがあり得る。)</li>
+画像を入力する場合、画像が28x28ビクセルなら、積の784個のニューロンを作成する。 <br />
+入力値xは手書き文字の濃さによって0~255等の範囲をとる。<br />
+カラーの画像だと、入力のベクトル因子が3つに増える。(RGBの3つ)</li>
   <li>A層(連合層、中間層、隠れ層)</li>
   <li>R層(反応層、出力層) <br />
 画像の分類を出力する場合、入力した画像のラベルが0~9なら、10個のニューロンを作成する。(出力値は各分類値の出現確率で、合計すると1になる。)
@@ -341,6 +343,33 @@
 <h3 id="cnnconvolution-neural-network">CNN(Convolution Neural Network)</h3>
 <p>画像認識に用いられるニューラルネットワークモデル。<br />
 隠れ層を「畳み込み層」と「プーリング層」で構成する。</p>
+
+<ul>
+  <li>
+    <p>畳み込み層 <br />
+例）<br />
+チャンネル(C)が1(=モノクロ、カラーならC=3)、縦横(HxW)が32x32の画像を入力とし、その外縁を1周り0パティングする。
+それに対して、縦横(HxW)5x5のフィルタを、1づつスライドさせると、
+縦横(HxW)が30x30の畳み込み画像ができる。フィルターは、5x5の重みの行列になっており、そのフィルターの数だけ、
+畳み込みデータが作成される。フィルターの重み(画像の個々の特徴)は自動で抽出される。<br />
+5x5のフィルターに、画像を判断する手がかり(特徴)が収まれば学習が進む。例えば、数字の4を読み込んだ時に、鋭角のフィルターを２つと、
+十時のフィルターを抽出できれば、画像の判定時に、その3つのフィルターに当てはまる文字は4と判定できる。</p>
+  </li>
+  <li>
+    <p>プーリング層 <br />
+例）<br />
+縦横(HxW)が32x32の画像を16x16に圧縮する。
+max poolingがよく使われる。実装としては、2x2の領域ごとに、最大値を抽出する。
+それにより、細かい画像の特徴のブレ(振動)が補正される。</p>
+  </li>
+  <li>
+    <p>全結合層<br />
+通常のLinearレイヤー
+最後に入力値を1次元の配列に変換する。</p>
+  </li>
+</ul>
+
+<p><a href="https://products.sint.co.jp/aisia/blog/vol1-16#toc-1">参照</a></p>
 
 <h3 id="rnnrecurrent-neural-network">RNN(Recurrent Neural Network)</h3>
 <p>隠れ層に戻り値があるニューラルネットワークモデル。<br />
@@ -370,7 +399,8 @@ deeplearningできる。</p>
 
 <h3 id="pytorch">PyTorch</h3>
 <p>Facebook社製<br />
-deeplearningできる。</p>
+deeplearningできる。
+chainerからforkされた。</p>
 
 <h2 id="モデルの部品">モデルの部品</h2>
 
@@ -448,8 +478,14 @@ L2ノルム(記号：||x||2)・・・ベクトルの各要素を２乗を合計�
 <p><a href="http://yusuke-ujitoko.hatenablog.com/entry/2016/12/31/230118">参照</a></p>
 
 <ul>
-  <li>偏微分 <br />
-複数の変数による関数があるとして、その中の1つの変数のみに関する微分のこと</li>
+  <li>
+    <p>偏微分 <br />
+複数の変数による関数があるとして、その中の1つの変数のみに関する微分のこと</p>
+  </li>
+  <li>
+    <p>forwardとbackward <br />
+trainingの時は、誤差のbackward処理が必要だが、testの時は、不要となるので、設定を変更する。</p>
+  </li>
 </ul>
 
 <h3 id="dropout">Dropout</h3>
@@ -459,12 +495,52 @@ L2ノルム(記号：||x||2)・・・ベクトルの各要素を２乗を合計�
 <p>確率的勾配降下法(Stochastic Gradient Descent, SGD)の実装は、Dropoutのことか、<br />
 それとも、ミニバッチ方式のことなのか、要調査。</p>
 
+<ul>
+  <li>Dropout<br />
+任意のレイヤーのノードに対する入力をマスクする確率を指定する。<br />
+疑問：２個のノードのある中間層に0.5を指定した場合どうなる？
+    <ul>
+      <li>必ずどちらかのノードが無効になる</li>
+      <li>各ノードが50%の確率で無効になる。2つとも同時に無効になることは？</li>
+      <li>各ノードの入力が、50%カットされる。</li>
+    </ul>
+  </li>
+</ul>
+
+<p>答えは、１番だと思われる。デメリットとして、異なるネットワークの定義を使用していることになるので、
+その分、収束に時間がかかる。</p>
+
+<ul>
+  <li>Batch Normalization
+    <ul>
+      <li>入力データのノイズを柔らげる</li>
+      <li>L2正則化の必要性が下がる</li>
+      <li>Dropoutの必要性が下がる</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="https://qiita.com/cfiken/items/88427533ea9b501a6c10">参照1</a>
+<a href="https://qiita.com/cfiken/items/b477c7878828ebdb0387">参照2</a></p>
+
 <h3 id="損失関数誤差関数">損失関数/誤差関数</h3>
 <ul>
-  <li>二乗誤差</li>
   <li>
-    <p>交差エントロピー誤差</p>
+    <p>二乗誤差 <br />
+線形回帰で使用する。</p>
   </li>
+  <li>
+    <p>交差(クロス)エントロピー誤差</p>
+    <ul>
+      <li>2クラス分類用の数式</li>
+      <li>多クラス分類用の数式</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="https://mathwords.net/kousaentropy">参照</a></p>
+
+<ul>
   <li>
     <p>対数関数<br />
 底がaの対数関数。<br />
@@ -500,9 +576,8 @@ L2ノルム(記号：||x||2)・・・ベクトルの各要素を２乗を合計�
   <li>
     <p>指数関数</p>
 
-    <p><script type="math/tex">e^x</script> を <script type="math/tex">\exp x</script> と表記する。<br />
-eはexponent(指数)の略。<br />
-さらにネイピア数 e≒2.718 を x乗した数 <script type="math/tex">e^x</script> の意味も含むよう。</p>
+    <p>ネイピア数 e≒2.718 を x乗した数 <script type="math/tex">e^x</script> を <script type="math/tex">\exp x</script> と表記する。<br />
+expはexponent(指数)の略。</p>
   </li>
 </ul>
 
