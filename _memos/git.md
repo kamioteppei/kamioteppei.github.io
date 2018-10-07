@@ -6,7 +6,7 @@ name: Git
 category: Environment
 ---
 
-# git
+# Git
 
 ## init
 ローカルリポジトリを作成する。

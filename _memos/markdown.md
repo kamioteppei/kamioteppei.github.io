@@ -206,6 +206,8 @@ function x(){
 
 ## 数式
 ここを参照[Qiitaの数式チートシート](https://qiita.com/PlanetMeron/items/63ac58898541cbe81ada)  
+MathJaxというJavascriptのプラグインを利用する。  
+Jekyll側では、Kramdownというプラグインを入れる。  
 なお、数式はdivやli等の内部には記述してはいけない。(環境により認識されない場合がある。)
 
 ---

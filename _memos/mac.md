@@ -6,7 +6,7 @@ name: Mac
 category: Environment
 ---
 
-# mac
+# Mac
 
 ## ターミナルのログをテキストファイルに保存する
 

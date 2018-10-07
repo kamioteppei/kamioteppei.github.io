@@ -81,7 +81,7 @@
   <h1 class="page__title">Machine Learning</h1>
   
   
-    <p class="page__date">October 06, 2018</p>
+    <p class="page__date">October 07, 2018</p>
   
 </div>
 
@@ -226,7 +226,15 @@
           </li>
         
           <li class="">
+            <div class=""><a href="/memos/kaggle">Kaggle</a></div>
+          </li>
+        
+          <li class="">
             <div class=""><a href="/memos/machine-learning">Machine Learning</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/visualization">Visualization</a></div>
           </li>
         
         </ul>
@@ -353,7 +361,8 @@
 縦横(HxW)が30x30の畳み込み画像ができる。フィルターは、5x5の重みの行列になっており、そのフィルターの数だけ、
 畳み込みデータが作成される。フィルターの重み(画像の個々の特徴)は自動で抽出される。<br />
 5x5のフィルターに、画像を判断する手がかり(特徴)が収まれば学習が進む。例えば、数字の4を読み込んだ時に、鋭角のフィルターを２つと、
-十時のフィルターを抽出できれば、画像の判定時に、その3つのフィルターに当てはまる文字は4と判定できる。</p>
+十時のフィルターを抽出できれば、画像の判定時に、その3つのフィルターに当てはまる文字は4と判定できる。
+フィルターのことをカーネルともいう。</p>
   </li>
   <li>
     <p>プーリング層 <br />
@@ -364,12 +373,26 @@ max poolingがよく使われる。実装としては、2x2の領域ごとに、
   </li>
   <li>
     <p>全結合層<br />
-通常のLinearレイヤー
-最後に入力値を1次元の配列に変換する。</p>
+Fully Connected層(fc層)<br />
+通常のLinearレイヤー。<br />
+プーリング層の出力値を1次元の配列で受け取り、線形回帰する。
+最後の出力層でソフトマックス関数で、クラス分類を行う。</p>
   </li>
 </ul>
 
 <p><a href="https://products.sint.co.jp/aisia/blog/vol1-16#toc-1">参照</a></p>
+
+<h4 id="dcgan">DCGAN</h4>
+<p>Deep Convolutional Generative Adversarial Networks <br />
+(敵対生成ネットワーク)</p>
+
+<ul>
+  <li>Generator(生成器) <br />
+Generatorが作成した画像をfake、inputデータの画像をrealと、Discriminator(識別器)が正しく判定する確率を最小化するように画像を生成する。
+逆にいうと、Discriminator(識別器)を誤らせる(騙す)確率を最大化する。</li>
+  <li>Discriminator(識別器) <br />
+Generatorが作成した画像をfake、inputデータの画像をrealと、自分が正しく判定する確率を最大化する。</li>
+</ul>
 
 <h3 id="rnnrecurrent-neural-network">RNN(Recurrent Neural Network)</h3>
 <p>隠れ層に戻り値があるニューラルネットワークモデル。<br />
@@ -379,6 +402,14 @@ max poolingがよく使われる。実装としては、2x2の領域ごとに、
   <li>Embedding層というトークン(単語)をベクトル化した層</li>
   <li>LSTM(Long Short Term Memory)という隠れ層を使用する。</li>
 </ul>
+
+<p><a href="https://qiita.com/KojiOhki/items/89cd7b69a8a6239d67ca">参照</a></p>
+
+<h3 id="resnet">ResNet</h3>
+<p>学習対象（レイヤーごとの仮説関数）に入力の差（残差）を使うことで、勾配消失問題（層が深くなるにつれて、勾配が0に収束してしまう問題）を解消するディープラーニング。</p>
+
+<h3 id="dqndeep-q-network">DQN（Deep Q-Network）</h3>
+<p>強化学習において、行動価値関数Q(s,a)（sの状態の時にaという行動をとる価値を）の値が高くなる様に学習する方法をQ学習といい、Q学習をパラメータを追加した近似関数とて表し、ディープラーニングで求める手法。</p>
 
 <h2 id="framework">Framework</h2>
 

@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>SSH | kamioteppei.github.io</title>
+  <title>Kaggle | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="SSH(Secure Shell)">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/ssh">
+  <meta name="description" content="Kaggle">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/kaggle">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -78,7 +78,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">SSH</h1>
+  <h1 class="page__title">Kaggle</h1>
   
   
     <p class="page__date">October 07, 2018</p>
@@ -246,109 +246,9 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="sshsecure-shell">SSH(Secure Shell)</h1>
+            <h1 id="kaggle">Kaggle</h1>
 
-<h2 id="基本">基本</h2>
-
-<p>基本的な説明は以下を参照<br />
-<a href="https://qiita.com/kenju/items/b09199c4b3e7203a2867">SSHなるものをよくわからずに使っている人のための手引書</a></p>
-
-<p>要はクライアントからサーバーに、セキュアに通信する為の<br />
-設定のこと。</p>
-
-<p>設定の方法は  簡略化して言うと</p>
-<ol>
-  <li>クライアントで、そのクライアントの<br />
-秘密鍵と公開鍵を生成する。</li>
-  <li>公開鍵のみを、サーバーに登録する。</li>
-  <li>あとは通信時に、お互いに上手くやってくれる。</li>
-</ol>
-
-<hr />
-<h2 id="クライアントのファイル構成">クライアントのファイル構成</h2>
-
-<p>クライアントのユーザーの直下の階層に1意に作成する。</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ~
-</code></pre></div></div>
-<p>おそらく、１つのクライアントでは、<br />
-多分１回だけ鍵を生成すれば良いと思う。<br />
-複数のサービス(サーバー)に接続する場合でも<br />
-自分の公開鍵は使い回しできると思う。</p>
-
-<p>macの場合は、<code class="highlighter-rouge">/Users/kamioteppei/</code>の直下に、以下を作成する。<br />
-ただし、作成の前に、<code class="highlighter-rouge">$ ls -a</code>で確認して、既に存在する場合は不要。</p>
-
-<p>SSH設定ディレクトリ(隠しディレクトリ)</p>
-<ul>
-  <li>.ssh</li>
-</ul>
-
-<p>上記の中のファイル</p>
-<ul>
-  <li>id_rsa  # 秘密鍵</li>
-  <li>id_rsa.pub # 公開鍵</li>
-  <li>known_hosts # 通信したホストの証明書が記録される</li>
-</ul>
-
-<p>macの中にvagrant環境がある場合は、<br />
-<code class="highlighter-rouge">/home/vagrant/</code>の直下に、以下を作成する。</p>
-
-<p>仮にGitHubにアカウントを作成した場合、　　
-複数のクライアントでSSH接続する場合は、<br />
-その全てのクライアントで、公開鍵と秘密鍵を作成して、<br />
-秘密鍵をGitHubの自分のアカウントに登録すれば良い。<br />
-例えば以下の場合</p>
-
-<ul>
-  <li>自分のmacのホストOSと、その中のvagrantのゲストOSの2つ</li>
-  <li>自宅のmacと、会社のWindows pcの2つ</li>
-</ul>
-
-<p>ただし、以下の参照によれば、複数のクライアントで、設定を共有できるらしい。  <br />
-<a href="https://firegoby.jp/archives/5694">ssh-agentを使ってVagrant上のゲストOSからMac側の秘密鍵を使えるようにする</a></p>
-
-<hr />
-<h2 id="公開鍵と秘密鍵の生成クライアント">公開鍵と秘密鍵の生成(クライアント)</h2>
-
-<p>以下のコマンドで、.sshとその配下のファイルが生成されます。</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-keygen
-</code></pre></div></div>
-<p>コマンド実行中に3回入力を求められるが、3回ともエンターを入力<br />
-1回目の質問は暗号のタイプを聞かれているが、初期値のRSAが<br />
-最もセキュアなのでそのままで良い。<br />
-2回目と3回目はパスフレーズの入力で省略できる。</p>
-
-<p>生成された公開鍵の確認は以下のコマンドで行う。</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat ~/.ssh/id_rsa.pub
-</code></pre></div></div>
-<p>鍵の強度について<br />
-<a href="https://qiita.com/chroju/items/3ddae568206b8bc3d8f9">参照</a></p>
-<blockquote>
-  <p>・コンピューターの計算処理性能の向上に伴い、暗号強度は相対的に下がっていく。このため2010年をもって、アメリカ政府では1024bit以下のRSA、DSA暗号、160bit以下のECDSA、また2TDESとSHA-1の使用を廃止している。<br />
-・最新のssh-keygenはデフォルトの鍵生成がRSAの2048bitになっているので、特に気にする必要はないが、念押しするのであれば
-<code class="highlighter-rouge">ssh-keygen -t rsa -b 2048</code>
-と指定できる。</p>
-</blockquote>
-
-<hr />
-<h2 id="公開鍵をサーバーに登録する">公開鍵をサーバーに登録する</h2>
-
-<p>GitHubの場合は、以下のコマンドで、クリップボードにコピーして、<br />
-GitHubのsettings画面で貼り付ける。</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pbcopy &lt; ~/.ssh/id_rsa.pub
-</code></pre></div></div>
-
-<p>それ以外のサーバーで、セキュアに登録できない場合は、以下の方法にする。</p>
-
-<ol>
-  <li>scp コマンドを使用して、サーバーに公開鍵ファイルをコピー</li>
-  <li>サーバーの authorized_keys ファイルに公開鍵を追加する</li>
-</ol>
-
-<hr />
-<h2 id="ssh接続テスト">ssh接続テスト</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -T remote-user-name@server-address
-</code></pre></div></div>
+<p>Machine Learningを使用したデータ解析のコンペティションサイト</p>
 
 
           </div>
