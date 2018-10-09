@@ -81,7 +81,7 @@
   <h1 class="page__title">Security</h1>
   
   
-    <p class="page__date">October 07, 2018</p>
+    <p class="page__date">October 09, 2018</p>
   
 </div>
 
@@ -278,8 +278,8 @@
 </ul>
 
 <p>ハッシュ化の注意点<br />
-ハッシュからは平文に復号できないが、可能性的には、例えば６文字の文字列の全パターンを、<br />
-ハッシュ化した時の、平文とハッシュのリストがあれば、ハッシュから平文が逆引きできる。<br />
+ハッシュからは平文に復号できないが、可能性的には、例えば６文字のパスワードに限った話でいうと
+、可能性のある文字列の全パターンをハッシュ化した時の、平文とハッシュのリストがあれば、ハッシュから平文が逆引きできる。<br />
 上記のリストをレインボーテーブルという。その対策として、平文にsaltという任意の文字列を<br />
 付加してからハッシュ化すると、レインボーリストを作成することは難しくなる。<br />
 saltを追加して26文字以上にすると、セキュアらしい。<br />
@@ -307,9 +307,9 @@ end
 
 <h2 id="strong-parameters">Strong Parameters</h2>
 
-<p>Railsのコントローラーで、リクエストからのパラメータを使用する時に、<br />
-指定したパラメータ以外は使用しない機能。　　
-<code class="highlighter-rouge">admin='1'</code>等の不正なパラメータを使用しない。</p>
+<p>Railsのコントローラーで、リクエストからのパラメータを使用する時に、
+指定したパラメータ以外は使用しない機能。
+<code class="highlighter-rouge">admin='1'</code>等の不正なパラメータをクライアントに使用させない。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def user_params
   params.require(:user).permit(:name, :email, :password,
@@ -340,8 +340,9 @@ end
 
 <p>信用できるブラウザのアドオンを入れた時に、<br />
 後に、そのアドオンの権利を悪意のある人が手に入れて、<br />
-悪用される可能性がある。
-<a href="https://blog.clock-up.jp/entry/2016/11/03/http-headers-malware">参照</a></p>
+悪用される可能性がある。</p>
+
+<p><a href="https://blog.clock-up.jp/entry/2016/11/03/http-headers-malware">参照</a></p>
 
 
           </div>
