@@ -14,6 +14,23 @@ category: Machine Learning
 
 [［37選］機械学習ライブラリやフレームワークは？ 国内AI活用サービスのアーキテクチャを大調査！](https://employment.en-japan.com/engineerhub/entry/2017/11/30/110000)
 
+## 機械学習の問題解決プロセス
+- 課題設定(課題発見)
+- データ収集
+  + データセットダウンロード
+  + WebAPIでダウンロード
+  + Webスクレイピング
+- データクリーニング
+- データ相関確認
+  + 正の相関
+  + 負の相関
+  + 相関のある項目がなかったら？
+- モデル開発
+  + 自前開発
+  + 転移学習
+- モデルチューニング
+- データ可視化
+
 ## 機械学習の学習方法の分類
 - 教師あり学習
 - 教師なし学習
@@ -141,7 +158,7 @@ Deep Convolutional Generative Adversarial Networks
   + Output Gate
   + Forget Gate
 
-[参照1](https://qiita.com/KojiOhki/items/89cd7b69a8a6239d67ca)
+[参照1](https://qiita.com/KojiOhki/items/89cd7b69a8a6239d67ca)  
 [参照2](https://qiita.com/t_Signull/items/21b82be280b46f467d1b)
 
 CNNは、モデルで定義した通りの層の数だが、RNNは例えば、文章を入力すると、単語の数だけ、再帰的に、
@@ -253,7 +270,7 @@ trainingの時は、誤差のbackward処理が必要だが、testの時は、不
   + L2正則化の必要性が下がる
   + Dropoutの必要性が下がる
 
-[参照1](https://qiita.com/cfiken/items/88427533ea9b501a6c10)
+[参照1](https://qiita.com/cfiken/items/88427533ea9b501a6c10)   
 [参照2](https://qiita.com/cfiken/items/b477c7878828ebdb0387)
 
 ### 損失関数/誤差関数
@@ -266,41 +283,6 @@ trainingの時は、誤差のbackward処理が必要だが、testの時は、不
 
 [参照](https://mathwords.net/kousaentropy)
 
-- 対数関数  
-  底がaの対数関数。  
-  「a(低数)を何乗したら x(真数)になるか」= 指数を表す
-
-  $$ \log_a x $$
-
-  例えば「2(低数)を何乗したら 8(真数)になるか」を表す式は、
-
-  $$ \log_2 8 $$
-
-  であり、「2を3乗したら 8になる」ので答えは以下となる。
-
-  $$ \log_2 8 = 3 $$
-
-  logのない世界に戻ると以下になる。
-
-  $$ 2^3 = 8 $$
-
-- 常用対数   
-  10を底とする対数。  
-  桁数を表す時によく使う。
-
-  $$ \log_{10} x $$ を $$ \log x $$ と表記する。
-
-- 自然対数(ネーピア対数)    
-  ネーピア数を底とする対数。  
-
-
-    $$ \log_e x $$ を $$ \ln x $$ と表記する。
-
-- 指数関数
-
-  ネイピア数 e≒2.718 を x乗した数 $$ e^x $$ を $$ \exp x $$ と表記する。  
-  expはexponent(指数)の略。  
-
 ## 検証(Validation)
 
 ### クロスバリデーション
@@ -310,36 +292,3 @@ trainingの時は、誤差のbackward処理が必要だが、testの時は、不
 
 ### グリッドサーチ
 モデルに渡すパラメータを自動で、色々試す手法。
-
-
-## Tensor(テンソル)
-以下全て、tensorの1種
-
-### scalar(スカラー)
-0次元
-- 1
-- 10.5
-- -100
-
-### vector(ベクター)
-1次元
-
-横ベクトル、行ベクトル、row vector
-- [1,4,10]
-
-縦ベクトル、列ベクトル、column vector
-- [  
-1,  
-5,  
-9  
-]  
-
-### matrix,matrices(行列)
-2次元
-
-`metrics`という単語が、ディープラーニングのモデルのパラメータに、  
-出てくるが、 **評価基準** という意味で別物。
-
-
-### tensor(テンソル)
-行列の行列
