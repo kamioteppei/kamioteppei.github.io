@@ -29,7 +29,9 @@ permalink: /links/
 
 ### Tutorial
 
+- [nnadl-ja.github.io](https://nnadl-ja.github.io/nnadl_site_ja/index.html)
 - [fast.ai](http://course.fast.ai/index.html)
 - [coursera.org](https://www.coursera.org/specializations/deep-learning)
 - [ai.google](https://ai.google/education)
+- [deeplearning.ai](https://www.deeplearning.ai/courses/)
 -  [playground.tensorflow.org](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.60237&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
