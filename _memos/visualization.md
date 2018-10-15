@@ -19,7 +19,8 @@ category: Machine Learning
 - [日経平均](https://indexes.nikkei.co.jp/nkave/index)
 
 企業/財務諸表
-- [Yahoo Finance]()
+- [Yahoo Finance(US)](https://finance.yahoo.com/quote/^IXIC?p=^IXIC)
+- [Yahoo Finance(JP)](https://stocks.finance.yahoo.co.jp)
 - [EDINET](http://disclosure.edinet-fsa.go.jp)
 
 気象

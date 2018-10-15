@@ -81,7 +81,7 @@
   <h1 class="page__title">Ubuntu</h1>
   
   
-    <p class="page__date">October 15, 2018</p>
+    <p class="page__date">October 16, 2018</p>
   
 </div>
 
@@ -259,9 +259,34 @@
 <h2 id="ubuntuをインストールしたらまずやることリスト">Ubuntuをインストールしたらまずやることリスト</h2>
 
 <p><a href="https://www.iandprogram.net/entry/2015/09/11/181208">参照</a></p>
+
 <ul>
-  <li>ホームディレクトリのフォルダ名を英字に変更</li>
-  <li>ターミナルのディレクトリ表示をカレントディレクトリのみにする</li>
+  <li>基本
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y dist-upgrade
+</code></pre></div>    </div>
+  </li>
+  <li>ホームディレクトリのフォルダ名を英字に変更<br />
+毎回切り替えするか聞かれないようにチェックボックスをONにする
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ LANG=C xdg-user-dirs-gtk-update
+$ sudo reboot
+</code></pre></div>    </div>
+  </li>
+  <li>ターミナルのディレクトリ表示をカレントディレクトリのみにする
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ~
+$ vi .bashrc
+</code></pre></div>    </div>
+    <p>下記の\wの部分を\Wに置き換えて(大文字にする)保存する。</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if [ "$color_prompt" = yes ]; then
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source .bashrc
+</code></pre></div>    </div>
+  </li>
 </ul>
 
 <h2 id="viが何かおかしい">viが何かおかしい</h2>

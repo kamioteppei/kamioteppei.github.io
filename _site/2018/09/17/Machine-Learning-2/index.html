@@ -138,7 +138,7 @@ CentOSの入っているデスクトップPCにNVIDIAのグラボが入ってい
 </blockquote>
 
 <p>Docker</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker --version
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker --version
 </code></pre></div></div>
 <blockquote>
   <p>Docker version 18.06.1-ce</p>
@@ -149,13 +149,56 @@ CentOSの入っているデスクトップPCにNVIDIAのグラボが入ってい
 <h3 id="gcc">gcc</h3>
 <p>NVIDIAドライバのインストールに必要。</p>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install build-essential
+</code></pre></div></div>
+
 <h3 id="nvidiaドライバ">NVIDIAドライバ</h3>
 
-<p>デフォルトのドライバのnouveauが競合して、インストールできないので無効にする。<br />
-初めのインストールの失敗時に、設定ファイルを自動で作成してくれているので、<br />
-再起動すればそれでよかったかもしれない。</p>
+<p><a href="http://nc30mtd.oops.jp/blog/2016/09/titan-xcuda.html">参照</a></p>
 
-<p>gccをインストールする。<br />
+<p>gccは上記でインストール済み。</p>
+
+<p>デフォルトのドライバのnouveauが競合して、インストールできないので無効にする。<br />
+nouveauの起動確認</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsmod | grep nouveau
+</code></pre></div></div>
+
+<p>ブラックリストに入れて立ち上がらないようにする</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vi /etc/modprobe.d/blacklist-nouveau.conf
+</code></pre></div></div>
+
+<p>ファイルに書き込む内容は次の通り。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blacklist nouveau
+blacklist lbm-nouveau
+options nouveau modeset=0
+alias nouveau off
+alias lbm-nouveau off
+</code></pre></div></div>
+
+<p>もう１つファイルを作成する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vi /etc/modprobe.d/nouveau-kms.conf
+</code></pre></div></div>
+
+<p>ファイルに書き込む内容は次の通り。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>options nouveau modeset=0
+</code></pre></div></div>
+
+<p>次のコマンドを実行して再起動する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo update-initramfs -u
+$ sudo reboot
+</code></pre></div></div>
+
+<p>nouveauが表示されないことを確認する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsmod | grep nouveau
+</code></pre></div></div>
+
+<p>NVIDIAドライバをインストールする。<br />
+オプションは不要だが、ダメならつける。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo sh ./NVIDIA-Linux-x86_64-390.87.run -a --disable-nouveau
+$ sudo reboot
+</code></pre></div></div>
+
+<p>上記とは別のconfigファイルを作成するか聞かれるが、多分不要。
 32bitがどうだこうだいう警告は無視してインストールする。</p>
 
 <p>GPUの動作確認</p>
@@ -163,13 +206,47 @@ CentOSの入っているデスクトップPCにNVIDIAのグラボが入ってい
 </code></pre></div></div>
 <p>GPUの機種名(GeForce GTX 960)が表示されればOK</p>
 
-<h3 id="dockerコンテナ">Dockerコンテナ</h3>
+<h3 id="docker">Docker</h3>
+<p><a href="/memos/docker">Dockerのまとめ</a>にしたがって、インストール</p>
 
+<h3 id="nvidia-docker">Nvidia Docker</h3>
 <p>nvidia-docker2を入れる。そうすれば、ホストに、<br />
 CUDA,CUDA toolkit,cuDNNをインストールしなくても、<br />
 Dockerに上記をインストール済みのコンテナを使用すれば良い。</p>
 
+<p><a href="https://github.com/NVIDIA/nvidia-docker">nvidia-dockerのGitHub</a>にしたがって、インストール</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># If you have nvidia-docker 1.0 installed: we need to remove it and all existing GPU containers
+docker volume ls -q -f driver=nvidia-docker | xargs -r -I{} -n1 docker ps -q -a -f volume={} | xargs -r docker rm -f
+sudo apt-get purge -y nvidia-docker
+
+# Add the package repositories
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
+  sudo apt-key add -
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update
+
+# Install nvidia-docker2 and reload the Docker daemon configuration
+sudo apt-get install -y nvidia-docker2
+sudo pkill -SIGHUP dockerd
+
+# Test nvidia-smi with the latest official CUDA image
+docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+</code></pre></div></div>
+
 <h2 id="何をやってもどこかが合わない">何をやってもどこかが合わない</h2>
+<p>1週間ほど試行錯誤したが、ダメだった。<br />
+tensorflowの公式サイトだったり、DockerHubに記載されている、docker pullコマンドのイメージは、
+タグを省略していて、自分が使用したいものを、正しく指定できてないといけない。</p>
+
+<ul>
+  <li>nvidia公式のimageは、cuDNNがインストールされていなかった。</li>
+  <li>tensorflow公式のimageは、whlファイルにtensorflowが入っていたがよく分からなかった。</li>
+  <li>fastaiのimageは、セットアップファイルや、ymlファイル等色々あるので、よく分からなかった。</li>
+  <li>fastai1のdockerfileをbuildしても、途中でエラーになった。</li>
+</ul>
 
 <h2 id="結局こうした">結局こうした</h2>
 

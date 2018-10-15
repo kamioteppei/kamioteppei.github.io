@@ -4,26 +4,35 @@ title: Links
 permalink: /links/
 ---
 
-## 学習サイト
-- [ドットインストール](https://dotinstall.com/lessons)
-- [Ruby on Rails Tutorial](https://railstutorial.jp)
-- [udemy](https://www.udemy.com)
+## Doc
+- [Tensorflow](https://www.tensorflow.org/api_docs/python/)
+- [Pytorch](https://pytorch.org/docs/stable/index.html)
+- [Docker](https://docs.docker.com/reference/)
+- [conda](https://conda.io/docs/commands.html)
+- [scikit-learn](http://scikit-learn.org/stable/modules/classes.html)
+- [matplotlib](https://matplotlib.org/3.0.0/contents.html)
+- []()
+- []()
+- []()
 
 ## GitHub
 - [Web Developer Roadmap - 2018](https://github.com/kamranahmedse/developer-roadmap)
 - [Best websites a programmer should visit](https://github.com/sdmg15/Best-websites-a-programmer-should-visit)
 
-## Doc
+## DockerHub
+- [DockerHub](https://hub.docker.com/explore/)
 
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
+## 最新情報
+- [qiita](https://qiita.com)
+- [Technology Radar](https://www.thoughtworks.com/radar/languages-and-frameworks)
+
+## 質問サイト
+- [stackoverflow](https://stackoverflow.com)
+
+## 学習サイト
+- [ドットインストール](https://dotinstall.com/lessons)
+- [Ruby on Rails Tutorial](https://railstutorial.jp)
+- [Udemy](https://www.udemy.com)
 
 ## Machine Learning
 
