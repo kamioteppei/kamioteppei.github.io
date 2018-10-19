@@ -81,7 +81,7 @@
   <h1 class="page__title">Jupyter Notebook</h1>
   
   
-    <p class="page__date">October 16, 2018</p>
+    <p class="page__date">October 19, 2018</p>
   
 </div>
 
@@ -276,6 +276,95 @@ $ jupyter notebook
 <p>からの</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import keras
 </code></pre></div></div>
+
+<h2 id="設定ファイルの作成">設定ファイルの作成</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ jupyter notebook --generate-config
+</code></pre></div></div>
+<p><code class="highlighter-rouge">~/.jupyter/jupyter_notebook_config.py</code>が作成される。</p>
+
+<h2 id="pythonの実行環境設定">Pythonの実行環境設定</h2>
+
+<p>システム環境、miniconda、仮想環境の交通整理<br />
+bashとnotebookで実行環境が一致することを確認する。</p>
+
+<ul>
+  <li>bashでのインタラクティブモード起動
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python
+</code></pre></div>    </div>
+  </li>
+  <li>Pythonの実行モジュール確認
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which python
+</code></pre></div>    </div>
+  </li>
+  <li>Pythonの実行モジュールのバージョン確認
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python --version
+</code></pre></div>    </div>
+  </li>
+  <li>pipのライブラリ一覧
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip list
+</code></pre></div>    </div>
+    <p>or</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip freeze
+</code></pre></div>    </div>
+  </li>
+  <li>condaのライブラリ一覧
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda list
+</code></pre></div>    </div>
+  </li>
+  <li>pathの確認
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sys
+sys.path
+</code></pre></div>    </div>
+  </li>
+  <li>pipでインストールしたライブラリの格納場所
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip show hoge
+</code></pre></div>    </div>
+    <p>一度、<code class="highlighter-rouge">bin</code>階層にダウンロードして、<code class="highlighter-rouge">lib/python3.6/site-packages</code>にインストールしている。
+自分で<code class="highlighter-rouge">clean</code>コマンドをしないとダウンロードしたファイルは消えないと思われる。</p>
+  </li>
+  <li>インストールしたモジュールがimportできるか確認
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import hoge
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="ライブラリの一括適用">ライブラリの一括適用</h3>
+
+<ul>
+  <li>ライブラリ一覧をExport
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda myenv export &gt; myenv.yaml
+</code></pre></div>    </div>
+  </li>
+  <li>ライブラリーを一括Import
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda myenv create --file myenv.yaml
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="jupyter-notebookのkernelに仮想環境を追加">Jupyter NotebookのKernelに仮想環境を追加</h3>
+
+<ul>
+  <li>仮想環境を作成
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda create -n myenv python=3.6
+</code></pre></div>    </div>
+  </li>
+  <li>condaの仮想環境一覧
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda info -e
+</code></pre></div>    </div>
+    <p>or</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ conda env list
+</code></pre></div>    </div>
+  </li>
+  <li>仮想環境をActiate
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source activate myenv
+(myenv) $ conda install notebook ipykernel
+(myenv) $ ipython kernel install --user --name myenv
+(myenv) $ jupyter kernelspec list
+</code></pre></div>    </div>
+    <p>notebookの右上のnewのところで、myenvを選択できるようになる。<br />
+既存のnotebookのkernelのプルダウンでも、kernelを変更できるようになっている。</p>
+  </li>
+</ul>
 
 
           </div>

@@ -22,6 +22,7 @@ sudo無しでdockerコマンド使えるようにユーザをグループに追�
 ```
 sudo gpasswd -a $USER docker
 sudo service docker restart
+sudo reboot
 ```
 [参照](https://qiita.com/t2kmt/items/b3be56d4df5f80c555af#2-dockerインストール)
 
@@ -50,7 +51,7 @@ Dockerイメージの操作
   - docker ps -a  -> 全てのDockerコンテナのリストを表示する。
   - docker stats  -> 起動中のDockerコンテナのcpuやメモリの使用状況を表示する。
   - docker exec  -> 指定したDockerコンテナでコマンドを実行する。
-  `docker excec -it コンテナID先頭3桁 bash`で、シェル操作できる。
+  `docker exec -it コンテナID先頭3桁 bash`で、シェル操作できる。
   - docker attach  -> Dockerコンテナに起動しているPID=1のプロセスの標準入力(STDIN)と、標準出力(STDOUT)に接続する。
   - docker stop  -> 指定したDockerコンテナを停止する。
   - docker kill  -> 指定したDockerコンテナを強制終了する。
