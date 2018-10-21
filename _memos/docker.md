@@ -10,26 +10,52 @@ category: Environment
 
 ## インストール
 
+### Docker
+
 [公式サイト](https://docs.docker.com/install/linux/docker-ce/ubuntu/)にしたがって、
 Docker CE for Ubuntuをインストールする。
 
 リポジトリからインストールする手順を実行する。
 
+### Docker Compose
+
+[公式サイト](https://docs.docker.com/compose/install/#install-compose)にしたがって、
+docker-composeをインストールする。
+
 ## 初期設定
 
-sudo無しでdockerコマンド使えるようにユーザをグループに追加。
+sudo無しでdockerコマンド使えるようにユーザをグループに追加。  
+docker/docker-composeコマンドを実行して、エラーになった場合、権限の問題であれば、
+sudoするか、この設定にすると、うまくいく。
 
 ```
+sudo groupadd docker
 sudo gpasswd -a $USER docker
 sudo service docker restart
+# sudo systemctl restart docker # １つ上の代替
 sudo reboot
 ```
 [参照](https://qiita.com/t2kmt/items/b3be56d4df5f80c555af#2-dockerインストール)
 
-## docker-compse
+## dockerサービス
 
-以下を参照
-[docker-composeを使うと複数コンテナの管理が便利に](https://qiita.com/y_hokkey/items/d51e69c6ff4015e85fce)
+- サービス起動状態確認
+```
+$ sudo systemctl status docker
+```
+ctrl+cで確認画面から抜ける
+
+- サービス起動/終了/再起動
+```
+$ sudo systemctl start docker
+$ sudo systemctl stop docker
+$ sudo systemctl restart docker
+```
+
+- サービス自動起動設定
+```
+$ sudo systemctl enable docker
+```
 
 ## dockerコマンドのflow
 
@@ -85,3 +111,21 @@ $ docker inspect [イメージのid先頭3桁]
 もちろん、`docker run`するときに、実行するコマンドを渡せば、それが優先される。
 
 [参照](https://qiita.com/hihihiroro/items/d7ceaadc9340a4dbeb8f)
+
+## Docker Compose
+
+以下を参照  
+[docker-composeを使うと複数コンテナの管理が便利に](https://qiita.com/y_hokkey/items/d51e69c6ff4015e85fce)
+
+### コマンド
+
+- クラスタの起動  
+`docker-compose.yml`ファイルを作成し、`docker-compose up`を実行する。  
+`docker-compose up -d`で、dettach起動。
+
+- クラスタの停止   
+attach起動なら、ctrl+cで終了。  
+dettach起動なら、`docker-compose stop`で終了。
+
+- クラスタの削除   
+`docker-compose rm`

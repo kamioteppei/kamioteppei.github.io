@@ -81,7 +81,7 @@
   <h1 class="page__title">Jupyter Notebook</h1>
   
   
-    <p class="page__date">October 19, 2018</p>
+    <p class="page__date">October 21, 2018</p>
   
 </div>
 
@@ -285,7 +285,38 @@ $ jupyter notebook
 <h2 id="pythonの実行環境設定">Pythonの実行環境設定</h2>
 
 <p>システム環境、miniconda、仮想環境の交通整理<br />
-bashとnotebookで実行環境が一致することを確認する。</p>
+bashとJupyter Notebookで実行環境が一致することを確認する。</p>
+
+<h3 id="注意">注意</h3>
+<p>次章の記述では、condaの仮想環境を作成しているが、最終的には、仮想環境を作成しないことにした。</p>
+
+<p>やりたかったこと</p>
+<ul>
+  <li>Jupyter Notebookを主に使用し、機械学習の学習を行う。</li>
+  <li>また、機械学習の機能をAPI化しても良いように、Jupyterとbashの実行環境を一致させる。(参照先を<code class="highlighter-rouge">/opt/conda/bin</code>にした。)</li>
+  <li>Dockerでコンテナ化する。</li>
+</ul>
+
+<p>できなかったこと</p>
+<ul>
+  <li>venv,pyenv,condaを使用して仮想環境を作成する。</li>
+</ul>
+
+<p>つまづく所</p>
+<ul>
+  <li>仮想環境を作成すると、<code class="highlighter-rouge">conda install</code>だと<code class="highlighter-rouge">/opt/conda/bin</code>に、<code class="highlighter-rouge">pip install</code>だと、<code class="highlighter-rouge">/opt/conda/envs/env/bin</code>にインストールされて、統一されない。</li>
+  <li>上記理由で、Jupyter Notebookは、<code class="highlighter-rouge">/opt/conda/bin</code>の方にインストールされ、仮想環境(動かしたいバージョンのPython)では動かせない。</li>
+  <li>tensorflow-gpuはPython3.4~3.6でサポートされるが、minicondaの最新をインストールしたらPython3.7になり、Jupyter Notebookでは、tensorflow-gpuを使用できない。</li>
+</ul>
+
+<p>解決策</p>
+<ul>
+  <li>minicondaを使用するが、仮想環境は使用しない。<br />
+(Dockerコンテナ化されているので、環境の再現性はあるとする。)</li>
+  <li>minicondaの最新をインストールするが、直後に、Pythonの3.6を再インストール(Pythonをダウングレード)する。</li>
+</ul>
+
+<h3 id="condapipコマンド">conda/pipコマンド</h3>
 
 <ul>
   <li>bashでのインタラクティブモード起動
@@ -320,7 +351,10 @@ sys.path
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip show hoge
 </code></pre></div>    </div>
     <p>一度、<code class="highlighter-rouge">bin</code>階層にダウンロードして、<code class="highlighter-rouge">lib/python3.6/site-packages</code>にインストールしている。
-自分で<code class="highlighter-rouge">clean</code>コマンドをしないとダウンロードしたファイルは消えないと思われる。</p>
+自分で<code class="highlighter-rouge">clean</code>コマンドをしないとダウンロードしたファイルは消えないと思われる。
+<code class="highlighter-rouge">no-cache-dir</code>というオプションがあるのでメモ。</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install --no-cache-dir -r /usr/src/app/requirements.txt
+</code></pre></div>    </div>
   </li>
   <li>インストールしたモジュールがimportできるか確認
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import hoge

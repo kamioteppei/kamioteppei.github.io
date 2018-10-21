@@ -42,7 +42,30 @@ $ jupyter notebook --generate-config
 ## Pythonの実行環境設定
 
 システム環境、miniconda、仮想環境の交通整理  
-bashとnotebookで実行環境が一致することを確認する。
+bashとJupyter Notebookで実行環境が一致することを確認する。
+
+### 注意
+次章の記述では、condaの仮想環境を作成しているが、最終的には、仮想環境を作成しないことにした。
+
+やりたかったこと  
+- Jupyter Notebookを主に使用し、機械学習の学習を行う。
+- また、機械学習の機能をAPI化しても良いように、Jupyterとbashの実行環境を一致させる。(参照先を`/opt/conda/bin`にした。)
+- Dockerでコンテナ化する。
+
+できなかったこと  
+- venv,pyenv,condaを使用して仮想環境を作成する。
+
+つまづく所  
+- 仮想環境を作成すると、`conda install`だと`/opt/conda/bin`に、`pip install`だと、`/opt/conda/envs/env/bin`にインストールされて、統一されない。
+- 上記理由で、Jupyter Notebookは、`/opt/conda/bin`の方にインストールされ、仮想環境(動かしたいバージョンのPython)では動かせない。
+- tensorflow-gpuはPython3.4~3.6でサポートされるが、minicondaの最新をインストールしたらPython3.7になり、Jupyter Notebookでは、tensorflow-gpuを使用できない。
+
+解決策  
+- minicondaを使用するが、仮想環境は使用しない。  
+  (Dockerコンテナ化されているので、環境の再現性はあるとする。)
+- minicondaの最新をインストールするが、直後に、Pythonの3.6を再インストール(Pythonをダウングレード)する。
+
+### conda/pipコマンド
 
 - bashでのインタラクティブモード起動
 ```
@@ -85,6 +108,10 @@ $ pip show hoge
 ```
 一度、`bin`階層にダウンロードして、`lib/python3.6/site-packages`にインストールしている。
 自分で`clean`コマンドをしないとダウンロードしたファイルは消えないと思われる。
+`no-cache-dir`というオプションがあるのでメモ。
+```
+pip install --no-cache-dir -r /usr/src/app/requirements.txt
+```
 
 - インストールしたモジュールがimportできるか確認
 ```

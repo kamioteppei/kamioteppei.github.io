@@ -81,7 +81,7 @@
   <h1 class="page__title">Elasticsearch</h1>
   
   
-    <p class="page__date">October 19, 2018</p>
+    <p class="page__date">October 21, 2018</p>
   
 </div>
 
@@ -264,11 +264,31 @@ Github等で使用されている。</p>
 <ul>
   <li>Elasticsearch<br />
 本体</li>
+  <li>Beats<br />
+logを流し込む
+    <ul>
+      <li>Filebeat</li>
+      <li>Metricbeat</li>
+      <li>Packetbeat</li>
+      <li>Winlogbeat</li>
+    </ul>
+  </li>
+  <li>Logstash   <br />
+logを収集し、一元管理する<br />
+(基幹システムからDWHに、データを抽出、変換、格納するETLのようなもの)</li>
   <li>Kibana<br />
-GUIツール</li>
-  <li>Logstash</li>
+GUIツール。データの可視化、分析を行う。</li>
   <li>X-Pack<br />
-機械学習機能</li>
+サブスクリプション型拡張機能
+    <ul>
+      <li>Security</li>
+      <li>Alerting</li>
+      <li>Monitoring</li>
+      <li>Reporting</li>
+      <li>Gragh</li>
+      <li>Machine Learning</li>
+    </ul>
+  </li>
 </ul>
 
 <p>用途</p>
@@ -277,6 +297,15 @@ GUIツール</li>
   <li>ログの異常検知(機械学習による、異常検知もある。)</li>
   <li>自然言語処理もやってくれるかも</li>
 </ul>
+
+<h2 id="インストール">インストール</h2>
+
+<h3 id="docker-compose">Docker Compose</h3>
+<p><a href="/memos/docker">Dockerのまとめ</a>にしたがって、インストール</p>
+
+<h3 id="elasticsearch-1">Elasticsearch</h3>
+
+<p><a href="https://qiita.com/motchi0214/items/a796437149d0d97bcf5b">参照</a></p>
 
 
           </div>

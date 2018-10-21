@@ -8,4 +8,4 @@ category: UI/UX
 
 # Bootstrap
 
-勉強したい
+学習したい

@@ -6,7 +6,8 @@ name: GCP
 category: Environment
 ---
 
-# GCP(Google Cloud Platform)
+# GCP
+Google Cloud Platform
 
 ## Firebase
 

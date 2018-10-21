@@ -6,7 +6,8 @@ name: AWS
 category: Environment
 ---
 
-# AWS(Ammazon Web Services)
+# AWS
+Ammazon Web Services
 
 ## 基本
 

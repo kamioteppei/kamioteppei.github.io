@@ -6,8 +6,10 @@ name: CI/CD
 category: Environment
 ---
 
-# CI/CD(Continuous Integration/Continuous Deployment)
-継続的インテグレーション/デプロイツール
+# CI/CD
+
+Continuous Integration/Continuous Deployment   
+(継続的インテグレーション/デプロイツール)
 
 ## 基本
 

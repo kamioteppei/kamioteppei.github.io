@@ -53,6 +53,21 @@ vimを最新化すればOK
 $ sudo apt-get install vim
 ```
 
+## treeコマンド
+
+`ls`コマンドの結果をtree形式で表示する。
+
+インストール
+```
+$ sudo apt-get install tree
+```
+
+コマンド実行
+```
+$ tree -L 5 /usr/local
+```
+`/usr/local`ディレクトリを5階層まで表示する。
+
 ## メモリが不足した。
 メモリの増設可能な最大容量を調べる。
 ```
