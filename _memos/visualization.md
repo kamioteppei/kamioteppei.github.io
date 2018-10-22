@@ -41,6 +41,19 @@ category: Machine Learning
 
 ### 時系列
 
+## Analitics
+
+### カテゴリカル変数のEncoding
+
+[参照](http://jotkn.ciao.jp/wp/2017/08/22/post-67/)
+
+- Label Encoding -> カテゴリごとに、数値に変換
+- Count Encoding -> カテゴリごとに、出現件数に変換
+- Label Count Encoding -> カテゴリごとに、出現件数のランクに変換
+- Target Encoding -> カテゴリごとに、ラベル=trueの確率に変換　または、カテゴリごとのラベルの平均値に変換
+- One-hot Encoding -> カテゴリの数の0/1配列。1になるのは1箇所のみ。
+- Feature Hashing -> One-hot Encodingの圧縮版
+- Category Embedding -> One-hot Encodingの圧縮版
 
 ## Visualization
 
