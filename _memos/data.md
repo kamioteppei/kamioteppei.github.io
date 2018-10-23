@@ -1,26 +1,26 @@
 ---
 layout: static
-title: Data and Visualization
+title: Data
 template: 3-columns
-name: Data and Visualization
+name: Data
 category: Machine Learning
 ---
 
-# Data and Visualization
+# Data
 
-## Data
+## Data Repository
 
 ### 線型(統計)
 
 政府
 - [e-Stat 政府統計の総合窓口](https://www.e-stat.go.jp)
 
-日経
+株価
 - [日経平均](https://indexes.nikkei.co.jp/nkave/index)
-
-企業/財務諸表
 - [Yahoo Finance(US)](https://finance.yahoo.com/quote/^IXIC?p=^IXIC)
 - [Yahoo Finance(JP)](https://stocks.finance.yahoo.co.jp)
+
+企業/財務諸表
 - [EDINET](http://disclosure.edinet-fsa.go.jp)
 
 気象
@@ -41,7 +41,18 @@ category: Machine Learning
 
 ### 時系列
 
-## Analitics
+法律
+- [日本の法律のPDFとXML](https://github.com/nikaido/law_xmls)
+
+
+## Data Collection
+
+### Webスクレイピング
+- Beautiful Soup   
+APIを使用して、Webサイトに連続でアクセスする場合は、負荷をかけすぎないように、
+一秒程度間隔を空ける。
+
+## Data Analitics
 
 ### カテゴリカル変数のEncoding
 
@@ -55,22 +66,16 @@ category: Machine Learning
 - Feature Hashing -> One-hot Encodingの圧縮版
 - Category Embedding -> One-hot Encodingの圧縮版
 
-## Visualization
+### 日付、連続データの処理
+[参照](https://note.nkmk.me/python-pandas-time-series-multiindex/)
 
-### Matplotlib
+## Data Visualization
 
-### Seaborn
-
-### Plotly
-
-- デザインが良い
-- 3Dの作図も得意
-- 図の視点を変更できたり、インタラクティブなインターフェース
-
-[参照](http://www.mathgram.xyz/entry/plotly#box)
-
-## Webスクレイピング
-
-### Beautiful Soup
-APIを使用して、Webサイトに連続で、アクセスする場合は、負荷をかけすぎないように、
-一秒程度、間隔を空ける。
+### ライブラリ
+- Matplotlib
+- Seaborn
+- Plotly
+  - デザインが良い
+  - 3Dの作図も得意
+  - 図の視点を変更できたり、インタラクティブなインターフェース   
+   [参照](http://www.mathgram.xyz/entry/plotly#box)
