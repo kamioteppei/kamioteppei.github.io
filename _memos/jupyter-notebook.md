@@ -155,3 +155,42 @@ $ source activate myenv
 ```
 notebookの右上のnewのところで、myenvを選択できるようになる。  
 既存のnotebookのkernelのプルダウンでも、kernelを変更できるようになっている。
+
+### 自作モジュールの使用
+
+下記の階層の場合の、自作モジュールのimportの方法について
+
+- 実行モジュール.py or .ipynb  
+- my_modules(package)   
+  - \__init__.py(packageを再帰的に読み込むためのダミーファイル)  
+  - my_module.py(module)  
+    - my_class(class)   
+      - my_def(function)   
+
+1.packageはimportできない
+```
+import my_modules
+```
+-> error
+
+2.moduleはimportできる fromを使用してもよい
+```
+import my_modules.my_module
+```
+-> ok
+
+```
+from my_modules import my_module
+```
+-> ok
+
+3.classはimportできるが、fromを使用しないといけない(.でパスを指定できない)
+```
+import my_modules.my_module.myclass
+```
+-> error
+
+```
+from my_modules.my_module import myclass
+```
+-> ok

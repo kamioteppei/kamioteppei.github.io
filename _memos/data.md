@@ -24,6 +24,7 @@ category: Machine Learning
 - [EDINET](http://disclosure.edinet-fsa.go.jp)
 
 気象
+- [気象庁](https://www.data.jma.go.jp/gmd/risk/obsdl/index.php)
 
 不動産
 
@@ -44,6 +45,8 @@ category: Machine Learning
 法律
 - [日本の法律のPDFとXML](https://github.com/nikaido/law_xmls)
 
+国会
+- [国会議事録](http://kokkai.ndl.go.jp/api.html)
 
 ## Data Collection
 
