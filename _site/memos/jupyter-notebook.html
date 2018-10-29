@@ -81,7 +81,7 @@
   <h1 class="page__title">Jupyter Notebook</h1>
   
   
-    <p class="page__date">October 22, 2018</p>
+    <p class="page__date">October 29, 2018</p>
   
 </div>
 
@@ -195,6 +195,14 @@
         <ul>
         
           <li class="">
+            <div class=""><a href="/memos/competition">Competition</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/data">Data</a></div>
+          </li>
+        
+          <li class="">
             <div class=""><a href="/memos/elasticsearch">Elasticsearch</a></div>
           </li>
         
@@ -203,19 +211,11 @@
           </li>
         
           <li class="">
-            <div class=""><a href="/memos/kaggle">Kaggle</a></div>
-          </li>
-        
-          <li class="">
             <div class=""><a href="/memos/machine-learning">Machine Learning</a></div>
           </li>
         
           <li class="">
             <div class=""><a href="/memos/math">Math</a></div>
-          </li>
-        
-          <li class="">
-            <div class=""><a href="/memos/visualization">Data and Visualization</a></div>
           </li>
         
         </ul>
@@ -399,6 +399,51 @@ sys.path
 既存のnotebookのkernelのプルダウンでも、kernelを変更できるようになっている。</p>
   </li>
 </ul>
+
+<h3 id="自作モジュールの使用">自作モジュールの使用</h3>
+
+<p>下記の階層の場合の、自作モジュールのimportの方法について</p>
+
+<ul>
+  <li>実行モジュール.py or .ipynb</li>
+  <li>my_modules(package)
+    <ul>
+      <li>__init__.py(packageを再帰的に読み込むためのダミーファイル)</li>
+      <li>my_module.py(module)
+        <ul>
+          <li>my_class(class)
+            <ul>
+              <li>my_def(function)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>1.packageはimportできない</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import my_modules
+</code></pre></div></div>
+<p>-&gt; error</p>
+
+<p>2.moduleはimportできる fromを使用してもよい</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import my_modules.my_module
+</code></pre></div></div>
+<p>-&gt; ok</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from my_modules import my_module
+</code></pre></div></div>
+<p>-&gt; ok</p>
+
+<p>3.classはimportできるが、fromを使用しないといけない(.でパスを指定できない)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import my_modules.my_module.myclass
+</code></pre></div></div>
+<p>-&gt; error</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from my_modules.my_module import myclass
+</code></pre></div></div>
+<p>-&gt; ok</p>
 
 
           </div>

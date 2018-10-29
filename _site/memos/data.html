@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>iOS | kamioteppei.github.io</title>
+  <title>Data | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="iOS 学習したい">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/ios">
+  <meta name="description" content="Data">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/data">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -78,7 +78,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">iOS</h1>
+  <h1 class="page__title">Data</h1>
   
   
     <p class="page__date">October 29, 2018</p>
@@ -254,8 +254,113 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="ios">iOS</h1>
-<p>学習したい</p>
+            <h1 id="data">Data</h1>
+
+<h2 id="data-repository">Data Repository</h2>
+
+<h3 id="線型統計">線型(統計)</h3>
+
+<p>政府</p>
+<ul>
+  <li><a href="https://www.e-stat.go.jp">e-Stat 政府統計の総合窓口</a></li>
+  <li><a href="https://dashboard.e-stat.go.jp">統計ダッシュボード</a></li>
+  <li><a href="http://spending.jp">税金はどこへ行った？</a></li>
+</ul>
+
+<p>ダッシュボードの語源 <br />
+ダッシュ=突進 -&gt; 船の先頭の波除の板 -&gt; 車の前面の板 -&gt; 車、飛行機の計器板 -&gt; 状況を一目で視覚的に表示する画面</p>
+
+<p>株価</p>
+<ul>
+  <li><a href="https://indexes.nikkei.co.jp/nkave/index">日経平均</a></li>
+  <li><a href="https://finance.yahoo.com/quote/^IXIC?p=^IXIC">Yahoo Finance(US)</a></li>
+  <li><a href="https://stocks.finance.yahoo.co.jp">Yahoo Finance(JP)</a></li>
+</ul>
+
+<p>企業/財務諸表</p>
+<ul>
+  <li><a href="http://disclosure.edinet-fsa.go.jp">EDINET</a></li>
+</ul>
+
+<p>気象</p>
+<ul>
+  <li><a href="https://www.data.jma.go.jp/gmd/risk/obsdl/index.php">気象庁</a></li>
+</ul>
+
+<p>不動産</p>
+
+<p>電気消費</p>
+<ul>
+  <li><a href="http://www.tepco.co.jp/forecast/html/download-j.html">東京電力</a></li>
+</ul>
+
+<p>小売</p>
+
+<p>観光</p>
+
+<p>その他</p>
+<ul>
+  <li><a href="https://datamarket.com/topic/list/countries/">datamarket.com</a></li>
+  <li><a href="https://www.quandl.com">quandl.com</a></li>
+</ul>
+
+<h3 id="画像">画像</h3>
+
+<h3 id="時系列">時系列</h3>
+
+<p>法律</p>
+<ul>
+  <li><a href="https://github.com/nikaido/law_xmls">日本の法律のPDFとXML</a></li>
+</ul>
+
+<p>国会</p>
+<ul>
+  <li><a href="http://kokkai.ndl.go.jp/api.html">国会議事録</a></li>
+</ul>
+
+<h2 id="data-collection">Data Collection</h2>
+
+<h3 id="webスクレイピング">Webスクレイピング</h3>
+<ul>
+  <li>Beautiful Soup <br />
+APIを使用して、Webサイトに連続でアクセスする場合は、負荷をかけすぎないように、
+一秒程度間隔を空ける。</li>
+</ul>
+
+<h2 id="data-analitics">Data Analitics</h2>
+
+<h3 id="カテゴリカル変数のencoding">カテゴリカル変数のEncoding</h3>
+
+<p><a href="http://jotkn.ciao.jp/wp/2017/08/22/post-67/">参照</a></p>
+
+<ul>
+  <li>Label Encoding -&gt; カテゴリごとに、数値に変換</li>
+  <li>Count Encoding -&gt; カテゴリごとに、出現件数に変換</li>
+  <li>Label Count Encoding -&gt; カテゴリごとに、出現件数のランクに変換</li>
+  <li>Target Encoding -&gt; カテゴリごとに、ラベル=trueの確率に変換　または、カテゴリごとのラベルの平均値に変換</li>
+  <li>One-hot Encoding -&gt; カテゴリの数の0/1配列。1になるのは1箇所のみ。</li>
+  <li>Feature Hashing -&gt; One-hot Encodingの圧縮版</li>
+  <li>Category Embedding -&gt; One-hot Encodingの圧縮版</li>
+</ul>
+
+<h3 id="日付連続データの処理">日付、連続データの処理</h3>
+<p><a href="https://note.nkmk.me/python-pandas-time-series-multiindex/">参照</a></p>
+
+<h2 id="data-visualization">Data Visualization</h2>
+
+<h3 id="ライブラリ">ライブラリ</h3>
+<ul>
+  <li>Matplotlib</li>
+  <li>Seaborn</li>
+  <li>Plotly
+    <ul>
+      <li>デザインが良い</li>
+      <li>3Dの作図も得意</li>
+      <li>図の視点を変更できたり、インタラクティブなインターフェース <br />
+ <a href="http://www.mathgram.xyz/entry/plotly#box">参照</a></li>
+    </ul>
+  </li>
+</ul>
 
 
           </div>
