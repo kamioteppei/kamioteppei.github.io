@@ -85,6 +85,8 @@ Dockerイメージの操作
   `-a`で、コンテナの起動と同時に、初期プロセスにattachする。
   - docker restart  -> 指定したDockerコンテナを再起動する。
   - docker rm  -> 指定したDockerコンテナを削除する。
+  - docker cp \<container_id\>:\<guest_file_path\> \<host_file_path\> -> コンテナからホストにファイルをコピーする
+  - docker cp \<host_file_path\> \<container_id\>:\<guest_file_path\> -> ホストからコンテナにファイルをコピーする
 
 - docker commit -> DockerコンテナをDockerイメージに変換する。
 - docker build -> DockerfileからDockerイメージを作成する。

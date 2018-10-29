@@ -14,6 +14,11 @@ category: Machine Learning
 
 政府
 - [e-Stat 政府統計の総合窓口](https://www.e-stat.go.jp)
+- [統計ダッシュボード](https://dashboard.e-stat.go.jp)
+- [税金はどこへ行った？](http://spending.jp)
+
+ダッシュボードの語源   
+ダッシュ=突進 -> 船の先頭の波除の板 -> 車の前面の板 -> 車、飛行機の計器板 -> 状況を一目で視覚的に表示する画面
 
 株価
 - [日経平均](https://indexes.nikkei.co.jp/nkave/index)
@@ -29,6 +34,7 @@ category: Machine Learning
 不動産
 
 電気消費
+- [東京電力](http://www.tepco.co.jp/forecast/html/download-j.html)
 
 小売
 
