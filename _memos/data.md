@@ -40,6 +40,9 @@ category: Machine Learning
 
 観光
 
+時事
+- [livedoor ニュースコーパス](https://www.rondhuit.com/download.html#ldcc)
+
 その他
 - [datamarket.com](https://datamarket.com/topic/list/countries/)
 - [quandl.com](https://www.quandl.com)
