@@ -45,7 +45,7 @@ $ jupyter notebook --generate-config
 bashとJupyter Notebookで実行環境が一致することを確認する。
 
 ### 注意
-次章の記述では、condaの仮想環境を作成しているが、最終的には、仮想環境を作成しないことにした。
+本章の記述では、condaの仮想環境を作成している記述があるが、最終的には、仮想環境を作成しないことにした。
 
 やりたかったこと  
 - Jupyter Notebookを主に使用し、機械学習の学習を行う。
@@ -106,7 +106,7 @@ sys.path
 ```
 $ pip show hoge
 ```
-一度、`bin`階層にダウンロードして、`lib/python3.6/site-packages`にインストールしている。
+一度、`bin`階層に`.whl`ファイル(zipと同じ)をダウンロードしてから、`lib/python3.6/site-packages`にインストール(展開)している。
 自分で`clean`コマンドをしないとダウンロードしたファイルは消えないと思われる。
 `no-cache-dir`というオプションがあるのでメモ。
 ```
@@ -167,13 +167,13 @@ notebookの右上のnewのところで、myenvを選択できるようになる�
     - my_class(class)   
       - my_def(function)   
 
-1.packageはimportできない
+1.packageはimportできない。パッケージはフォルダだからかな？
 ```
 import my_modules
 ```
 -> error
 
-2.moduleはimportできる fromを使用してもよい
+2.moduleはimportできる。fromを使用してもよい。
 ```
 import my_modules.my_module
 ```

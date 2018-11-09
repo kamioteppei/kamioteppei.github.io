@@ -81,6 +81,12 @@ APIを使用して、Webサイトに連続でアクセスする場合は、負�
 ### 日付、連続データの処理
 [参照](https://note.nkmk.me/python-pandas-time-series-multiindex/)
 
+### 後で読む
+- [kerasモデルのシリアライズ](https://qiita.com/maruware/items/0a474c6d409b83f4bf52#モデルの保存と読み込み)
+- [pandasの結合各種](http://sinhrks.hatenablog.com/entry/2015/01/28/073327)
+- [自然言語処理/MeCab/gensim](https://qiita.com/satzz/items/69beb439ed440d459585)
+- [Pythonコーディング規約](https://qiita.com/ynakayama/items/8616f4c0c6e372de9a42)
+
 ## Data Visualization
 
 ### ライブラリ
@@ -91,3 +97,8 @@ APIを使用して、Webサイトに連続でアクセスする場合は、負�
   - 3Dの作図も得意
   - 図の視点を変更できたり、インタラクティブなインターフェース   
    [参照](http://www.mathgram.xyz/entry/plotly#box)
+
+### 後で読む
+- [kerasモデルの作図](https://qiita.com/maruware/items/0a474c6d409b83f4bf52#kerasutilsvis_utilsmodel_to_dot)
+- [keras学習曲線の作図](https://qiita.com/maruware/items/0a474c6d409b83f4bf52#学習曲線の表示)
+- [LIMEで特徴の可視化](https://qiita.com/_qsng/items/7c922a983b21653acbae)

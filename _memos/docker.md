@@ -75,7 +75,7 @@ Dockerイメージの操作
   - docker run -> DockerイメージからDockerコンテナを起動する。
   - docker ps  ->　タスクが起動中のDockerコンテナのリストを表示する。
   - docker ps -a  -> 全てのDockerコンテナのリストを表示する。
-  - docker stats  -> 起動中のDockerコンテナのcpuやメモリの使用状況を表示する。
+  - docker stats -a  -> 起動中のDockerコンテナのcpuやメモリの使用状況を表示する。
   - docker exec  -> 指定したDockerコンテナでコマンドを実行する。
   `docker exec -it コンテナID先頭3桁 bash`で、シェル操作できる。
   - docker attach  -> Dockerコンテナに起動しているPID=1のプロセスの標準入力(STDIN)と、標準出力(STDOUT)に接続する。

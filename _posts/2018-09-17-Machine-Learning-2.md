@@ -126,6 +126,12 @@ $ nvidia-smi
 ```
 GPUの機種名(GeForce GTX 960)が表示されればOK
 
+**インストール後の注意**
+hostのubuntuのapt-updateかapt-upgradeをした後に、hostを再起動すると、
+dockerのコンテナ起動時にエラーが発生する。内容は、cuda9.0がどうだこうだと表示される。
+この場合に上記の`nvidia-smi`コマンドを打って、コマンドエラーになった場合は、NVIDIAドライバが
+apt-updateによる影響で、おかしくなっているので、もう一度、上記手順で、NVIDIAドライバを再インストールする。
+
 ### Docker
 [Dockerのまとめ](/memos/docker)にしたがって、インストール
 

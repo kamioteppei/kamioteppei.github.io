@@ -81,7 +81,7 @@
   <h1 class="page__title">Jupyter Notebook</h1>
   
   
-    <p class="page__date">November 02, 2018</p>
+    <p class="page__date">November 09, 2018</p>
   
 </div>
 
@@ -288,7 +288,7 @@ $ jupyter notebook
 bashとJupyter Notebookで実行環境が一致することを確認する。</p>
 
 <h3 id="注意">注意</h3>
-<p>次章の記述では、condaの仮想環境を作成しているが、最終的には、仮想環境を作成しないことにした。</p>
+<p>本章の記述では、condaの仮想環境を作成している記述があるが、最終的には、仮想環境を作成しないことにした。</p>
 
 <p>やりたかったこと</p>
 <ul>
@@ -350,7 +350,7 @@ sys.path
   <li>pipでインストールしたライブラリの格納場所
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip show hoge
 </code></pre></div>    </div>
-    <p>一度、<code class="highlighter-rouge">bin</code>階層にダウンロードして、<code class="highlighter-rouge">lib/python3.6/site-packages</code>にインストールしている。
+    <p>一度、<code class="highlighter-rouge">bin</code>階層に<code class="highlighter-rouge">.whl</code>ファイル(zipと同じ)をダウンロードしてから、<code class="highlighter-rouge">lib/python3.6/site-packages</code>にインストール(展開)している。
 自分で<code class="highlighter-rouge">clean</code>コマンドをしないとダウンロードしたファイルは消えないと思われる。
 <code class="highlighter-rouge">no-cache-dir</code>というオプションがあるのでメモ。</p>
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install --no-cache-dir -r /usr/src/app/requirements.txt
@@ -422,12 +422,12 @@ sys.path
   </li>
 </ul>
 
-<p>1.packageはimportできない</p>
+<p>1.packageはimportできない。パッケージはフォルダだからかな？</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import my_modules
 </code></pre></div></div>
 <p>-&gt; error</p>
 
-<p>2.moduleはimportできる fromを使用してもよい</p>
+<p>2.moduleはimportできる。fromを使用してもよい。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import my_modules.my_module
 </code></pre></div></div>
 <p>-&gt; ok</p>

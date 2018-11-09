@@ -12,5 +12,6 @@ category: Machine Learning
 - [https://www.kaggle.com/competitions](https://www.kaggle.com/competitions)
 
 ## Signate
+(旧:DeepAnalytics)
 - [https://signate.jp/learning](https://signate.jp/learning)
 - [https://signate.jp/competitions](https://signate.jp/competitions)

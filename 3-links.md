@@ -15,10 +15,13 @@ permalink: /links/
 - [Bootstrap](http://getbootstrap.com/docs/4.1/getting-started/introduction/)
 - [Docker](https://docs.docker.com/reference/)
 - [conda](https://conda.io/docs/commands.html)
+- [nltk](https://www.nltk.org)
+
 
 ## GitHub
 - [Web Developer Roadmap - 2018](https://github.com/kamranahmedse/developer-roadmap)
 - [Best websites a programmer should visit](https://github.com/sdmg15/Best-websites-a-programmer-should-visit)
+- [kerasサンプル](https://github.com/keras-team/keras/tree/master/examples)
 
 ## DockerHub
 - [DockerHub](https://hub.docker.com/explore/)
