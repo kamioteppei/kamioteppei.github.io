@@ -23,6 +23,12 @@
       displayIndent: "2em"
     });
   </script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script language="JavaScript">
+    $(document).ready( function () {
+       $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+    })
+  </script>
 </head>
 <body>
 
@@ -81,7 +87,7 @@
   <h1 class="page__title">Bootstrap</h1>
   
   
-    <p class="page__date">November 09, 2018</p>
+    <p class="page__date">November 13, 2018</p>
   
 </div>
 

@@ -5,7 +5,7 @@ permalink: /links/
 ---
 
 ## Docs
-- [python3](https://docs.python.jp/3/py-modindex.html)
+- [python3](https://docs.python.jp/3/py-modindex.html){:target="_blank"}
 - [Tensorflow](https://www.tensorflow.org/api_docs/python/)
 - [keras](https://keras.io/ja/)
 - [Pytorch](https://pytorch.org/docs/stable/index.html)
@@ -16,7 +16,7 @@ permalink: /links/
 - [Docker](https://docs.docker.com/reference/)
 - [conda](https://conda.io/docs/commands.html)
 - [nltk](https://www.nltk.org)
-
+- [statsmodels](http://www.statsmodels.org/stable/index.html)
 
 ## GitHub
 - [Web Developer Roadmap - 2018](https://github.com/kamranahmedse/developer-roadmap)

@@ -23,6 +23,12 @@
       displayIndent: "2em"
     });
   </script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script language="JavaScript">
+    $(document).ready( function () {
+       $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+    })
+  </script>
 </head>
 <body>
 
@@ -89,7 +95,7 @@
       <div class="page__body">
         <h2 id="docs">Docs</h2>
 <ul>
-  <li><a href="https://docs.python.jp/3/py-modindex.html">python3</a></li>
+  <li><a href="https://docs.python.jp/3/py-modindex.html" target="_blank">python3</a></li>
   <li><a href="https://www.tensorflow.org/api_docs/python/">Tensorflow</a></li>
   <li><a href="https://keras.io/ja/">keras</a></li>
   <li><a href="https://pytorch.org/docs/stable/index.html">Pytorch</a></li>
@@ -100,6 +106,7 @@
   <li><a href="https://docs.docker.com/reference/">Docker</a></li>
   <li><a href="https://conda.io/docs/commands.html">conda</a></li>
   <li><a href="https://www.nltk.org">nltk</a></li>
+  <li><a href="http://www.statsmodels.org/stable/index.html">statsmodels</a></li>
 </ul>
 
 <h2 id="github">GitHub</h2>
