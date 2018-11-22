@@ -25,6 +25,26 @@ Wikipedia等から作成したモデルから類似語、反意語を取得す�
 会話ボット
 - 音声認識・発話  
 VRアナウンサー
+- [FAQの作成(qiita)](https://qiita.com/yukihon_lab/items/5f494d1a39849071f077)
+- [感情の分類(qiita)](https://qiita.com/sugiyamath/items/7cabef39390c4a07e4d8)
+
+## 構文解析
+
+[参照](http://d.hatena.ne.jp/jetbead/20140110/1389287928)
+
+- 表層格  
+主格、目的格、格助詞による分類
+
+- 深層格  
+単語の意味による分類
+  - 動作主格(AGENT)
+  - 経験者格(EXPERIENCER)
+  - 対象格(OBJECT)
+  - 道具格(INSTRUMENT)
+  - 源泉格(SOURCE)
+  - 目標格(GOAL)
+  - 場所格(LOCATION)
+  - 時間格(TIME)
 
 ## ライブラリ
 - MeCab  
@@ -35,11 +55,14 @@ Python製
 Java製 Elasticsearchで使用できる
 - gensim  
 Word2Vecモデリング機能
+- sickit-learn  
+TfidfVectorizer
 
 ## サービス
 
 - [Cloud Natural Language(Google)](https://cloud.google.com/natural-language/)
 - [自動要約ツール(User Local)](https://text-summary.userlocal.jp)
+- [COTOHA API](https://api.ce-cotoha.com/contents/)
 - [日本語word2vecモデルの公開(白ヤギコーポレーション)](http://aial.shiroyagi.co.jp/2017/02/japanese-word2vec-model-builder/)
 
 ## モデル
@@ -76,4 +99,4 @@ $$ tfidf(w_i) = {tf(w_i)} \times {idf(w_i)} $$
 
 tfとidfが大きい程、1.0に近くなり、逆だと、0.0に近くなる
 
-よって、$$ d_j $$ に置いて、頻繁に出現する単語で、かつ、他の文書での出現頻度が低いもの程、重要と判定される。
+よって、$$ d_j $$ において、頻繁に出現する単語で、かつ、他の文書での出現頻度が低いもの程、重要と判定される。

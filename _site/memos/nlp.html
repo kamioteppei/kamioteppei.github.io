@@ -284,6 +284,33 @@ Wikipedia等から作成したモデルから類似語、反意語を取得す�
 会話ボット</li>
   <li>音声認識・発話<br />
 VRアナウンサー</li>
+  <li><a href="https://qiita.com/yukihon_lab/items/5f494d1a39849071f077">FAQの作成(qiita)</a></li>
+  <li><a href="https://qiita.com/sugiyamath/items/7cabef39390c4a07e4d8">感情の分類(qiita)</a></li>
+</ul>
+
+<h2 id="構文解析">構文解析</h2>
+
+<p><a href="http://d.hatena.ne.jp/jetbead/20140110/1389287928">参照</a></p>
+
+<ul>
+  <li>
+    <p>表層格<br />
+主格、目的格、格助詞による分類</p>
+  </li>
+  <li>
+    <p>深層格<br />
+単語の意味による分類</p>
+    <ul>
+      <li>動作主格(AGENT)</li>
+      <li>経験者格(EXPERIENCER)</li>
+      <li>対象格(OBJECT)</li>
+      <li>道具格(INSTRUMENT)</li>
+      <li>源泉格(SOURCE)</li>
+      <li>目標格(GOAL)</li>
+      <li>場所格(LOCATION)</li>
+      <li>時間格(TIME)</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="ライブラリ">ライブラリ</h2>
@@ -296,6 +323,8 @@ Python製</li>
 Java製 Elasticsearchで使用できる</li>
   <li>gensim<br />
 Word2Vecモデリング機能</li>
+  <li>sickit-learn<br />
+TfidfVectorizer</li>
 </ul>
 
 <h2 id="サービス">サービス</h2>
@@ -303,6 +332,7 @@ Word2Vecモデリング機能</li>
 <ul>
   <li><a href="https://cloud.google.com/natural-language/">Cloud Natural Language(Google)</a></li>
   <li><a href="https://text-summary.userlocal.jp">自動要約ツール(User Local)</a></li>
+  <li><a href="https://api.ce-cotoha.com/contents/">COTOHA API</a></li>
   <li><a href="http://aial.shiroyagi.co.jp/2017/02/japanese-word2vec-model-builder/">日本語word2vecモデルの公開(白ヤギコーポレーション)</a></li>
 </ul>
 
@@ -340,7 +370,7 @@ logは、値の幅を小さくする為。分のプラス1は0除算を回避す
 
 <p>tfとidfが大きい程、1.0に近くなり、逆だと、0.0に近くなる</p>
 
-<p>よって、<script type="math/tex">d_j</script> に置いて、頻繁に出現する単語で、かつ、他の文書での出現頻度が低いもの程、重要と判定される。</p>
+<p>よって、<script type="math/tex">d_j</script> において、頻繁に出現する単語で、かつ、他の文書での出現頻度が低いもの程、重要と判定される。</p>
 
 
           </div>

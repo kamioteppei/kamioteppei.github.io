@@ -310,11 +310,27 @@ SID等の状態をサーバーに送信する。</p>
 
 <h2 id="restful-web-service">RESTful Web Service</h2>
 
-<p>レストフルとは、</p>
+<p>RESTfulとは、</p>
 <ul>
-  <li>状態を持たない</li>
+  <li>状態を持たない(Stateless)</li>
   <li>全てのアクションに対して、URLのリソースとして指定できる。</li>
   <li>リソースは名前を持つ</li>
+</ul>
+
+<p>RESTful Web Serviceが発明された理由は、スマートフォンの流行による、
+ブラウザ、ローカルアプリ、各種画面サイズの違いを、抽象化する為。</p>
+
+<h2 id="graphql">GraphQL</h2>
+
+<p>概念ではなく、Facebook社が開発した、クエリ言語である。<br />
+リクエストの結果を、json形式で返す。<br />
+<a href="https://www.webprofessional.jp/rest-2-0-graphql/">(参照)アプリ開発の流れを変える「GraphQL」はRESTとどう違うのか比較してみた</a></p>
+
+<ul>
+  <li>RESTでは、階層のある情報を、Webページを進んで行くように、複数回アクセスしないといけない。</li>
+  <li>GraphQLでは、複数の階層を1度のクエリで取得できる。また、取得する項目を指定できる。</li>
+  <li>上記により、通信量を減らすことができる。</li>
+  <li>RESTでは、post,delete等のエントリポイントが複数あるが、GraphQLでは、1つにできる。</li>
 </ul>
 
 
