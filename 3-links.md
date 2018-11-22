@@ -5,7 +5,7 @@ permalink: /links/
 ---
 
 ## Docs
-- [python3](https://docs.python.jp/3/py-modindex.html){:target="_blank"}
+- [python3](https://docs.python.jp/3/py-modindex.html)
 - [Tensorflow](https://www.tensorflow.org/api_docs/python/)
 - [keras](https://keras.io/ja/)
 - [Pytorch](https://pytorch.org/docs/stable/index.html)
@@ -16,6 +16,8 @@ permalink: /links/
 - [Docker](https://docs.docker.com/reference/)
 - [conda](https://conda.io/docs/commands.html)
 - [nltk](https://www.nltk.org)
+- [janome](http://mocobeta.github.io/janome/) (形態素解析)
+- [gensim](https://radimrehurek.com/gensim/tutorial.html) (Word2Vec)
 - [statsmodels](http://www.statsmodels.org/stable/index.html)
 
 ## GitHub
@@ -40,6 +42,14 @@ permalink: /links/
 - [Udemy](https://www.udemy.com)
 
 ## Machine Learning
+
+### 統計
+- [統計WEB](https://bellcurve.jp/statistics/)
+- [大人のための統計教室 和(なごみ)](https://wakara.co.jp/service/personal_toukei)
+
+### 資格
+- [統計検定](http://www.toukei-kentei.jp)
+- [G検定](https://www.jdla.org/business/certificate/#education)
 
 ### Competition
 - [Kaggle](https://www.kaggle.com)

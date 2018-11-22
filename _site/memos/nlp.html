@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Vagrant | kamioteppei.github.io</title>
+  <title>Natural language processing | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Vagrant">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/vagrant">
+  <meta name="description" content="自然言語処理 Natural language processing">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/nlp">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -84,7 +84,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Vagrant</h1>
+  <h1 class="page__title">Natural language processing</h1>
   
   
     <p class="page__date">November 22, 2018</p>
@@ -264,67 +264,83 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="vagrant">Vagrant</h1>
+            <h1 id="自然言語処理">自然言語処理</h1>
+<p>Natural language processing</p>
 
-<h2 id="インストール">インストール</h2>
+<h2 id="基本">基本</h2>
 
-<p>Virtual Boxインストール<br />
-centosなどのイメージを名前をつけてインストール<br />
-ex:centos_vm</p>
+<p>用途</p>
+<ul>
+  <li>形態素解析</li>
+  <li>構文解析<br />
+構文木作成</li>
+  <li>ベクトル解析(Word2Vec)<br />
+Wikipedia等から作成したモデルから類似語、反意語を取得する</li>
+  <li>文章要約</li>
+  <li>翻訳</li>
+  <li>検索<br />
+判例検索</li>
+  <li>言語生成<br />
+会話ボット</li>
+  <li>音声認識・発話<br />
+VRアナウンサー</li>
+</ul>
 
-<p>仮想OSのハブ<br />
-https://app.vagrantup.com/boxes/search</p>
+<h2 id="ライブラリ">ライブラリ</h2>
+<ul>
+  <li>MeCab<br />
+C++製 処理速度早い</li>
+  <li>Janome<br />
+Python製</li>
+  <li>Kuromoji<br />
+Java製 Elasticsearchで使用できる</li>
+  <li>gensim<br />
+Word2Vecモデリング機能</li>
+</ul>
 
-<p>仮想OSをインストールする</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir foo/bar/centos_vm
-$ cd foo/bar/centos_vm
-$ vagrant init [name[url]]
-</code></pre></div></div>
-<p>Vagrantfileが作成される</p>
+<h2 id="サービス">サービス</h2>
 
-<p>インストールしたOSを立ち上げる</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant up
-</code></pre></div></div>
+<ul>
+  <li><a href="https://cloud.google.com/natural-language/">Cloud Natural Language(Google)</a></li>
+  <li><a href="https://text-summary.userlocal.jp">自動要約ツール(User Local)</a></li>
+  <li><a href="http://aial.shiroyagi.co.jp/2017/02/japanese-word2vec-model-builder/">日本語word2vecモデルの公開(白ヤギコーポレーション)</a></li>
+</ul>
 
-<p>インストールしたOSをシャットダウンする</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant halt
-</code></pre></div></div>
+<h2 id="モデル">モデル</h2>
 
-<p>インストールしたOSを再起動する</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant reload
-</code></pre></div></div>
+<h3 id="tf-idf">TF-IDF</h3>
 
-<p>仮想OSにSSHで接続する</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vagrant ssh
-</code></pre></div></div>
+<h4 id="tf-term-frequency--単語の出現頻度">TF (Term Frequency : 単語の出現頻度)</h4>
 
-<p>user/passは  <br />
-vagrant/vagrant  <br />
-root/vagrant</p>
+<p>文書内で、出現回数の多い単語を重要とみなす。<br />
+文書(d)に存在するn個の単語(w)の出現回数をそれぞれ <script type="math/tex">w_k</script> とすると、任意の単語の出現頻度 <script type="math/tex">tf(w_i)</script> の計算式は以下となる。</p>
 
-<p>ssh接続を終了するには</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ctrl+d
-</code></pre></div></div>
-<p>または</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ exit
-</code></pre></div></div>
+<script type="math/tex; mode=display">tf(w_i) = \frac{w_i}{\sum_{k=1}^{n} w_k }</script>
 
-<p>ホストOSから、vagrant環境のRailsアプリを<br />
-ブラウザで確認する場合は、<br />
-Vagrantファイルの以下を修正する。</p>
+<p>文書内で、出現回数が多い単語程、1.0に近くなり、逆だと、0.0に近くなる</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Create a private network, which allows host-only access to the machine
-# using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.10"
-</code></pre></div></div>
+<h4 id="idf-inverse-document-frequency--逆文書頻度">IDF (Inverse Document Frequency : 逆文書頻度)</h4>
 
-<p>Box管理と仮想マシン管理は別もの</p>
+<p>tfのみで、重要性を判断すると、単に、I,Weなどの主語や、as,ofなどの前置詞、または、日本のニュースにおける、日本という単語等の、
+重要性の低い(当たり前の)、頻出の単語が検出される。
+そこで、idfという基準で、「ある文書のある単語が、どれだけ、他の文書で出現しないか」を２つ目の重要性として算出する。</p>
 
-<p><code class="highlighter-rouge">vagrant destroy</code>で仮想マシンを削除してもBoxとVagrantfileは残る。<br />
-<code class="highlighter-rouge">vagrant destroy</code> = 仮想マシン削除<br />
-<code class="highlighter-rouge">vagrant box remove</code> = Box削除<br />
-再度vagrant upを行うと初期状態(vagrant box add直後の状態)で起動することができるので、<br />
-<code class="highlighter-rouge">vagrant up</code> → 作業 → <code class="highlighter-rouge">vagrant destroy</code>というサイクルで作業ができる。</p>
+<p>m個の文書(d)に、n個の単語(w)が存在する場合に置いて、単語 <script type="math/tex">w_i</script> の出現文書数を <script type="math/tex">d_j</script> とした場合の、単語 <script type="math/tex">w_i</script> の逆文書頻度 <script type="math/tex">idf(w_i)</script> の計算式は以下となる。</p>
+
+<script type="math/tex; mode=display">idf(w_i) = \log(\frac{m}{d_j + 1})</script>
+
+<p>単語の、出現文書数が少ない程、1.0に近くなり、逆だと、0.0に近くなる<br />
+logは、値の幅を小さくする為。分のプラス1は0除算を回避する為</p>
+
+<h4 id="tf-idf-1">TF-IDF</h4>
+
+<p>上記の、tfとidfをかけ合わせると、文書 <script type="math/tex">d_j</script> における、単語 <script type="math/tex">w_i</script> の重要性が算出される。</p>
+
+<script type="math/tex; mode=display">tfidf(w_i) = {tf(w_i)} \times {idf(w_i)}</script>
+
+<p>tfとidfが大きい程、1.0に近くなり、逆だと、0.0に近くなる</p>
+
+<p>よって、<script type="math/tex">d_j</script> に置いて、頻繁に出現する単語で、かつ、他の文書での出現頻度が低いもの程、重要と判定される。</p>
 
 
           </div>

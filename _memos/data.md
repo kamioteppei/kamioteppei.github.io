@@ -16,6 +16,7 @@ category: Machine Learning
 - [e-Stat 政府統計の総合窓口](https://www.e-stat.go.jp)
 - [統計ダッシュボード](https://dashboard.e-stat.go.jp)
 - [税金はどこへ行った？](http://spending.jp)
+- [RESAS 地域経済分析システム](https://resas.go.jp/#/13/13101)
 
 ダッシュボードの語源   
 ダッシュ=突進 -> 船の先頭の波除の板 -> 車の前面の板 -> 車、飛行機の計器板 -> 状況を一目で視覚的に表示する画面
