@@ -7,6 +7,7 @@ permalink: /links/
 ## Docs
 - [python3](https://docs.python.jp/3/py-modindex.html)
 - [Tensorflow](https://www.tensorflow.org/api_docs/python/)
+- [TensorFlow.js](https://js.tensorflow.org/#getting-started)
 - [keras](https://keras.io/ja/)
 - [Pytorch](https://pytorch.org/docs/stable/index.html)
 - [scikit-learn](http://scikit-learn.org/stable/modules/classes.html)
@@ -63,6 +64,7 @@ permalink: /links/
 - [ai.google](https://ai.google/education)
 - [deeplearning.ai](https://www.deeplearning.ai/courses/)
 -  [playground.tensorflow.org](http://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.60237&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+- [TensorFlowサンプルレシピ集(Manatee)](https://book.mynavi.jp/manatee/detail/id=65673)
 
 ### Topics
 
