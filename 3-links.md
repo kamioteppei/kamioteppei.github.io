@@ -30,7 +30,7 @@ permalink: /links/
 - [DockerHub](https://hub.docker.com/explore/)
 
 ## 最新情報
-- [qiita](https://qiita.com)
+- [Qiita](https://qiita.com)
 - [Technology Radar](https://www.thoughtworks.com/radar/languages-and-frameworks)
 - [ダウンディテクター(障害発生状況確認)](https://downdetector.jp/tsuiseki-shiteiru-kigyo-saabisu)
 
