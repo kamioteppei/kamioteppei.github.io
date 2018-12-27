@@ -47,6 +47,7 @@ category: Machine Learning
 その他
 - [datamarket.com](https://datamarket.com/topic/list/countries/)
 - [quandl.com](https://www.quandl.com)
+- [データ分析に必要なデータソース20選（無料で使える）](https://qiita.com/Hailee/items/bad0c085d293e9253ba2)
 
 ### 画像
 

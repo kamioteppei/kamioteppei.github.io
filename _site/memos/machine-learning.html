@@ -87,7 +87,7 @@
   <h1 class="page__title">Machine Learning</h1>
   
   
-    <p class="page__date">December 06, 2018</p>
+    <p class="page__date">December 27, 2018</p>
   
 </div>
 
@@ -574,7 +574,8 @@ L2ノルム(記号：||x||2)・・・ベクトルの各要素を２乗を合計�
 全レイヤーの重みとバイアスのニューロンの数が全部で10個だとすると、その10個をループして、
 <script type="math/tex">\frac{f(x_0 + \Delta x_0 , x_1 , ... , x_9) - f(x_0 , x_1 , ... , x_9)}{\Delta x_0}</script> ,
 <script type="math/tex">\frac{f(x_0, x_1 + \Delta x_1 , ... , x_9) - f(x_0 , x_1 , ... , x_9)}{\Delta x_1}</script> … と <br />
-ニューラルネットワークの走査を10 * 2回も行わなくてはならない。</li>
+ニューラルネットワークの走査を10 * 2回も行わなくてはならない。<br />
+(10個のノードで、微分前後の出力値の差分を誤差として算出し、集計する。)</li>
       <li>逆伝播<br />
 後ろからニューロンの数だけ、計算すれば良いらしい。</li>
     </ul>
