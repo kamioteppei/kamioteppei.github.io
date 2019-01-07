@@ -58,6 +58,13 @@ EC2インスタンスにアクセスするだけなら、ターミナルからSS
 `ssh -i <作成したキーの名前.pem> ec2-user@<EC2インスタンスのIP>`  
 
 - SDKで使用するアクセスキーは、IAMユーザーの認証情報タブにある、[アクセスキーの作成]ボタンから作成する。
+プログラムを実行する端末のAWS CLIの登録は`aws configure`で、以下を登録。
+```
+AWS Access Key ID [None]: <上記のキー>
+AWS Secret Access Key [None]: <上記のシークレットキー>
+Default region name [None]: <リージョン>
+Default output format [None]: json
+```
 
 ## VPC
 
@@ -139,6 +146,9 @@ Amazon Elastic Compute Cloudの略
   マスターに昇格する。
   - mysqlの接続は`mysql -h <mysqlのインスタンスのrds_endpoint> -u root -p`
   - プログラムでアクセスする場合も同じ。DNSがIPを切り替えてくれる。
+  - mysqlのパラメータは、作成したパラメータグループの各設定を変更する。
+  - マルチAZの設定をする場合は、サブネットグループを作成する必要がある。   
+  ElastiCacheなどの異なるAWSサービスとはサブネットグループを共有できない。
 
 ## ロードバランシングとオートスケーリング
 
@@ -156,13 +166,15 @@ ALBを選択した場合は、ロードバランサーのターゲットグル�
 
 - CloudFront  
 Webコンテンツのキャッシュサービス(Content Delivery Network(CDN)サービス)  
-世界中に100を超えるエッジロケーションがあり、キャッシュしている。
+世界中に100を超えるエッジロケーションがあり、キャッシュしている。   
+CloudFrontインスタンス作成時に、ELBを指定できる。Route53(DNS)とELB(ロードバランサー)の
+中間に位置し、ロードバランサー経由で、定期的に、最新のコンテンツをキャッシュする。
 
 - ElastiCache  
 DBレスポンスのキャッシュ  
 以下のNoSQL(key-value)を使用する。
   - Redis
-  - Memcached
+  - Memcached  
 メモリに情報を持つので、レスポンスが速い
 
 ### Redis
@@ -182,7 +194,42 @@ Simple Queue Service
 ## SNS
 Simple Notification Service
 
+## CloudWatch
+CPU、メモリ、料金等の使用状況を監視し、設定した閾値を超えた場合のアクションを行う。
+
+## CloudTrail
+AWSの操作ログをS3に格納する。   
+大量の操作ログをS3に格納していて、料金がかかりそうなので、作成したCloudTrailの設定を削除した。
+
 ## サーバーレスアーキテクチャー
 
 VPCとその中のWebサーバーや、DBを使用せずに、  
 AWSのAPI Gateway、Lambda、S3、DynamoDB等で構成するサービス
+
+- AWS SAM  
+Serverless Application Modelの略
+サーバーレス構成に特化した、Cloudformation(CFn)のテンプレート  
+つまり、サーバーレスの構成には、CFnではなく、SAMを使用した方が良いということ。
+
+- Serverless Framework(非AWS)  
+Serverless Framework.comが提供するサービス。
+npmでServerless Frameworkをインストールする。AWSのIAMを使用し、コマンドラインで操作する。
+
+### Serverless構成例
+
+- AWS S3  
+node.js + npm + angular cli等の開発環境で、  
+html,css,jsをホスティング
+
+- AWS Cognito  
+ユーザープール作成、認証サービス。
+jsでcognitoのライブラリを使用する。
+
+- AWS API Gateway  
+swaggerのymlファイルから、API構成をインポートできる。
+
+- AWS Lambda  
+Lambdaには300秒の実行時間制限があるので、日次処理のようなデータを一度にたくさん処理する使い方には本来向いていない。
+
+- AWS DynamoDB  
+NoSQL

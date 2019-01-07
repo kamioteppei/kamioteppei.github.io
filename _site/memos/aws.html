@@ -87,7 +87,7 @@
   <h1 class="page__title">AWS</h1>
   
   
-    <p class="page__date">December 30, 2018</p>
+    <p class="page__date">January 07, 2019</p>
   
 </div>
 
@@ -326,7 +326,13 @@ EC2インスタンスにアクセスするだけなら、ターミナルからSS
 <code class="highlighter-rouge">ssh -i &lt;作成したキーの名前.pem&gt; ec2-user@&lt;EC2インスタンスのIP&gt;</code></p>
   </li>
   <li>
-    <p>SDKで使用するアクセスキーは、IAMユーザーの認証情報タブにある、[アクセスキーの作成]ボタンから作成する。</p>
+    <p>SDKで使用するアクセスキーは、IAMユーザーの認証情報タブにある、[アクセスキーの作成]ボタンから作成する。
+プログラムを実行する端末のAWS CLIの登録は<code class="highlighter-rouge">aws configure</code>で、以下を登録。</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AWS Access Key ID [None]: &lt;上記のキー&gt;
+AWS Secret Access Key [None]: &lt;上記のシークレットキー&gt;
+Default region name [None]: &lt;リージョン&gt;
+Default output format [None]: json
+</code></pre></div>    </div>
   </li>
 </ul>
 
@@ -436,6 +442,9 @@ EC２インスタンスのファイアーウォール設定</p>
 マスターに昇格する。</li>
       <li>mysqlの接続は<code class="highlighter-rouge">mysql -h &lt;mysqlのインスタンスのrds_endpoint&gt; -u root -p</code></li>
       <li>プログラムでアクセスする場合も同じ。DNSがIPを切り替えてくれる。</li>
+      <li>mysqlのパラメータは、作成したパラメータグループの各設定を変更する。</li>
+      <li>マルチAZの設定をする場合は、サブネットグループを作成する必要がある。 <br />
+ElastiCacheなどの異なるAWSサービスとはサブネットグループを共有できない。</li>
     </ul>
   </li>
 </ul>
@@ -463,7 +472,9 @@ ALBを選択した場合は、ロードバランサーのターゲットグル�
   <li>
     <p>CloudFront<br />
 Webコンテンツのキャッシュサービス(Content Delivery Network(CDN)サービス)<br />
-世界中に100を超えるエッジロケーションがあり、キャッシュしている。</p>
+世界中に100を超えるエッジロケーションがあり、キャッシュしている。 <br />
+CloudFrontインスタンス作成時に、ELBを指定できる。Route53(DNS)とELB(ロードバランサー)の
+中間に位置し、ロードバランサー経由で、定期的に、最新のコンテンツをキャッシュする。</p>
   </li>
   <li>
     <p>ElastiCache<br />
@@ -471,7 +482,7 @@ DBレスポンスのキャッシュ<br />
 以下のNoSQL(key-value)を使用する。</p>
     <ul>
       <li>Redis</li>
-      <li>Memcached
+      <li>Memcached<br />
 メモリに情報を持つので、レスポンスが速い</li>
     </ul>
   </li>
@@ -496,10 +507,58 @@ DBレスポンスのキャッシュ<br />
 <h2 id="sns">SNS</h2>
 <p>Simple Notification Service</p>
 
+<h2 id="cloudwatch">CloudWatch</h2>
+<p>CPU、メモリ、料金等の使用状況を監視し、設定した閾値を超えた場合のアクションを行う。</p>
+
+<h2 id="cloudtrail">CloudTrail</h2>
+<p>AWSの操作ログをS3に格納する。 <br />
+大量の操作ログをS3に格納していて、料金がかかりそうなので、作成したCloudTrailの設定を削除した。</p>
+
 <h2 id="サーバーレスアーキテクチャー">サーバーレスアーキテクチャー</h2>
 
 <p>VPCとその中のWebサーバーや、DBを使用せずに、<br />
 AWSのAPI Gateway、Lambda、S3、DynamoDB等で構成するサービス</p>
+
+<ul>
+  <li>
+    <p>AWS SAM<br />
+Serverless Application Modelの略
+サーバーレス構成に特化した、Cloudformation(CFn)のテンプレート<br />
+つまり、サーバーレスの構成には、CFnではなく、SAMを使用した方が良いということ。</p>
+  </li>
+  <li>
+    <p>Serverless Framework(非AWS)<br />
+Serverless Framework.comが提供するサービス。
+npmでServerless Frameworkをインストールする。AWSのIAMを使用し、コマンドラインで操作する。</p>
+  </li>
+</ul>
+
+<h3 id="serverless構成例">Serverless構成例</h3>
+
+<ul>
+  <li>
+    <p>AWS S3<br />
+node.js + npm + angular cli等の開発環境で、<br />
+html,css,jsをホスティング</p>
+  </li>
+  <li>
+    <p>AWS Cognito<br />
+ユーザープール作成、認証サービス。
+jsでcognitoのライブラリを使用する。</p>
+  </li>
+  <li>
+    <p>AWS API Gateway<br />
+swaggerのymlファイルから、API構成をインポートできる。</p>
+  </li>
+  <li>
+    <p>AWS Lambda<br />
+Lambdaには300秒の実行時間制限があるので、日次処理のようなデータを一度にたくさん処理する使い方には本来向いていない。</p>
+  </li>
+  <li>
+    <p>AWS DynamoDB<br />
+NoSQL</p>
+  </li>
+</ul>
 
 
           </div>
