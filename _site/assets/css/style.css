@@ -2555,7 +2555,8 @@ h6 {
 }
 
 .jumbotron {
-  background: #191817;
+  background-image: url("/assets/images/beverage-3157395_1920.jpg");
+  /* background: #191817; */
   background-position: center center;
   background-size: cover;
   color: white;

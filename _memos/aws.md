@@ -218,14 +218,17 @@ npmでServerless Frameworkをインストールする。AWSのIAMを使用し、
 ### Serverless構成例
 
 - AWS S3  
-node.js + npm + angular cli等の開発環境で、  
-html,css,jsをホスティング
+node.js + npm + angular cli等の開発環境でビルドした、  
+html,css,jsファイルをホスティングする。  
+ログ用のバケットも作成する。設定画面で、ログ用のバケットを指定できる。
 
 - AWS Cognito  
 ユーザープール作成、認証サービス。
 jsでcognitoのライブラリを使用する。
 
 - AWS API Gateway  
+リソースと、リソースに対するメソッドを作成する。  
+リソース名を{}で囲むと、動的に指定できる。
 swaggerのymlファイルから、API構成をインポートできる。
 
 - AWS Lambda  
@@ -233,3 +236,7 @@ Lambdaには300秒の実行時間制限があるので、日次処理のよう�
 
 - AWS DynamoDB  
 NoSQL
+
+## AWS WAF
+Web Application Firewall
+CloudFrontの前に設置すると思われる。

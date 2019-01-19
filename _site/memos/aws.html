@@ -87,7 +87,7 @@
   <h1 class="page__title">AWS</h1>
   
   
-    <p class="page__date">January 07, 2019</p>
+    <p class="page__date">January 19, 2019</p>
   
 </div>
 
@@ -538,8 +538,9 @@ npmでServerless Frameworkをインストールする。AWSのIAMを使用し、
 <ul>
   <li>
     <p>AWS S3<br />
-node.js + npm + angular cli等の開発環境で、<br />
-html,css,jsをホスティング</p>
+node.js + npm + angular cli等の開発環境でビルドした、<br />
+html,css,jsファイルをホスティングする。<br />
+ログ用のバケットも作成する。設定画面で、ログ用のバケットを指定できる。</p>
   </li>
   <li>
     <p>AWS Cognito<br />
@@ -548,6 +549,8 @@ jsでcognitoのライブラリを使用する。</p>
   </li>
   <li>
     <p>AWS API Gateway<br />
+リソースと、リソースに対するメソッドを作成する。<br />
+リソース名を{}で囲むと、動的に指定できる。
 swaggerのymlファイルから、API構成をインポートできる。</p>
   </li>
   <li>
@@ -559,6 +562,10 @@ Lambdaには300秒の実行時間制限があるので、日次処理のよう�
 NoSQL</p>
   </li>
 </ul>
+
+<h2 id="aws-waf">AWS WAF</h2>
+<p>Web Application Firewall
+CloudFrontの前に設置すると思われる。</p>
 
 
           </div>
