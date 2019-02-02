@@ -150,6 +150,14 @@ Amazon Elastic Compute Cloudの略
   - マルチAZの設定をする場合は、サブネットグループを作成する必要がある。   
   ElastiCacheなどの異なるAWSサービスとはサブネットグループを共有できない。
 
+- DBツール
+
+[参照](https://www.infoscoop.org/blogjp/2014/08/18/connect-to-rds-via-mysql-workbench/)   
+MySQL公式サイトからWorkbenchというGUIのDB操作ツールをダウンロードできる。(要Oracleユーザーアカウント)  
+AWSの自分のVPC内で、WebサーバーのEC2インスタンスから、RDSのMySQLに接続する環境の場合において、
+ローカルのWorkbenchに、EC2のIPとPemファイルの場所、RDSのエンドポイントを設定するだけで、
+MySQLに簡単に接続できる。
+
 ## ロードバランシングとオートスケーリング
 
 ロードバランシングとオートスケーリングを組み合わせると、可用性が高まり、１つのAZが災害にあっても、サービスを継続することができる。
@@ -240,3 +248,8 @@ NoSQL
 ## AWS WAF
 Web Application Firewall
 CloudFrontの前に設置すると思われる。
+
+## AWS構成作図
+
+[参照](https://aws.amazon.com/jp/architecture/icons/)  
+上記で、AWSのアイコンを使用し、作図できる。

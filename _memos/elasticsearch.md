@@ -3,7 +3,7 @@ layout: static
 title: Elasticsearch
 template: 3-columns
 name: Elasticsearch
-category: Machine Learning
+category: Environment
 ---
 
 # Elasticsearch

@@ -87,7 +87,7 @@
   <h1 class="page__title">AWS</h1>
   
   
-    <p class="page__date">January 20, 2019</p>
+    <p class="page__date">February 02, 2019</p>
   
 </div>
 
@@ -137,6 +137,10 @@
         
           <li class="">
             <div class=""><a href="/memos/docker">Docker</a></div>
+          </li>
+        
+          <li class="">
+            <div class=""><a href="/memos/elasticsearch">Elasticsearch</a></div>
           </li>
         
           <li class="">
@@ -210,10 +214,6 @@
         
           <li class="">
             <div class=""><a href="/memos/data">Data</a></div>
-          </li>
-        
-          <li class="">
-            <div class=""><a href="/memos/elasticsearch">Elasticsearch</a></div>
           </li>
         
           <li class="">
@@ -447,7 +447,14 @@ EC２インスタンスのファイアーウォール設定</p>
 ElastiCacheなどの異なるAWSサービスとはサブネットグループを共有できない。</li>
     </ul>
   </li>
+  <li>DBツール</li>
 </ul>
+
+<p><a href="https://www.infoscoop.org/blogjp/2014/08/18/connect-to-rds-via-mysql-workbench/">参照</a> <br />
+MySQL公式サイトからWorkbenchというGUIのDB操作ツールをダウンロードできる。(要Oracleユーザーアカウント)<br />
+AWSの自分のVPC内で、WebサーバーのEC2インスタンスから、RDSのMySQLに接続する環境の場合において、
+ローカルのWorkbenchに、EC2のIPとPemファイルの場所、RDSのエンドポイントを設定するだけで、
+MySQLに簡単に接続できる。</p>
 
 <h2 id="ロードバランシングとオートスケーリング">ロードバランシングとオートスケーリング</h2>
 
@@ -566,6 +573,11 @@ NoSQL</p>
 <h2 id="aws-waf">AWS WAF</h2>
 <p>Web Application Firewall
 CloudFrontの前に設置すると思われる。</p>
+
+<h2 id="aws構成作図">AWS構成作図</h2>
+
+<p><a href="https://aws.amazon.com/jp/architecture/icons/">参照</a><br />
+上記で、AWSのアイコンを使用し、作図できる。</p>
 
 
           </div>
