@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Markdown | kamioteppei.github.io</title>
+  <title>Vue | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Markdown記法">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/markdown">
+  <meta name="description" content="Vue.js">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/vue">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -84,7 +84,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Markdown</h1>
+  <h1 class="page__title">Vue</h1>
   
   
     <p class="page__date">February 05, 2019</p>
@@ -314,283 +314,9 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="markdown記法">Markdown記法</h1>
+            <h1 id="vuejs">Vue.js</h1>
 
-<h2 id="参照">参照</h2>
-<p>本家 https://daringfireball.net/projects/markdown/basics<br />
-ドットインストール https://dotinstall.com/lessons/basic_markdown_v2</p>
-
-<hr />
-<h2 id="基本">基本</h2>
-<p>ファイルの拡張子は<br />
-.md<br />
-(markdown)</p>
-
-<p>atomでのプレビュー方法<br />
-mac<br />
-control + shift + m</p>
-
-<hr />
-<h2 id="見出し">見出し</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># h1 title
-## h2 title
-###### h6 title
-
-h1 title
-==================
-(=3個以上)
-
-h2 title
-------------------
-(-3個以上)
-</code></pre></div></div>
-<h1 id="h1-title">h1 title</h1>
-<h2 id="h2-title">h2 title</h2>
-<h6 id="h6-title">h6 title</h6>
-
-<h1 id="h1-title-1">h1 title</h1>
-<p>(=3個以上)</p>
-
-<h2 id="h2-title-1">h2 title</h2>
-<p>(-3個以上)</p>
-
-<hr />
-<h2 id="段落">段落</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>空行を入れると
-
-空行が分かれます。
-</code></pre></div></div>
-<p>改行を入れると</p>
-
-<p>段落が分かれます。</p>
-
-<hr />
-<h2 id="改行">改行</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>改行したい箇所に半角空白を   
-2つ以上入力します。それでもダメなら
-改行も入れてください。
-</code></pre></div></div>
-<p>改行したい箇所に半角空白を <br />
-2つ以上入力します。それでもダメなら
-改行も入れてください。</p>
-
-<hr />
-<h2 id="引用">引用</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>本文でーーーーーーーーーす。
-本文でーーーーーーーーーす。
-本文でーーーーーーーーーす。
-&gt;引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-&gt;&gt;引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-</code></pre></div></div>
-
-<p>本文でーーーーーーーーーす。
-本文でーーーーーーーーーす。
-本文でーーーーーーーーーす。</p>
-<blockquote>
-  <p>引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。</p>
-  <blockquote>
-    <p>引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。
-引用でーーーーーーーーーす。</p>
-  </blockquote>
-</blockquote>
-
-<hr />
-<h2 id="区切り線">区切り線</h2>
-<p>-か*を3つ以上並べる</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
-***
-- - -
-</code></pre></div></div>
-
-<hr />
-<hr />
-<hr />
-
-<hr />
-<h2 id="強調表示">強調表示</h2>
-<p>_　か　*　で挟むと斜体表示
-__　か　**　で挟むと太字表示</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>あいうえお*かきくけこ*さしすせそ  
-あいうえお**かきくけこ**さしすせそ
-</code></pre></div></div>
-
-<p>あいうえお<em>かきくけこ</em>さしすせそ<br />
-あいうえお<strong>かきくけこ</strong>さしすせそ</p>
-
-<hr />
-<h2 id="箇条書き">箇条書き</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- a
-- b
-- c
-
-- a
-+ bbbbbbb   
-bbbbbbb
-* c
-</code></pre></div></div>
-<ul>
-  <li>a</li>
-  <li>b</li>
-  <li>
-    <p>c</p>
-  </li>
-  <li>a</li>
-  <li>bbbbbbb <br />
-bbbbbbb</li>
-  <li>c</li>
-</ul>
-
-<hr />
-<h2 id="連番付きリスト">連番付きリスト</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. a
-2. b
-3. c
-
-1. a
-1. bbbbb  
-bbbbbbbbb
-1. c  
-(リストの変更があっても番号を振り直さなくて良い)
-</code></pre></div></div>
-
-<ol>
-  <li>a</li>
-  <li>b</li>
-  <li>
-    <p>c</p>
-  </li>
-  <li>a</li>
-  <li>bbbbb<br />
-bbbbbbbbb</li>
-  <li>c<br />
-(リストの変更があっても番号を振り直さなくて良い)</li>
-</ol>
-
-<hr />
-<h2 id="リンク">リンク</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[本家](https://daringfireball.net/projects/markdown/basics)  
-[ドットインストール](https://dotinstall.com/ "ドットインストール")
-</code></pre></div></div>
-
-<p><a href="https://daringfireball.net/projects/markdown/basics">本家</a><br />
-<a href="https://dotinstall.com/" title="ドットインストール">ドットインストール</a></p>
-
-<hr />
-<h2 id="コード">コード</h2>
-<p>バッククオート3つでコードを挟みます。 <br />
-macではバッククオートの入力は<code class="highlighter-rouge">shift + @</code></p>
-
-<p>サンプルコードは以下です。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># this is comment
-function x(){
-  return x;
-}
-</code></pre></div></div>
-
-<p>文中でコードをバッククオート1つで挟むと以下になります。</p>
-
-<p>ディレクトリ移動のコマンドは、<code class="highlighter-rouge">$ cd foo/var</code>です。</p>
-
-<h2 id="数式">数式</h2>
-<p>ここを参照 <br />
-<a href="https://qiita.com/PlanetMeron/items/63ac58898541cbe81ada">Qiitaの数式チートシート</a><br />
-MathJaxというJavascriptのプラグインを利用する。<br />
-Jekyll側では、Kramdownというプラグインを入れる。<br />
-なお、数式はdivやli等の内部には記述してはいけない。(環境により認識されない場合がある。)</p>
-
-<hr />
-<h2 id="画像ソース">画像ソース</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>![logo image](https://hoge.com/img/logo_200x200.png)
-
-画像にリンクを貼る  
-[![logo image](https://hoge.com/img/logo_200x200.png "ドットインストール")](https://dotinstall.com)
-</code></pre></div></div>
-
-<p><img src="https://hoge.com/img/logo_200x200.png" alt="logo image" /></p>
-
-<p>画像にリンクを貼る<br />
-<a href="https://dotinstall.com"><img src="https://hoge.com/img/logo_200x200.png" alt="logo image" title="ドットインストール" /></a></p>
-
-<hr />
-<h2 id="テーブル">テーブル</h2>
-<p><a href="https://gist.github.com/mignonstyle/083c9e1651d7734f84c99b8cf49d57fa">参照</a></p>
-
-<p>サンプル１</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| TH1 | TH2 |
-----|----
-| TD1 | TD2 |
-| TD3 | TD4 |
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>TH1</th>
-      <th>TH2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>TD1</td>
-      <td>TD2</td>
-    </tr>
-    <tr>
-      <td>TD3</td>
-      <td>TD4</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>サンプル２</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| 左寄せ | 中央寄せ | 右寄せ |
-|:---|:---:|---:|
-| 1 | 2 | 3 |
-| 4 | 5 | 6 |
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">左寄せ</th>
-      <th style="text-align: center">中央寄せ</th>
-      <th style="text-align: right">右寄せ</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">1</td>
-      <td style="text-align: center">2</td>
-      <td style="text-align: right">3</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">4</td>
-      <td style="text-align: center">5</td>
-      <td style="text-align: right">6</td>
-    </tr>
-  </tbody>
-</table>
+<p>学習したい</p>
 
 
           </div>
