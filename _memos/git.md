@@ -10,6 +10,18 @@ category: Environment
 
 ## init
 ローカルリポジトリを作成する。
+```
+git init
+echo "# *.csv" >> .gitignore
+echo "# MESSAGE" >> README.md
+git add README.md
+git commit -m "first commit"
+```
+## リモートリポジトリに追加する
+```
+git remote add origin git@github.com:<your-account>/<repository-name>.git
+git push -u origin master
+```
 
 ## clone
 リモートリポジトリをローカルディレクトリにコピーする。  
