@@ -1,11 +1,11 @@
 ---
 layout: static
-title: React
+title: ReactJS
 template: 3-columns
-name: React
-category: Frontend
+name: ReactJS
+category: Front-end
 ---
 
-# React
+# ReactJS
 
 学習したい

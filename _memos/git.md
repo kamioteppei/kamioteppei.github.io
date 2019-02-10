@@ -12,7 +12,7 @@ category: Environment
 ローカルリポジトリを作成する。
 ```
 git init
-echo "# *.csv" >> .gitignore
+echo "*.csv" >> .gitignore
 echo "# MESSAGE" >> README.md
 git add README.md
 git commit -m "first commit"

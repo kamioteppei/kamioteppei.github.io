@@ -3,7 +3,7 @@ layout: static
 title: AngularJS
 template: 3-columns
 name: AngularJS
-category: Frontend
+category: Front-end
 ---
 
 # AngularJS

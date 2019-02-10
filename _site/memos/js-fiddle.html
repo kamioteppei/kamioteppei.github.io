@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>PostgreSQL | kamioteppei.github.io</title>
+  <title>JS Fiddle | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="PostgreSQL">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/mysql">
+  <meta name="description" content="JS Fiddle">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/js-fiddle">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -84,7 +84,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">PostgreSQL</h1>
+  <h1 class="page__title">JS Fiddle</h1>
   
   
     <p class="page__date">February 10, 2019</p>
@@ -337,11 +337,28 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="postgresql">PostgreSQL</h1>
+            <h1 id="js-fiddle">JS Fiddle</h1>
 
-<h2 id="インストール">インストール</h2>
+<p>JavaScriptのオンラインの実行環境</p>
 
-<p>工事中</p>
+<ul>
+  <li><a href="https://jsfiddle.net">jsfiddle</a></li>
+  <li><a href="https://jsbin.com/?html,output">jsbin</a></li>
+  <li><a href="https://codepen.io">codepen</a></li>
+</ul>
+
+<h2 id="get">GET</h2>
+
+<h2 id="post">POST</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var xhr = new XMLHttpRequest();
+xhr.open('POST', 'https://&lt;API_URL&gt;/&lt;RESOUCE_NAME&gt;/');
+xhr.onreadystatechange = function (event) {
+  console.log(event.target.response);
+}
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send(JSON.stringify({age: 33, name: john}));
+</code></pre></div></div>
 
 
           </div>
