@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>PostgreSQL | kamioteppei.github.io</title>
+  <title>MySQL | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,7 +10,7 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="PostgreSQL">
+  <meta name="description" content="MySQL">
   <link rel="canonical" href="http://0.0.0.0:4000/memos/mysql">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
@@ -84,7 +84,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">PostgreSQL</h1>
+  <h1 class="page__title">MySQL</h1>
   
   
     <p class="page__date">February 10, 2019</p>
@@ -317,7 +317,7 @@
         <ul>
         
           <li class="">
-            <div class=""><a href="/memos/mysql">PostgreSQL</a></div>
+            <div class=""><a href="/memos/mysql">MySQL</a></div>
           </li>
         
           <li class="">
@@ -325,7 +325,7 @@
           </li>
         
           <li class="">
-            <div class=""><a href="/memos/postgresql">MySQL</a></div>
+            <div class=""><a href="/memos/postgresql">PostgreSQL</a></div>
           </li>
         
         </ul>
@@ -337,11 +337,45 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="postgresql">PostgreSQL</h1>
+            <h1 id="mysql">MySQL</h1>
 
 <h2 id="インストール">インストール</h2>
 
-<p>工事中</p>
+<p>Ubuntu 18.04にインストール<br />
+<a href="https://www.yokoweb.net/2018/05/13/ubuntu-18_04-server-mysql/">参照</a></p>
+
+<h2 id="管理者作業">管理者作業</h2>
+
+<p>システム管理者でログイン</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo mysql -u root -p
+</code></pre></div></div>
+
+<p>データベース(スキーマ)作成</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; create database &lt;db_name&gt;;
+mysql-&gt; show databases;
+</code></pre></div></div>
+
+<p>データベース(スキーマ)のユーザー作成</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; create user '&lt;user_name&gt;'@'&lt;host_name(ex:localhost)&gt;' identified by '&lt;password&gt;'
+</code></pre></div></div>
+
+<p>データベース(スキーマ)に対するユーザーの権限を付加</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; grant all privileges on &lt;db_name&gt;.* tp &lt;user_name&gt;@&lt;host_name&gt;;
+</code></pre></div></div>
+
+<h2 id="ユーザー作業">ユーザー作業</h2>
+
+<p>ターミナルからの接続確認</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mysql -u &lt;user_name&gt; -h &lt;host_name&gt; -p &lt;db_name&gt;
+</code></pre></div></div>
+
+<p>データベース切り替え</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; use &lt;db_name&gt;
+</code></pre></div></div>
+
+<p>テーブル一覧</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; show tables;
+</code></pre></div></div>
 
 
           </div>

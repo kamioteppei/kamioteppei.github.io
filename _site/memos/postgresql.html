@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>MySQL | kamioteppei.github.io</title>
+  <title>PostgreSQL | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,7 +10,7 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="MySQL">
+  <meta name="description" content="PostgreSQL">
   <link rel="canonical" href="http://0.0.0.0:4000/memos/postgresql">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
@@ -84,7 +84,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">MySQL</h1>
+  <h1 class="page__title">PostgreSQL</h1>
   
   
     <p class="page__date">February 10, 2019</p>
@@ -317,7 +317,7 @@
         <ul>
         
           <li class="">
-            <div class=""><a href="/memos/mysql">PostgreSQL</a></div>
+            <div class=""><a href="/memos/mysql">MySQL</a></div>
           </li>
         
           <li class="">
@@ -325,7 +325,7 @@
           </li>
         
           <li class="">
-            <div class=""><a href="/memos/postgresql">MySQL</a></div>
+            <div class=""><a href="/memos/postgresql">PostgreSQL</a></div>
           </li>
         
         </ul>
@@ -337,12 +337,57 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="mysql">MySQL</h1>
-
-<h2 id="インストール">インストール</h2>
+            <h1 id="postgresql">PostgreSQL</h1>
 
 <p>Ubuntu 18.04にインストール<br />
-<a href="https://www.yokoweb.net/2018/05/13/ubuntu-18_04-server-mysql/">参照</a></p>
+<a href="http://matoto1980.livedoor.blog/archives/15780216.html">参照</a></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get update
+$ sudo apt-get install postgresql
+</code></pre></div></div>
+
+<h2 id="管理者作業">管理者作業</h2>
+
+<p>Postgres管理者に切り替え</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo -u postgres -i
+</code></pre></div></div>
+
+<p>posgresqlにログイン</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ psql
+</code></pre></div></div>
+
+<p>posgresqlにログアウト</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \q
+</code></pre></div></div>
+
+<p>ユーザー作成(Postgres管理者に切り替え)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ createuser -d -U postgres -P &lt;user_name&gt;
+</code></pre></div></div>
+
+<p>ユーザー確認</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \du
+</code></pre></div></div>
+
+<p>データベース作成(Postgres管理者に切り替え)<br />
+(スキーマは別途作成可能)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; createdb &lt;db_name&gt; --encoding=UTF-8 --lc-collate=C --lc-ctype=C --owner=&lt;user_name&gt; --template=template0
+</code></pre></div></div>
+<p>オプションについての説明は、<a href="https://www.kakiro-web.com/postgresql/postgresql-create-database.html">ここ</a>を参照<br />
+文字コードによる並び順の設定が関係する。</p>
+
+<p>データベース確認</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \l
+</code></pre></div></div>
+
+<h2 id="ユーザー作業">ユーザー作業</h2>
+
+<p>ターミナルからの接続確認</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ psql -U &lt;user_name&gt; -h &lt;host_name&gt; -d &lt;db_name&gt;
+</code></pre></div></div>
+
+<p>テーブル一覧(view, sequenceを含む)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>postgres=# \d
+</code></pre></div></div>
 
 
           </div>
