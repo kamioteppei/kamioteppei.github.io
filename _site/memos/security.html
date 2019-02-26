@@ -87,7 +87,7 @@
   <h1 class="page__title">Security</h1>
   
   
-    <p class="page__date">February 10, 2019</p>
+    <p class="page__date">February 14, 2019</p>
   
 </div>
 
@@ -420,6 +420,40 @@ end
 
 <h2 id="cookies">Cookies</h2>
 <p>セキュリティ上、セッションidのみCookieでやりとりする方式が一般的</p>
+
+<h2 id="sessionidとtoken">SessionIdとToken</h2>
+
+<h3 id="sessionid">SessionId</h3>
+<ul>
+  <li>Cookieに保存するのでブラウザを使用するアプリで使用可能。<br />
+i-Phoneなどのアプリからは仕組みを実装しないと使用できない。</li>
+  <li>SessionIdの値は、文字列</li>
+  <li>WebサーバーにSession情報を保持するので、ロードバランサーを <br />
+使用している場合に、Session保持中のサーバーに接続する仕組みが必要。</li>
+</ul>
+
+<h3 id="token-1">Token</h3>
+<ul>
+  <li>DBに保存する</li>
+  <li>値はjson形式で、ユーザーの権限などを自由に設定できる。 <br />
+ただし、通信に負荷がかからないように、情報は最小限にする</li>
+  <li>DBに保存するので、ステートレスである。よってオートスケールのWebサーバー<br />
+からでも容易に使用できる。</li>
+  <li>OAuth2.0やJWT(json web token)を理解する必要がある</li>
+</ul>
+
+<h3 id="oauth20">OAuth2.0</h3>
+<p>要約</p>
+<ul>
+  <li>認証と認可を分けて考える</li>
+  <li>ユーザーはAPIから認証の仕組みを受け取り、認証する(ユーザーIDとパスワード)</li>
+  <li>上記作業により、クライアント(アプリ)は、APIからトークンを受け取る。</li>
+  <li>APIはクライアント(アプリ)から、トークンを受け取り、アクセスを認可する。</li>
+</ul>
+
+<p>注意
+セキュリティの観点から、クライアント(アプリ)に、ユーザーのユーザーIDとパスワードを
+渡してはいけない。なぜなら、クライアントが、ユーザーの代わりに何でも、操作できてしまうから。</p>
 
 <h2 id="セッションハイジャック">セッションハイジャック</h2>
 

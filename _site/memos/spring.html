@@ -87,7 +87,7 @@
   <h1 class="page__title">Spring</h1>
   
   
-    <p class="page__date">February 10, 2019</p>
+    <p class="page__date">February 14, 2019</p>
   
 </div>
 
@@ -364,14 +364,34 @@
     <p><a href="https://qiita.com/yokobonbon/items/064504bc9dca3f0ec7d1">DBアクセスの参考</a></p>
   </li>
   <li>
-    <p><a href="https://qiita.com/nyasba/items/f9b1b6be5540743f8bac">認証周りの参考</a></p>
+    <p><a href="https://qiita.com/nyasba/items/f9b1b6be5540743f8bac">認証周りの参考</a><br />
+<a href="https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/">参考２</a></p>
   </li>
   <li>
     <p>APIのテストにchromeアドインの<a href="https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm">Restlet Client</a>を使用する。</p>
   </li>
   <li>
     <p>Spring Boot内部にもテストツールが含まれる。</p>
+    <ul>
+      <li>SwaggerConfig.javaを作成</li>
+      <li>build.gradleにspringfox-swagger、springfox-swagger-uiプラグインを追加</li>
+      <li>アプリケーション起動後に、<a href="http://localhost:8080/swagger-ui.html">http://localhost:8080/swagger-ui.html</a>にアクセス。</li>
+      <li><a href="http://localhost:8080/v2/api-docs">http://localhost:8080/v2/api-docs</a>にapiの定義を出力。</li>
+    </ul>
   </li>
+</ul>
+
+<h2 id="lombok">Lombok</h2>
+<p>getter/setterの自動生成機能</p>
+
+<p>Intellijでうまく動作しない場合は、以下の順で確認する。</p>
+
+<ul>
+  <li>build.gradleのdependencyにLombokの記述があるか？</li>
+  <li>「Intellij」にLombokのプラグインを入れているか？ <br />
+-&gt; IntellijのFile-&gt;settings-&gt;Plugins-&gt;lombokで検索してインストール</li>
+  <li>アノテーションの動作を有効にしているか？ <br />
+-&gt; IntellijのFile-&gt;settings-&gt;Build,Execution…-&gt;Compiler-&gt;Annotation Proce…-&gt;Enable annotation proccessingにチェックする</li>
 </ul>
 
 

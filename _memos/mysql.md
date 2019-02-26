@@ -36,6 +36,13 @@ mysql-> create user '<user_name>'@'<host_name(ex:localhost)>' identified by '<pa
 mysql-> grant all privileges on <db_name>.* tp <user_name>@<host_name>;
 ```
 
+### SSL接続を有効にする
+
+[参照](https://qiita.com/toshiro3/items/b7f6842efe9fd97f8c56)
+
+SpringやRailsで「SSL接続でないと危険です。」みたいな警告がでた場合は、
+アプリ側の設定を見直す。
+
 ## ユーザー作業
 
 ターミナルからの接続確認
@@ -52,3 +59,16 @@ mysql-> use <db_name>
 ```
 mysql-> show tables;
 ```
+
+## ストレージエンジン
+
+### InnoDB(デフォルト)
+- ロックは行単位
+- トランザクションのサポートあり
+- 外部参照キーのサポートあり  
+外部連携するシステムの場合は、外部データの優位性、リカバリ等を含めて、制約の必要性を考慮する。
+
+### MyISAM
+- ロックはテーブル単位
+- トランザクションのサポートなし
+- 外部参照キーのサポートなし

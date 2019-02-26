@@ -87,7 +87,7 @@
   <h1 class="page__title">MySQL</h1>
   
   
-    <p class="page__date">February 10, 2019</p>
+    <p class="page__date">February 14, 2019</p>
   
 </div>
 
@@ -376,6 +376,23 @@ mysql-&gt; show databases;
 <p>テーブル一覧</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; show tables;
 </code></pre></div></div>
+
+<h2 id="ストレージエンジン">ストレージエンジン</h2>
+
+<h3 id="innodbデフォルト">InnoDB(デフォルト)</h3>
+<ul>
+  <li>ロックは行単位</li>
+  <li>トランザクションのサポートあり</li>
+  <li>外部参照キーのサポートあり<br />
+外部連携するシステムの場合は、外部データの優位性、リカバリ等を含めて、制約の必要性を考慮する。</li>
+</ul>
+
+<h3 id="myisam">MyISAM</h3>
+<ul>
+  <li>ロックはテーブル単位</li>
+  <li>トランザクションのサポートなし</li>
+  <li>外部参照キーのサポートなし</li>
+</ul>
 
 
           </div>
