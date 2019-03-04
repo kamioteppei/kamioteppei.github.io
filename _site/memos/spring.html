@@ -55,6 +55,10 @@
           
         
           
+            <li class="nav__item"><a href="/links/">Portfolio</a></li>
+          
+        
+          
         
           
         
@@ -545,11 +549,11 @@ tomcatに連携した為、ドメイン名から何も取得できなかった�
     <p>原因の切り分け方法  <br />
 外部からアクセスできるものを、直接アクセスしてみる。</p>
     <ul>
-      <li>EC2のtomcatを、EC2内部から、パブリックIPとポート:8080でアクセスする</li>
+      <li>EC2のtomcatを、EC2内部から、localhostとポート:8080でアクセスする</li>
       <li>EC2のtomcatを、外部から、パブリックIPとポート:80でアクセスする</li>
       <li>外部から、ロードバランサーのDNS名でアクセスする</li>
       <li>外部から、Route53のDNS名でアクセスする</li>
-      <li>CloudFrontをdesableにしてみる</li>
+      <li>CloudFrontをdisableにしてみる</li>
     </ul>
   </li>
 </ul>
