@@ -68,6 +68,31 @@ $ tree -L 5 /usr/local
 ```
 `/usr/local`ディレクトリを5階層まで表示する。
 
+## pathの通し方
+
+[参照](https://qiita.com/takanemu/items/6027291be8a2a6af9adc)
+
+### 一時的にpathを通す
+```
+$ export PATH="$PATH:/opt/mono/3.10/bin"
+```
+
+### 起動時に自動的にpathを通す設定にする
+```
+$ vi ~/.profile
+```
+
+下記を追加(記述例)
+```
+PATH="$PATH:/opt/mono/3.10/bin"
+```
+
+### profileをコマンドで即時反映させる
+```
+$ source ~/.profile
+```
+
+
 ## メモリが不足した。
 メモリの増設可能な最大容量を調べる。
 ```

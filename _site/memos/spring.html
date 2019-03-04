@@ -87,7 +87,7 @@
   <h1 class="page__title">Spring</h1>
   
   
-    <p class="page__date">February 14, 2019</p>
+    <p class="page__date">March 04, 2019</p>
   
 </div>
 
@@ -365,7 +365,8 @@
   </li>
   <li>
     <p><a href="https://qiita.com/nyasba/items/f9b1b6be5540743f8bac">認証周りの参考</a><br />
-<a href="https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/">参考２</a></p>
+<a href="https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/">参考２</a>
+<a href="https://qiita.com/Hiro-mi/items/12b44e7c2ec4e2d13a86">参考３</a></p>
   </li>
   <li>
     <p>APIのテストにchromeアドインの<a href="https://chrome.google.com/webstore/detail/restlet-client-rest-api-t/aejoelaoggembcahagimdiliamlcdmfm">Restlet Client</a>を使用する。</p>
@@ -392,6 +393,165 @@
 -&gt; IntellijのFile-&gt;settings-&gt;Plugins-&gt;lombokで検索してインストール</li>
   <li>アノテーションの動作を有効にしているか？ <br />
 -&gt; IntellijのFile-&gt;settings-&gt;Build,Execution…-&gt;Compiler-&gt;Annotation Proce…-&gt;Enable annotation proccessingにチェックする</li>
+</ul>
+
+<h2 id="awsにデプロイ">AWSにデプロイ</h2>
+
+<h3 id="rdsにデータベース作成">RDSにデータベース作成</h3>
+
+<p>rootユーザーでmysqlに接続後、データベースとユーザーを作成し、ユーザーに権限を付与する。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; create database &lt;db_name&gt;;
+mysql-&gt; create user &lt;usr_name&gt;@'%' identified by '&lt;longandcomplexpassword&gt;';
+mysql-&gt; grant all on &lt;db_name&gt;.* to &lt;user_name&gt;@'%';
+</code></pre></div></div>
+
+<h3 id="ec2にjdkをインストール">EC2にjdkをインストール</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo yum -y install java-1.8.0
+$ sudo yum -y remove java-1.7.0-openjdk
+</code></pre></div></div>
+
+<h3 id="ローカルでjarファイルをビルド">ローカルでjarファイルをビルド</h3>
+
+<p>gradleにpathを通しプロジェクトの直下(gradlewの階層)で、</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gradle build
+</code></pre></div></div>
+
+<p>以下のコマンドで、プロジェクトのビルドと実行ができる。(ローカルの実行向けだと思う。)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gradle bootrun
+</code></pre></div></div>
+
+<p>プロパティファイルは、以下の２つがある状態でビルドし、jarの実行時にオプションで本番用を指定する。</p>
+<ul>
+  <li>application.properties</li>
+  <li>application-prod.properties</li>
+</ul>
+
+<h3 id="ec2にjarファイルをデプロイ">EC2にjarファイルをデプロイ</h3>
+
+<p>ビルドしたjarをローカルからEC2にsftpでアップロードする</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sftp -i &lt;peg_name&gt;.peg ec2-user@&lt;ip&gt;
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sftp-&gt; put &lt;jar_name&gt;.jar
+</code></pre></div></div>
+
+<h3 id="jarを実行">jarを実行</h3>
+
+<p>sshで再接続する</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -i &lt;peg_name&gt;.peg ec2-user@&lt;ip&gt;
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ java -jar -Dspring.profiles.active=prod &lt;jar_name&gt;.jar
+</code></pre></div></div>
+<p>※prodはプロパティファイルのファイル名のapplication-prod.propertiesのprod(任意に命名)の部分</p>
+
+<h3 id="httpdからプロジェクトのjar内臓のtomcatにリダイレクトさせる設定">httpdからプロジェクトのjar内臓のtomcatにリダイレクトさせる設定</h3>
+
+<p>EC2の<code class="highlighter-rouge">/etc/httpd/conf/httpd.conf</code>に下記を追加</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;VirtualHost *:80&gt;
+  ProxyRequests Off
+  ProxyPass / http://localhost:8009/
+  ProxyPassReverse / http://localhost:8009/
+&lt;/VirtualHost&gt;
+</code></pre></div></div>
+<p>又は、</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Location /&gt;
+    ProxyPass ajp://localhost:8009/
+&lt;/Location&gt;
+</code></pre></div></div>
+
+<p>apacheとtomcatの連携についての今更なおさらい。</p>
+<ul>
+  <li>apacheは、httpプロトコルのデフォルトポートの80番でリクエストを受け付ける。</li>
+  <li>tomcatは、apacheを通さなくとも、内部のhttpサーバーのポートの8080番で外部からのリクエストを直接受け付けることができる。</li>
+  <li>apacheの80番ポートで受け取ったリクエストをtomcatに連携する場合は、8080番ではなく、8009番に転送する。
+この場合、<code class="highlighter-rouge">/etc/httpd/conf/httpd.conf</code>にProxyPassの設定を追加する。<br />
+※8080番ポートは外部からtomcatに直接リクエストを送る為のポート</li>
+</ul>
+
+<h3 id="cloudfrontのメソッド変更">CloudFrontのメソッド変更</h3>
+
+<p>POSTを許可するかの設定があるが、CloudFrontをキャッシュに使用しているので、
+GETはキャッシュしても良いが、POSTをキャッシュするのはよくないはず。</p>
+
+<h3 id="cloudformationでデプロイ">CloudFormationでデプロイ</h3>
+
+<p>CloudFormationで、S3からjarを持ってきて実行する方法がスマートのようだ。
+<a href="https://dev.classmethod.jp/etc/jarfile-cloudformation-deploy-on-ec2/">参照</a></p>
+
+<h3 id="jar起動のサービス化">jar起動のサービス化</h3>
+
+<p><a href="https://zoltanaltfatter.com/2016/12/17/spring-boot-application-on-ec2/">参考</a></p>
+
+<p>ただし、今回は、手作業で登録</p>
+
+<ul>
+  <li>
+    <p>サービス登録</p>
+
+    <p><code class="highlighter-rouge">/etc/init.d/</code>にサービスのファイル(ファイル名=<code class="highlighter-rouge">MySpringApiBookingService</code>,ファイル名の拡張子なし)を下記内容で作成する。
+他のサンプルでは、実行するjarにシンボリックリンクを張っているが、サービス起動で失敗したのでやめた。
+その代わり、jar起動用のシェルの中では、jarのフルパスを指定する。なぜなら、カレントディレクトリは、jar起動用のシェルの場所ではなくて、このサービスファイルのある場所だから。</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="c"># chkconfig: 2345 99 10</span>
+<span class="c"># description: start shell</span>
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+ </span>start<span class="p">)</span>
+     su <span class="nt">-l</span> ec2-user <span class="nt">-c</span> <span class="s2">"sh /home/ec2-user/SpringApiBookingService/bin/SpringApiBookingServiceStart.sh"</span>
+     <span class="p">;;</span>
+ stop<span class="p">)</span>
+     <span class="p">;;</span>
+<span class="k">*</span><span class="p">)</span> <span class="nb">break</span> <span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ chkconfig --add MySpringApiBookingService
+$ chkconfig MySpringApiBookingService on
+</code></pre></div>    </div>
+  </li>
+  <li>jar起動用のシェルファイル<code class="highlighter-rouge">BookingServiceStart.sh</code>を<code class="highlighter-rouge">/home/ec2-user/SpringApiBookingService/bin</code>に作成
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar -Dspring.profiles.active=prod /home/ec2-user/SpringApiBookingService/bin/spring-api-booking-0.1.0.jar --logging.path="../log"
+</code></pre></div>    </div>
+  </li>
+  <li>サービス起動
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service httpd start
+service MySpringApiBookingService start
+</code></pre></div>    </div>
+  </li>
+  <li>サービス起動設定
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chkconfig httpd on
+chkconfig MySpringApiBookingService on
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="今回つまづいた箇所">今回つまづいた箇所</h3>
+
+<ul>
+  <li>
+    <p>application_userテーブルのパスワード桁  <br />
+javaでpasswordフィールドを30文字にしていた為、テーブルのカラムもvarchar(30)で作成された。
+apiのパラメータのパスワードが数桁でも、テーブルに格納するときにハッシュ化するので、数十桁になっていた。
+その為、オーバーフローが発生していた。</p>
+  </li>
+  <li>
+    <p>Route53  <br />
+結論として、Route53のヘルスチェックが失敗していた為、Route53から、ロードバランサーにリクエストが進まなかった。
+原因はtomcatに連携する前は、登録したドメイン名から、EC2のドキュメントルートのindex.phpを取得できていたが、
+tomcatに連携した為、ドメイン名から何も取得できなかった為。</p>
+  </li>
+  <li>
+    <p>原因の切り分け方法  <br />
+外部からアクセスできるものを、直接アクセスしてみる。</p>
+    <ul>
+      <li>EC2のtomcatを、EC2内部から、パブリックIPとポート:8080でアクセスする</li>
+      <li>EC2のtomcatを、外部から、パブリックIPとポート:80でアクセスする</li>
+      <li>外部から、ロードバランサーのDNS名でアクセスする</li>
+      <li>外部から、Route53のDNS名でアクセスする</li>
+      <li>CloudFrontをdesableにしてみる</li>
+    </ul>
+  </li>
 </ul>
 
 

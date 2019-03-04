@@ -87,7 +87,7 @@
   <h1 class="page__title">Ubuntu</h1>
   
   
-    <p class="page__date">February 14, 2019</p>
+    <p class="page__date">March 04, 2019</p>
   
 </div>
 
@@ -393,6 +393,26 @@ fi
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tree -L 5 /usr/local
 </code></pre></div></div>
 <p><code class="highlighter-rouge">/usr/local</code>ディレクトリを5階層まで表示する。</p>
+
+<h2 id="pathの通し方">pathの通し方</h2>
+
+<p><a href="https://qiita.com/takanemu/items/6027291be8a2a6af9adc">参照</a></p>
+
+<h3 id="一時的にpathを通す">一時的にpathを通す</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ export PATH="$PATH:/opt/mono/3.10/bin"
+</code></pre></div></div>
+
+<h3 id="起動時に自動的にpathを通す設定にする">起動時に自動的にpathを通す設定にする</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vi ~/.profile
+</code></pre></div></div>
+
+<p>下記を追加(記述例)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PATH="$PATH:/opt/mono/3.10/bin"
+</code></pre></div></div>
+
+<h3 id="profileをコマンドで即時反映させる">profileをコマンドで即時反映させる</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ~/.profile
+</code></pre></div></div>
 
 <h2 id="メモリが不足した">メモリが不足した。</h2>
 <p>メモリの増設可能な最大容量を調べる。</p>

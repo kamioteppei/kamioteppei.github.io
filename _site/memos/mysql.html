@@ -87,7 +87,7 @@
   <h1 class="page__title">MySQL</h1>
   
   
-    <p class="page__date">February 14, 2019</p>
+    <p class="page__date">March 04, 2019</p>
   
 </div>
 
@@ -362,6 +362,13 @@ mysql-&gt; show databases;
 <p>データベース(スキーマ)に対するユーザーの権限を付加</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql-&gt; grant all privileges on &lt;db_name&gt;.* tp &lt;user_name&gt;@&lt;host_name&gt;;
 </code></pre></div></div>
+
+<h3 id="ssl接続を有効にする">SSL接続を有効にする</h3>
+
+<p><a href="https://qiita.com/toshiro3/items/b7f6842efe9fd97f8c56">参照</a></p>
+
+<p>SpringやRailsで「SSL接続でないと危険です。」みたいな警告がでた場合は、
+アプリ側の設定を見直す。</p>
 
 <h2 id="ユーザー作業">ユーザー作業</h2>
 
