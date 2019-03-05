@@ -9,7 +9,7 @@ permalink: /portfolio/
 ## RestAPI(Java + Angular)
 
 RestAPI(Java + Angular)のプロトタイプを作成しました。   
-デモ画面は[こちら](http://app-host-angular-front-booking.s3-website-ap-northeast-1.amazonaws.com)です。 ※(ブラウザはGoogle Chrome推奨です。)
+デモ画面は[こちら](http://angular-front-booking.kamioteppei-aws.ml)です。 ※(ブラウザはGoogle Chrome推奨です。)
 
 - ホテルを日付で検索して、予約登録できます。
 - ユーザーの認証、認可機能はJWTで実装しています。
