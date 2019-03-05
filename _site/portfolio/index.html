@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Rails Tutorial | kamioteppei.github.io</title>
+  <title>Portfolio | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Rails Tutorialを学習しました。 全14章を理解するのに、１章１日ぐらいかかりました。 DBを使用した、動的なWebサイトの開発ができるようになります。">
-  <link rel="canonical" href="http://0.0.0.0:4000/2018/08/01/rails-tutorial/">
+  <meta name="description" content="kamioteppeiの学習備忘録です｡">
+  <link rel="canonical" href="http://0.0.0.0:4000/portfolio/">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -82,54 +82,63 @@
 
 
 <div class="contents page">
+
   
 
     <div class="container container--sm">
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Rails Tutorial</h1>
+  <h1 class="page__title">Portfolio</h1>
   
-  
-    <p class="page__date">August 01, 2018</p>
   
 </div>
 
     -->
 
       <div class="page__body">
-        <p><a href="https://railstutorial.jp/">Rails Tutorial</a>を学習しました。<br />
-全14章を理解するのに、１章１日ぐらいかかりました。<br />
-DBを使用した、動的なWebサイトの開発ができるようになります。</p>
+        <h1 id="portfolio">Portfolio</h1>
 
-<p>関連して、以下についても学習しました。</p>
+<h2 id="restapijava--angular">RestAPI(Java + Angular)</h2>
+
+<p>RestAPI(Java + Angular)のプロトタイプを作成しました。 <br />
+デモ画面は<a href="http://app-host-angular-front-booking.s3-website-ap-northeast-1.amazonaws.com">こちら</a>です。 ※(ブラウザはGoogle Chrome推奨です。)</p>
+
 <ul>
-  <li>GitHub</li>
-  <li>Heroku</li>
-  <li>Markdown</li>
+  <li>ホテルを日付で検索して、予約登録できます。</li>
+  <li>
+    <p>ユーザーの認証、認可機能はJWTで実装しています。</p>
+  </li>
+  <li>
+    <p>バックエンド</p>
+
+    <ul>
+      <li>ソース：<a href="git@github.com:kamioteppei/spring-api-booking.git">GitHub</a></li>
+      <li>技術：
+        <ul>
+          <li>環境： AWS, Route53, CloudFront, Application Load Balancer, EC2, RDS</li>
+          <li>Web: Spring Boot, Java, Jpa, JWT</li>
+          <li>DB: Mysql</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>フロントエンド</p>
+
+    <ul>
+      <li>ソース：<a href="git@github.com:kamioteppei/angular-front-booking.git">GitHub</a></li>
+      <li>技術：
+        <ul>
+          <li>環境： AWS S3</li>
+          <li>Web： Angular 4, TypeScript, Bootstrap</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
       </div><!--page__body-->
-
-      <div class="page__footer">
-        <div class="pager">
-
-  
-    <p class="pager__item--next">
-      &lt; <a href="/2018/09/01/jekyll/">jekyll</a>
-    </p>
-  
-
-  
-    <p class="pager__item--prev">
-      <a href="/2018/07/01/before/">Web関連の学習開始</a> &gt;
-    </p>
-  
-
-</div>
-
-      </div><!--page__footer-->
-
     </div><!--container-->
 
   

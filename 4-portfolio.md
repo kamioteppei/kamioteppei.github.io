@@ -1,14 +1,18 @@
 ---
 layout: page
 title: Portfolio
-permalink: /Portfolio/
+permalink: /portfolio/
 ---
 
 # Portfolio
 
-### RestAPIサンプル
+## RestAPI(Java + Angular)
 
-ホテルを日付で検索して、予約できます。
+RestAPI(Java + Angular)のプロトタイプを作成しました。   
+デモ画面は[こちら](http://app-host-angular-front-booking.s3-website-ap-northeast-1.amazonaws.com)です。 ※(ブラウザはGoogle Chrome推奨です。)
+
+- ホテルを日付で検索して、予約登録できます。
+- ユーザーの認証、認可機能はJWTで実装しています。
 
 - バックエンド
 
@@ -21,7 +25,6 @@ permalink: /Portfolio/
 - フロントエンド
 
   - ソース：[GitHub](git@github.com:kamioteppei/angular-front-booking.git)
-  - [デモ画面](http://app-host-angular-front-booking.s3-website-ap-northeast-1.amazonaws.com)　(ブラウザはGoogle Chrome推奨です。)
   - 技術：
     - 環境： AWS S3
     - Web： Angular 4, TypeScript, Bootstrap
