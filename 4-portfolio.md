@@ -16,7 +16,7 @@ RestAPI(Java + Angular)のプロトタイプを作成しました。
 
 - バックエンド
 
-  - ソース：[GitHub](git@github.com:kamioteppei/spring-api-booking.git)
+  - ソース：[GitHub](https://github.com/kamioteppei/spring-api-booking)
   - 技術：
     - 環境： AWS, Route53, CloudFront, Application Load Balancer, EC2, RDS
     - Web: Spring Boot, Java, Jpa, JWT
@@ -24,7 +24,7 @@ RestAPI(Java + Angular)のプロトタイプを作成しました。
 
 - フロントエンド
 
-  - ソース：[GitHub](git@github.com:kamioteppei/angular-front-booking.git)
+  - ソース：[GitHub](https://github.com/kamioteppei/angular-front-booking)
   - 技術：
     - 環境： AWS S3
     - Web： Angular 4, TypeScript, Bootstrap
