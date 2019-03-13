@@ -1,11 +1,11 @@
 ---
 layout: static
-title: VueJS
+title: Vue
 template: 3-columns
-name: VueJS
+name: Vue
 category: Front-end
 ---
 
-# VueJS
+# Vue
 
 学習したい

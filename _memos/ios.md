@@ -7,4 +7,10 @@ category: Native
 ---
 
 # iOS
-学習したい
+
+## Swift
+
+- iOSアプリの実装に使用される
+- Kotlinと構文が似ている
+
+プレイグラウンドは、macにXcodeをインストールすると使える。

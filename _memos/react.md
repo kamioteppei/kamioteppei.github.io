@@ -1,11 +1,14 @@
 ---
 layout: static
-title: ReactJS
+title: React
 template: 3-columns
-name: ReactJS
+name: React
 category: Front-end
 ---
 
-# ReactJS
+# React
 
-学習したい
+## 基本
+
+- Facebook社製
+- 必要な部分のみ再描画するので、画面描画が速い
