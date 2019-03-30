@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>Elasticsearch | kamioteppei.github.io</title>
+  <title>Python | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="Elasticsearch">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/elasticsearch">
+  <meta name="description" content="Python">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/python">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -88,7 +88,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">Elasticsearch</h1>
+  <h1 class="page__title">Python</h1>
   
   
     <p class="page__date">March 30, 2019</p>
@@ -353,58 +353,18 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="elasticsearch">Elasticsearch</h1>
+            <h1 id="python">Python</h1>
 
-<h2 id="基本">基本</h2>
+<h2 id="ライブラリ">ライブラリ</h2>
 
-<p>全文検索機能<br />
-Github等で使用されている。</p>
+<h3 id="numba">Numba</h3>
 
 <ul>
-  <li>Elasticsearch<br />
-本体</li>
-  <li>Beats<br />
-logを流し込む
-    <ul>
-      <li>Filebeat</li>
-      <li>Metricbeat</li>
-      <li>Packetbeat</li>
-      <li>Winlogbeat</li>
-    </ul>
-  </li>
-  <li>Logstash   <br />
-logを収集し、一元管理する<br />
-(基幹システムからDWHに、データを抽出、変換、格納するETLのようなもの)</li>
-  <li>Kibana<br />
-GUIツール。データの可視化、分析を行う。</li>
-  <li>X-Pack<br />
-サブスクリプション型拡張機能
-    <ul>
-      <li>Security</li>
-      <li>Alerting</li>
-      <li>Monitoring</li>
-      <li>Reporting</li>
-      <li>Gragh</li>
-      <li>Machine Learning</li>
-    </ul>
-  </li>
+  <li>JIT(Just In time)コンパイラ</li>
+  <li>Pythonソースにアノテーションを付けると、forループを事前にコンパイルして、
+　実行速度を効率化してくれる。</li>
+  <li><a href="https://myenigma.hatenablog.com/entry/2017/03/02/155433">参考サイト</a>によると、200倍以上高速になる。</li>
 </ul>
-
-<p>用途</p>
-<ul>
-  <li>複数のサービスのログを１箇所にまとめて、監視する。</li>
-  <li>ログの異常検知(機械学習による、異常検知もある。)</li>
-  <li>自然言語処理もやってくれるかも</li>
-</ul>
-
-<h2 id="インストール">インストール</h2>
-
-<h3 id="docker-compose">Docker Compose</h3>
-<p><a href="/memos/docker">Dockerのまとめ</a>にしたがって、インストール</p>
-
-<h3 id="elasticsearch-1">Elasticsearch</h3>
-
-<p><a href="https://qiita.com/motchi0214/items/a796437149d0d97bcf5b">参照</a></p>
 
 
           </div>

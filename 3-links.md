@@ -10,6 +10,7 @@ permalink: /links/
 - [TensorFlow.js](https://js.tensorflow.org/#getting-started)
 - [keras](https://keras.io/ja/)
 - [Pytorch](https://pytorch.org/docs/stable/index.html)
+- [Chainer](https://docs.chainer.org/en/stable/index.html)
 - [scikit-learn](http://scikit-learn.org/stable/modules/classes.html)
 - [matplotlib](https://matplotlib.org/3.0.0/contents.html)
 - [rails](http://railsdoc.com)
@@ -53,6 +54,10 @@ permalink: /links/
 - [Udemy](https://www.udemy.com)
 
 ## Machine Learning
+
+### 公開モデル
+- [TensorFlow Hub](https://www.tensorflow.org/hub/)
+- [感情認識の学習済みモデル](https://github.com/oarriaga/face_classification)
 
 ### 統計
 - [統計WEB](https://bellcurve.jp/statistics/)

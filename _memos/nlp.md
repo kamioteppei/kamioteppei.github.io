@@ -1,13 +1,13 @@
 ---
 layout: static
-title: Natural language processing
+title: Natural Language Processing
 template: 3-columns
-name: Natural language processing
+name: Natural Language Processing
 category: Machine Learning
 ---
 
 # 自然言語処理
-Natural language processing
+Natural Language Processing
 
 ## 基本
 

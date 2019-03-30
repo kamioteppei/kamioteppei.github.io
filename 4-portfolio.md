@@ -42,4 +42,4 @@ RestAPI(Java + Angular)のプロトタイプを作成しました。
   - 技術：
     - 環境： なし
     - Native： Java, Kotlin, Retrofit2, RxJava, GSON(Google製Jsonライブラリ)
-    - IDE:  Visual Studio Code
+    - IDE:  Android Studio
