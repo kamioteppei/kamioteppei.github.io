@@ -2,7 +2,7 @@
 <html lang="ja">
 <head prefix:og="http://ogp.me/ns#">
   <meta charset="UTF-8">
-  <title>JS Fiddle | kamioteppei.github.io</title>
+  <title>Tablacus | kamioteppei.github.io</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Google Fonts -->
@@ -10,8 +10,8 @@
   <!-- Default CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="JS Fiddle">
-  <link rel="canonical" href="http://0.0.0.0:4000/memos/js-fiddle">
+  <meta name="description" content="Tablacus">
+  <link rel="canonical" href="http://0.0.0.0:4000/memos/tablacus">
   <link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="kamioteppei.github.io" />
   
   <script type="text/javascript" async
@@ -88,7 +88,7 @@
 
       <!--
       <div class="page__header">
-  <h1 class="page__title">JS Fiddle</h1>
+  <h1 class="page__title">Tablacus</h1>
   
   
     <p class="page__date">April 20, 2019</p>
@@ -357,28 +357,62 @@
           </div>
 
           <div class="col-8 main toc-src order-first">
-            <h1 id="js-fiddle">JS Fiddle</h1>
-
-<p>JavaScriptのオンラインの実行環境</p>
+            <h1 id="tablacus">Tablacus</h1>
 
 <ul>
-  <li><a href="https://jsfiddle.net">jsfiddle</a></li>
-  <li><a href="https://jsbin.com/?html,output">jsbin</a></li>
-  <li><a href="https://codepen.io">codepen</a></li>
+  <li>ファイラー</li>
+  <li>Windows10</li>
+  <li>プロジェクトごとに複数ペインのエクスプローラーを開きたい</li>
+  <li>お気に入りに設定することで、簡単に再現したい</li>
 </ul>
 
-<h2 id="get">GET</h2>
+<h2 id="install-and-settings">Install and settings</h2>
 
-<h2 id="post">POST</h2>
+<h3 id="download">Download</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var xhr = new XMLHttpRequest();
-xhr.open('POST', 'https://&lt;API_URL&gt;/&lt;RESOUCE_NAME&gt;/');
-xhr.onreadystatechange = function (event) {
-  console.log(event.target.response);
-}
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.send(JSON.stringify({age: 33, name: john}));
-</code></pre></div></div>
+<ul>
+  <li><a href="https://tablacus.github.io/explorer.html">公式</a>からダウンロード</li>
+</ul>
+
+<h3 id="install-add-on">Install add-on</h3>
+<ul>
+  <li>メニューバー＞ヘルプ＞アドオンを入手で以下をインストール
+    <ul>
+      <li>分割</li>
+      <li>3分割</li>
+      <li>6分割</li>
+      <li>複数起動</li>
+      <li>格子線</li>
+      <li>お気に入りバー</li>
+      <li>(その他必要なもの)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="create-and-save-layouts">Create and save layouts</h3>
+
+<ul>
+  <li>プロジェクトごとに以下の作業を行う</li>
+  <li>右上の6ペインボタンクリック</li>
+  <li>各ペインにプロジェクト内のディレクトリを登録</li>
+  <li>メニューバー＞ツール＞レイアウトを保存でプロジェクトのレイアウト登録(layoutフォルダーにxml作成される)</li>
+</ul>
+
+<h3 id="submit-layouts-to-favorites">Submit layouts to favorites</h3>
+
+<ul>
+  <li>メニューバー＞お気に入り＞編集でプロジェクトのレイアウト登録</li>
+  <li>名前はプロジェクト名</li>
+  <li>タイプはレイアウトの読み込み</li>
+  <li>オプションはレイアウトのxmlファイル(参照ボタンから指定)</li>
+  <li>右下の追加ボタンでお気に入りに追加する</li>
+</ul>
+
+<h3 id="use">Use</h3>
+
+<ul>
+  <li>左のお気に入りペインの各プロジェクトを選択すると、各プロジェクトのレイアウトが展開される</li>
+</ul>
 
 
           </div>
