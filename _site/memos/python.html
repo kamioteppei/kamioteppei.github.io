@@ -387,6 +387,82 @@
   <li>ログを表示する</li>
 </ul>
 
+<h2 id="クラス抽象化">クラス抽象化</h2>
+
+<ul>
+  <li><a href="https://qiita.com/kaneshin/items/269bc5f156d86f8a91c4">PythonのABC - 抽象クラスとダック・タイピング</a> <br />
+型チェックを<code class="highlighter-rouge">hasattr</code>や<code class="highlighter-rouge">isinstance</code>で行う。</li>
+</ul>
+
+<h2 id="デザインパータン">デザインパータン</h2>
+
+<p><a href="https://qiita.com/kotetsu75/items/4b903023001f157554a4">参照</a></p>
+
+<blockquote>
+  <p>デザインパターンの根底にある5つの考え</p>
+
+  <ul>
+    <li>変わるものを変わらないものから分離する</li>
+    <li>プログラムはインターフェイスに対して行う（実装に対して行わない）</li>
+    <li>継承より集約</li>
+    <li>委譲、委譲、委譲</li>
+    <li>必要になるまで作るな（YAGNI）</li>
+  </ul>
+</blockquote>
+
+<h3 id="最重要-変わるものを変わらないものから分離する">(最重要) 変わるものを変わらないものから分離する</h3>
+
+<p><em>その目的は、変更に対する強さ=拡張性である。</em></p>
+
+<ul>
+  <li>マジックナンバーは定数化する(定数に分離する)</li>
+  <li>定数はファイルの先頭に記述する(ファイルヘッダに分離する)</li>
+  <li>定数を変更する場合は、コマンドラインから渡せるようにする(プログラムから分離する)</li>
+  <li>定数を変更する場合は、configファイルから渡せるようにする(プログラムから分離する)</li>
+  <li>変更する機能は、別クラス化する <br />
+大元のクラスは、サービスであり、部品の組み合わせと言うよりは、部品を内包している。 <br />
+部品は機能を継承している場合が多い。
+    <ul>
+      <li>各出力レベルのロガー</li>
+      <li>各種ファイルの読み書き</li>
+      <li>Optimizer</li>
+      <li>Updater</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="templatemethodパターン">TemplateMethodパターン</h3>
+
+<p><a href="https://qiita.com/kotetsu75/items/2900eac0fa24f09f775b">Pythonでデザインパターン　TemplateMethodパターン</a></p>
+
+<blockquote>
+  <p>変わるもの（具象サブクラス）と変わらないもの（テンプレート）を分離して、変化に強い構造へ。</p>
+</blockquote>
+
+<h3 id="strategyパターン">Strategyパターン</h3>
+
+<p><a href="https://qiita.com/kotetsu75/items/186af7006b44703c0379">Pythonでデザインパターン　Strategyパターン</a></p>
+
+<blockquote>
+  <p>ストラテジは次の3つのオブジェクトによって構成されます。
+コンテキスト(Context)：ストラテジの利用者
+抽象戦略(Strategy)：同じ目的をもった一連のオブジェクトを抽象化したもの
+具象戦略(ConcreteStrategy)：具体的なアルゴリズム
+ストラテジのアイデアは、コンテキストが「委譲」によってアルゴリズムを交換できるようにすることです。委譲とは、ある機能をもつオブジェクトを生成してオブジェクトに処理を依頼することです。</p>
+</blockquote>
+
+<h3 id="observerパターン">Observerパターン</h3>
+
+<p><a href="https://qiita.com/kotetsu75/items/719a8fc2e4cc7789c1b4">Pythonによるデザインパターン【Observer】-本日のニュースをお届けします-</a></p>
+
+<blockquote>
+  <p>変わるもの（オブザーバー）と変わらないもの（サブジェクト）を分離して、変化に強い構造へ</p>
+</blockquote>
+
+<blockquote>
+
+</blockquote>
+
 
           </div>
 
