@@ -55,6 +55,12 @@ permalink: /links/
 
 ## Machine Learning
 
+### 論文
+- [arXivTimes](http://arxivtimes.herokuapp.com)  
+  最新の論文の概要を紹介してくれる。
+- [qiita festa78さんの論文読みメモシリーズ](https://qiita.com/festa78)
+- [Google Scholar(論文検索)](https://scholar.google.co.jp/schhp?hl=ja&as_sdt=0,5)
+
 ### 公開モデル
 - [TensorFlow Hub](https://www.tensorflow.org/hub/)
 - [感情認識の学習済みモデル](https://github.com/oarriaga/face_classification)
