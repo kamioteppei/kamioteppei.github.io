@@ -46,7 +46,7 @@ postgres=# \du
 データベース作成(Postgres管理者に切り替え)  
 (スキーマは別途作成可能)
 ```
-mysql-> createdb <db_name> --encoding=UTF-8 --lc-collate=C --lc-ctype=C --owner=<user_name> --template=template0
+postgres-> createdb <db_name> --encoding=UTF-8 --lc-collate=C --lc-ctype=C --owner=<user_name> --template=template0
 ```
 オプションについての説明は、[ここ](https://www.kakiro-web.com/postgresql/postgresql-create-database.html)を参照  
 文字コードによる並び順の設定が関係する。
