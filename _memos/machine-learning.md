@@ -20,6 +20,7 @@ category: Machine Learning
   + データセットダウンロード
   + WebAPIでダウンロード
   + Webスクレイピング
+  + センサーで取得(Rasberry PiやArduinoなどのエッジコンピューター＋加速度、温度、湿度センサー、カメラ)
   + ラベリングの作業が大変
   + 画像は180度反転させたデータを作成するなどデータの増やし方がある。(その方が過学習を防げる)
 - データクリーニング
@@ -29,6 +30,12 @@ category: Machine Learning
   + 正の相関
   + 負の相関
   + 相関のある項目がなかったら？
+  + PCA(主成分分析)で、次元削減
+- データ加工
+  + 移動平均
+  + ヒストグラム変換(同じ物体の画像ごとの位置のずれを無効化する為)
+  + フーリエ変換(時系列データの周波数成分のヒストグラム作成で比較)
+  + 特徴量をベクトルに変換
 - モデル開発
   + 自前開発
   + 転移学習
@@ -42,8 +49,9 @@ category: Machine Learning
 
 ## 機械学習の問題解決方法の分類
 - 回帰(Regression)  
-  データの集合を関数で抽象化(微分)して、時系列データを予測する。  
-  関数と集合の誤差が最小になるようにする。
+  ある特徴量から、別の特徴量を求める。
+  y = f(x) = 3x + 5 の場合、xからyを求める。
+  y = f(t) = f(t-n) + 5 の場合、yからyを求める。(自己回帰。f(t-n)は、1つ前の周期の値)
 - クラス分類(Classification)
   + パターン認識  
   データのクラスごとの集合を分ける境界線を引く。  
@@ -182,6 +190,12 @@ CNNは、モデルで定義した通りの層の数だが、RNNは例えば、�
 テストでは、読み込んだ文章の単語ごとに、スパムメール辞書と非スパムメール辞書での出現確率を合計し、
 確率の高い方を正と判定する。
 
+### 自己回帰
+- AR 自己回帰
+- ARMA 自己回帰移動平均
+- ARIMA 自己回帰和分移動平均
+- SARIMA 季節自己回帰和分移動平均
+
 ## Framework
 
 ### scikit-learn
@@ -201,6 +215,24 @@ TensorFlowのラッパー
 Facebook社製  
 deeplearningできる。   
 chainerからforkされた。
+
+### Prophet
+Facebook社製
+時系列予測用
+[参照1](https://www.atmarkit.co.jp/ait/articles/1906/07/news004.html)
+
+### Chainer
+
+### Optuna
+Chainerのハイパーパラメーター探索機能
+[参照1](https://qiita.com/yoshiyoshi0505/items/2e39ffdab305dba95164)
+[参照2](https://optuna.readthedocs.io/en/stable/tutorial/first.html)
+
+### AutoML
+kerasなどのラッパーでかつ、   
+ハイパーパラメータ探索、モデルの選定、アンサンプル機能などの  
+いずれか、または、複数の機能をもつライブラリ
+[参照1](https://www.hellocybernetics.tech/entry/2019/02/09/155618)
 
 ## モデルの部品
 
@@ -301,7 +333,16 @@ trainingの時は、誤差のbackward処理が必要だが、testの時は、不
   + 2クラス分類用の数式
   + 多クラス分類用の数式
 
-[参照](https://mathwords.net/kousaentropy)
+[参照1](https://mathwords.net/kousaentropy)
+[参照2](https://qiita.com/celaeno42/items/7efdbb1491406f4bde96)
+
+式の先頭でマイナスをかけている理由は、確率が必ず1以下になるので、確率をlogで表した時に、
+マイナスになるのを反転する為。
+
+### アテンション
+交差(クロス)エントロピー誤差を使用し、  
+例えば、文章の翻訳時に、予想する単語が、  
+文脈的に翻訳前のどの単語に注目すれば良いかを示唆する機構
 
 ## 検証(Validation)
 

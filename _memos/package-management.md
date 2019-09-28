@@ -63,7 +63,7 @@ Pythonのパッケージマネージャー
 Pythonのパッケージマネージャー
 仮想環境が作成できる。
 
-### pear,pecl
+### composer/pear/pecl
 PHPのパッケージマネージャー
 
 ## File Downlorder
