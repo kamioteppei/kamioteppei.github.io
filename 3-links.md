@@ -22,6 +22,9 @@ permalink: /links/
 - [gensim](https://radimrehurek.com/gensim/tutorial.html) (Word2Vec)
 - [statsmodels](http://www.statsmodels.org/stable/index.html)
 
+## Sample Code
+- [PyMOTW](http://ja.pymotw.com/2/py-modindex.html)
+
 ## GitHub
 - [Web Developer Roadmap - 2018](https://github.com/kamranahmedse/developer-roadmap)
 - [Best websites a programmer should visit](https://github.com/sdmg15/Best-websites-a-programmer-should-visit)
